@@ -1,0 +1,164 @@
+
+<!--
+
+<script src="assets/js/plugin/chartist/plugin/chartist-plugin-tooltip.min.js"></script>
+  <script src="assets/js/core/jquery.3.2.1.min.js"></script>
+  <script src="assets/js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
+  <script src="assets/js/core/popper.min.js"></script>
+  <script src="assets/js/core/bootstrap.min.js"></script>
+  <script src="assets/js/plugin/chartist/chartist.min.js"></script>
+
+  <script src="assets/js/plugin/bootstrap-notify/bootstrap-notify.min.js"></script>
+  <script src="assets/js/plugin/bootstrap-toggle/bootstrap-toggle.min.js"></script>
+  <script src="assets/js/plugin/jquery-mapael/jquery.mapael.min.js"></script>
+  <script src="assets/js/plugin/jquery-mapael/maps/world_countries.min.js"></script>
+  <script src="assets/js/plugin/chart-circle/circles.min.js"></script>
+  <script src="assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
+  <script src="assets/js/ready.min.js"></script>
+  <script src="assets/js/demo.js"></script>
+-->
+
+
+
+<ion-content class={{toggler}}>
+  <div class="wrapper">
+    <div class="main-header" style="height: 56px;">
+      <div class="logo-header">
+        <a href="index.html" class="logo">
+          ZAOGA-LINK Dashboard
+        </a>
+        <button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse" data-target="collapse" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon" (click)="changeToggler()"></span>
+        </button>
+        <button class="topbar-toggler more" style="height: 56px;" (click)="changeToggler2()"><i class="la la-ellipsis-v"></i></button>
+      </div>
+      <nav class="navbar navbar-header navbar-expand-lg">
+        <div class="container-fluid">
+
+          <form class="navbar-left navbar-form nav-search mr-md-3" action="">
+            <div class="input-group">
+              <input type="text" placeholder="Search ..." class="form-control">
+              <div class="input-group-append">
+                <span class="input-group-text">
+                  <i class="la la-search search-icon"></i>
+                </span>
+              </div>
+            </div>
+          </form>
+          <ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
+            <li class="nav-item dropdown hidden-caret">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="la la-envelope"></i>
+              </a>
+
+
+            </li>
+            <li class="nav-item dropdown hidden-caret" (click)="viewInoives()">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="la la-bell"></i>
+                <span class="notification" >{{massages}}</span>
+              </a>
+
+            </li>
+
+            <li class="nav-item dropdown">
+              <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false"> <img src="assets/imgs/icon.png" alt="user-img" width="36" class="img-circle" (click)="presentPopover($event)"><span (click)="presentPopover($event)">{{username}}</span></a>
+              <ul class="dropdown-menu dropdown-user">
+                <li>
+
+                  </li>
+
+                </ul>
+                <!-- /.dropdown-user -->
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <div class="sidebar">
+        <div class="scrollbar-inner sidebar-wrapper">
+
+          <ul class="nav">
+            <li class="nav-item" (click)="navigator('Remittance')">
+              <a>
+                <i class="la la-home"></i>
+                <p>Remittance Form</p>
+
+              </a>
+            </li>
+
+            <li class="nav-item active" (click)="navigator('Reports')">
+              <a >
+                <i class="la la-leanpub"></i>
+                <p>Reports</p>
+
+              </a>
+            </li>
+
+
+
+          </ul>
+        </div>
+      </div>
+
+      <div class="main-panel">
+        <div class="content">
+          <div class="container-fluid">
+
+            <!-- Remittance Form HTML -->
+            <div class="row">
+              <div class="col-md-12">
+                <div class="card">
+                  <div class="card-header">
+                    <div class="card-title">Remittance Reports : {{reportType}} : {{Bpname}} : {{ReportYear}}</div>
+                  </div>
+                  <div class="card-body">
+
+
+
+                              <canvas #barCanvas style="widows: 700px;height:50%">
+
+                            </canvas>
+
+
+
+
+
+                    <div class="card-action">
+                      <ion-grid>
+                        <ion-row>
+                          <ion-col>
+                              <button class="btn btn-success" (click)="executeReport(reportType)">Execute</button>
+                              <button class="btn btn-danger">Cancel</button>
+                          </ion-col>
+                          <ion-col>
+
+                            </ion-col>
+                            <ion-col>
+                                <ion-item>
+
+                                    <ion-label>Report Type</ion-label>
+                                    <ion-select [(ngModel)]="reportType">
+                                    <ion-option value="Charts">Remittance Charts</ion-option>
+                                   
+                                  </ion-select>
+                                </ion-item>
+                            </ion-col>
+                        </ion-row>
+                      </ion-grid>
+
+
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+
+          </div>
+        </div>
+       </div>
+      </div>
+    </div>
+
+  </ion-content>

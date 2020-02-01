@@ -1,0 +1,221 @@
+
+
+<ion-content style="background-color:#e3eaf0;">
+  
+  <br><br><br><br><br><br><br><br><br><br>
+    <div id="v-card-holder" class="section" data-sr-id="52">
+        
+                    <!-- V-CARD -->
+                    <div id="v-card" class="card">
+    
+                        <!-- PROFILE PICTURE -->
+                        <div id="profile" class="right">
+                            <img alt="profile-image" class="img-responsive" src="{{userData.users.image}}">
+                            <div class="slant"></div>
+    
+                           
+                            <!--VIDEO PLAY BUTTON-->
+                            <!--<div id="button-holder" class="btn-holder">
+                                <div id="play-btn" class="btn-floating btn-large btn-play">
+                                    <i id="icon-play" class="material-icons">play_arrow</i>
+                                </div>
+                            </div>-->
+                        </div>
+                        <!--VIDEO CLOSE BUTTON-->
+                        <!--<div id="close-btn" class="btn-floating icon-close">
+                            <i class="fa fa-close"></i>
+                        </div>-->
+    
+                        <div class="card-content">
+    
+                            <!-- NAME & STATUS -->
+                            <div class="info-headings">
+                                <h4 class="text-uppercase left">{{userData.users.name}}</h4>
+                                <h6 class="text-capitalize left">{{userData.users.deployment.ndistrict}} : {{userData.users.deployment.nprovince}} : {{userData.users.deployment.ncountry}}</h6>
+                                
+                                <ion-icon name="mail"></ion-icon>
+                                <span class="content">{{userData.users.email}}</span>
+                                <p></p>
+                                <ion-icon name="call"></ion-icon>
+                                <span class="content">{{userData.users.cell}}</span>
+                            </div>
+                            
+                        </div>   
+                        <!--HTML 5 VIDEO-->
+                        <!-- <video id="html-video" class="video" poster="images/poster/poster.jpg" controls>
+                            <source src="videos/b.webm" type="video/webm">
+                            <source src="videos/a.mp4" type="video/mp4">
+                        </video>-->
+    
+                    </div>
+                  </div>
+    
+
+                  <div id="about" class="section">
+                      <div class="container">
+                          <div class="row">
+                              <div class="col-md-12">
+                                  <!-- DETAILS -->
+                                  <div id="about-card" class="card" data-sr-id="49" style="visibility: visible;  -webkit-transform: translateY(0) scale(1); opacity: 1;transform: translateY(0) scale(1); opacity: 1;-webkit-transition: box-shadow 0.25s ease 0s, -webkit-transform 1.4s cubic-bezier(0.6, 0.2, 0.1, 1) 0.5s, opacity 1.4s cubic-bezier(0.6, 0.2, 0.1, 1) 0.5s; transition: box-shadow 0.25s ease 0s, transform 1.4s cubic-bezier(0.6, 0.2, 0.1, 1) 0.5s, opacity 1.4s cubic-bezier(0.6, 0.2, 0.1, 1) 0.5s; ">
+                                      <div class="card-content">
+                                          <!-- ABOUT PARAGRAPH -->
+                                          <p>
+                                                {{userData.users.profile}} </p>
+                                      </div>
+                  
+                                      <!-- BUTTONS -->
+                                      
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+
+
+        <section id="education" class="section">
+            <div class="container">
+                  <div class="section-title">
+                      <h4 class="text-uppercase text-center"><img src="./Flatrica _ Material CV_Resume_files/book.png" alt="demo" data-sr-id="1" style=" visibility: visible;  -webkit-transform: translateY(0) scale(1); opacity: 1;transform: translateY(0) scale(1); opacity: 1;-webkit-transition: -webkit-transform 1.1s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 1.1s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; transition: transform 1.1s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 1.1s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; ">Education</h4>
+                  </div>
+          
+                  <div id="timeline-education" *ngIf="educationData != 'Non'">
+          
+                      <!-- FIRST TIMELINE -->
+                      <div class="timeline-block" *ngFor="let key of educationData">
+                          <!-- DOT -->
+                          <div class="timeline-dot" data-sr-id="2" style=" visibility: visible;  -webkit-transform: translateY(0) scale(1); opacity: 1;transform: translateY(0) scale(1); opacity: 1;-webkit-transition: -webkit-transform 1.1s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 1.1s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; transition: transform 1.1s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 1.1s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; "><h6>E</h6></div>
+                          <!-- TIMELINE CONTENT -->
+                          <div class="card timeline-content" data-sr-id="3" style=" visibility: visible;  -webkit-transform: translateY(0) scale(1); opacity: 1;transform: translateY(0) scale(1); opacity: 1;-webkit-transition: box-shadow 0.25s ease 0s, -webkit-transform 1.1s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 1.1s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; transition: box-shadow 0.25s ease 0s, transform 1.1s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 1.1s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; ">
+                              <div class="card-content">
+                                  <!-- TIMELINE TITLE -->
+                                  <h6 class="timeline-title">{{key.doc.education.coursename}}</h6>
+                                  <!-- TIMELINE TITLE INFO -->
+                                  <div class="timeline-info">
+                                      <h6>
+                                          <small>{{key.doc.education.school}}</small>
+                                      </h6>
+                                      <h6>
+                                          <small>{{key.doc.education.DateStart}} - {{key.doc.education.DateEnd}}</small>
+                                      </h6> 
+                                  </div>
+                                  <button ion-button round>View Attachment</button>
+                                  <!-- BUTTON TRIGGER MODAL -->
+                                  <a href="https://www.trimatrixlab.com/store/flatrica/index-normal.html#" class="modal-dot" data-toggle="modal" data-target="#myModal-1">
+                                      <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                                  </a>
+                              </div>
+                          </div>
+                      </div>
+          
+          
+                  </div>
+                </div>
+                </section>
+
+
+                  
+<!--==========================================
+                   SKILLS
+===========================================-->
+
+
+
+
+<!--==========================================
+                   EXPERIENCE
+===========================================-->
+<section id="experience" class="section">
+    <div class="container">
+        <!-- SECTION TITLE -->
+        <div class="section-title">
+            <h4 class="text-uppercase text-center"><img src="./Flatrica _ Material CV_Resume_files/layers.png" alt="demo" data-sr-id="16">Deployment Experience</h4>
+        </div>
+
+        <div id="timeline-experience" *ngIf="filteredusers != 'Non'">
+
+            <!-- FIRST TIMELINE -->
+            <div class="timeline-block" *ngFor="let key of filteredusers">
+                <!-- DOT -->
+                <div class="timeline-dot" data-sr-id="17"><h6>D</h6></div>
+                <!-- TIMELINE CONTENT -->
+                <div class="card timeline-content" data-sr-id="18" style=" visibility: visible;  -webkit-transform: translateY(0) scale(1); opacity: 1;transform: translateY(0) scale(1); opacity: 1;-webkit-transition: box-shadow 0.25s ease 0s, -webkit-transform 1.1s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 1.1s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; transition: box-shadow 0.25s ease 0s, transform 1.1s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 1.1s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; ">
+                    <div class="card-content">
+                        <!-- TIMELINE TITLE -->
+                        <h6 class="timeline-title">{{key.doc.deployment.ndistrict}}</h6>
+                        <!-- TIMELINE TITLE INFO -->
+                        <div class="timeline-info">
+                            <h6>
+                                <small>{{key.doc.deployment.nprovince}}</small>
+                            </h6>
+                            <h6>
+                                <small>{{key.doc.deployment.deploymentDate}}</small>
+                            </h6>
+                        </div>
+                        
+                        <!-- BUTTON TRIGGER MODAL -->
+                        <a href="https://www.trimatrixlab.com/store/flatrica/index-normal.html#" class="modal-dot" data-toggle="modal" data-target="#myModal-4">
+                            <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+           
+
+        </div>
+    </div>
+</section>
+
+
+<!--==========================================
+                   EXPERIENCE
+===========================================-->
+<section id="experience" class="section">
+    <div class="container">
+        <!-- SECTION TITLE -->
+        <div class="section-title">
+            <h4 class="text-uppercase text-center"><img src="./Flatrica _ Material CV_Resume_files/layers.png" alt="demo" data-sr-id="16">Missions Experience</h4>
+        </div>
+
+        <div id="timeline-experience" *ngIf="missionData != 'Non'">
+
+            <!-- FIRST TIMELINE -->
+            <div class="timeline-block" *ngFor="let key of missionData">
+                <!-- DOT -->
+                <div class="timeline-dot" data-sr-id="17"><h6>M</h6></div>
+                <!-- TIMELINE CONTENT -->
+                <div class="card timeline-content" data-sr-id="18" style=" visibility: visible;  -webkit-transform: translateY(0) scale(1); opacity: 1;transform: translateY(0) scale(1); opacity: 1;-webkit-transition: box-shadow 0.25s ease 0s, -webkit-transform 1.1s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 1.1s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; transition: box-shadow 0.25s ease 0s, transform 1.1s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 1.1s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; ">
+                    <div class="card-content">
+                        <!-- TIMELINE TITLE -->
+                        <h6 class="timeline-title">{{key.doc.missions.city}}</h6>
+                        <!-- TIMELINE TITLE INFO -->
+                        <div class="timeline-info">
+                            <h6>
+                                <small>{{key.doc.missions.country}}</small>
+                            </h6>
+                            <h6>
+                                <small>{{key.doc.missions.deploymentDate}}</small>
+                            </h6>
+                            <h6>
+                                <small>{{key.doc.missions.state}}</small>
+                            </h6>
+                        </div>
+                        <!-- TIMELINE PARAGRAPH -->
+                        <p>
+                            {{key.doc.missions.job}}
+                        </p>
+                        <!-- BUTTON TRIGGER MODAL -->
+                        <a href="https://www.trimatrixlab.com/store/flatrica/index-normal.html#" class="modal-dot" data-toggle="modal" data-target="#myModal-4">
+                            <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+           
+
+        </div>
+    </div>
+</section>
+
+</ion-content>

@@ -1,0 +1,78 @@
+page-additem {
+    ion-item.item-label-floating .text-input {
+        margin-left: 32px;
+        width: calc(100% - 32px);
+      }
+      .item-input::after {
+        border-bottom-color: transparent !important;
+        }
+        .item-input::before {
+            border-bottom-color: transparent !important;
+            }
+            .item-input.ng-valid.input-has-value::after{ border-bottom-color: transparent; }
+            .item-inner {
+                border-bottom-color: transparent !important;
+                box-shadow: none !important;
+                }
+      ion-item.item-input ion-icon {
+        display: flex;
+        align-items: flex-end;
+        position: absolute;
+        bottom: 0;
+        left: 10px;
+        color: #f0db1d;
+        font-size: 24px;
+        min-width: 0 !important;
+        text-align: left !important;
+       // padding-left: 5px;
+      }
+      
+      .item-md {
+        padding-left: 0px;
+        
+    }
+
+    input, .item-md ion-icon[item-start] + .item-inner, .item-md ion-icon[item-start] + .item-input {
+         margin-left: 0px;
+    }
+    .item-md.item-block .item-inner {
+        padding-right: 0px;
+        border-bottom: 1px solid #ffffff;
+    }
+      
+     
+    .card {
+        
+        border-radius: 5px;
+    }
+    .card .card-title {
+        margin: 0;
+        color: #ffffff;
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 1.6;
+    }
+
+    .text-input-md {
+        margin: 7px 8px;
+        padding: 0;
+        width: calc(100% - 8px - 8px);
+    }
+
+    .input[type=text] {
+        padding: 0; 
+        margin: 0; 
+        font-size: 14px;
+        border: 1.5px solid rgb(224, 224, 224);
+       
+    }
+
+    
+    .input[type=date] { 
+        padding: 0; 
+        margin: 0; 
+        border: 1.5px solid rgb(224, 224, 224);
+        font-size: 14px;
+    }
+    
+}

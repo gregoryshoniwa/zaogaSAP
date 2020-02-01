@@ -1,0 +1,33 @@
+<ion-header>
+  
+    <ion-navbar color="primary">
+      <ion-title>{{filteredusers[0].doc.deployment.name}} Deployment List</ion-title>
+      <ion-buttons end>
+          <button ion-button icon-only (click)="closeModel()"><ion-icon name="close"></ion-icon></button>
+          
+        </ion-buttons>
+    </ion-navbar>
+  
+  </ion-header> 
+ 
+ <ion-content padding>  
+         
+        <ion-list>
+          <ion-list>
+            <ion-item-sliding *ngFor="let key of filteredusers">
+              <ion-item>
+                <h2>District : <b>{{key.doc.deployment.ndistrict}}</b> | Deployment Date : <b>{{key.doc.deployment.deploymentDate}}</b></h2>
+                <p>Province : <b>{{key.doc.deployment.nprovince}}</b> Country : <b>{{key.doc.deployment.ncountry}}   </b></p>
+              </ion-item>
+              <ion-item-options side="left">
+                  <button ion-button>
+                    <ion-icon name="archive"></ion-icon>
+                    Report
+                  </button>
+                </ion-item-options>
+                  
+            </ion-item-sliding>
+          </ion-list>
+        </ion-list>
+
+      </ion-content>    

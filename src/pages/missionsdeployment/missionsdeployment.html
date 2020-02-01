@@ -1,0 +1,44 @@
+<!--
+  Generated template for the MissionsdeploymentPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  
+    <ion-navbar color="secondary">
+      <ion-title>Missions Deployment</ion-title>
+      <ion-buttons end>
+          <button ion-button icon-only (click)="closeModel()"><ion-icon name="close"></ion-icon></button>
+      </ion-buttons>
+    </ion-navbar>
+  
+  </ion-header>
+ 
+
+  <ion-content padding>
+      <form #form (ngSubmit)="addUser(form.value)">
+          <ion-list no-line>
+            <ion-item>
+              <ion-input type="text" name="name" readonly="true" [(ngModel)]="deploypastor.name"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-input type="text" name="name1" placeholder="Enter City" [(ngModel)]="deploypastor.city"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-input type="text" name="name2" placeholder="Enter Country" [(ngModel)]="deploypastor.country"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-input type="text" name="name3" placeholder="Enter Mission or Job" [(ngModel)]="deploypastor.job"></ion-input>
+            </ion-item>
+            
+            <ion-item>
+                    <ion-input type="text" name="name4" readonly="true" [(ngModel)]="deploypastor.state"></ion-input>
+            </ion-item>
+            
+        </ion-list>
+        <button ion-button round outline type="submit" block>Deploy Pastor</button>
+        </form>
+        <button ion-button round [hidden]="deployed" (click)="endDeploy()">{{buttonText}}</button>
+        
+    </ion-content>

@@ -1,0 +1,355 @@
+ 
+<ion-content class={{toggler}}>
+  <div class="wrapper">
+    <div class="main-header" style="height: 56px;">
+      <div class="logo-header">
+        <a href="index.html" class="logo">
+          ZAOGA-LINK Dashboard
+        </a> 
+        <button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse" data-target="collapse" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon" (click)="changeToggler()"></span>
+        </button>
+        <button class="topbar-toggler more" style="height: 56px;" (click)="changeToggler2()"><i class="la la-ellipsis-v"></i></button>
+      </div>
+      <nav class="navbar navbar-header navbar-expand-lg">
+        <div class="container-fluid">
+          
+          
+          <ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
+            <li class="nav-item dropdown hidden-caret">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="la la-envelope"></i>
+              </a>
+             
+             
+            </li>
+            <li class="nav-item dropdown hidden-caret">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="la la-bell"></i>
+                <span class="notification" >0</span>
+              </a>
+             
+            </li>
+            
+            <li class="nav-item dropdown">
+              <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false"> <img src="assets/imgs/icon.png" alt="user-img" width="36" class="img-circle"><span (click)="presentPopover($event)">{{username}}</span></a>
+              <ul class="dropdown-menu dropdown-user">
+                <li>
+                  
+                  </li>
+                 
+                </ul>
+                <!-- /.dropdown-user -->
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <div class="sidebar">
+        <div class="scrollbar-inner sidebar-wrapper">
+             
+          <ul class="nav">
+            <li class="nav-item active" (click)="TogglePage('Pastors Page')">
+              <a >
+                <i class="la la-home"></i>
+                <p>Pastors</p>
+                
+              </a>
+            </li>
+
+           
+            <li class="nav-item active" (click)="TogglePage('Members Page')">
+              <a >
+                <i class="la la-home"></i>
+                <p>Members</p>
+                
+              </a>
+            </li>
+            
+            <li class="nav-item active" (click)="TogglePage('Finance Page')">
+              <a >
+                <i class="la la-home"></i>
+                <p>Finance</p>
+                
+              </a>
+            </li>
+            <li class="nav-item active" (click)="TogglePage('Council Report')">
+              <a >
+                <i class="la la-home"></i>
+                <p>Council Report</p>
+                
+              </a>
+            </li>
+            
+            
+            
+          </ul>
+        </div>
+      </div>
+  
+      <div class="main-panel">
+        <div class="content">
+          <div class="container-fluid">
+            <h4 class="page-title">{{PageName}}</h4>
+            
+            <!-- Pastor Form-->
+            <div class="col-md-12" *ngIf="Pastors">
+                <div class="row">
+                    <div class="col-md-3">
+                      <div class="card card-stats card-warning">
+                        <div class="card-body ">
+                          <div class="row">
+                            <div class="col-5">
+                              <div class="icon-big text-center">
+                                <i class="la la-users"></i>
+                              </div>
+                            </div>
+                            <div class="col-7 d-flex align-items-center">
+                              <div class="numbers">
+                                <p class="card-category">Bishops</p>
+                                <h4 class="card-title">0</h4>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+        
+                    <div class="col-md-3">
+                      <div class="card card-stats card-success">
+                        <div class="card-body ">
+                          <div class="row">
+                            <div class="col-5">
+                              <div class="icon-big text-center">
+                                <i class="la la-users"></i>
+                              </div>
+                            </div>
+                            <div class="col-7 d-flex align-items-center">
+                              <div class="numbers">
+                                <p class="card-category">Overseers</p>
+                                <h4 class="card-title">0</h4>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+        
+                    <div class="col-md-3">
+                      <div class="card card-stats card-danger">
+                        <div class="card-body">
+                          <div class="row">
+                            <div class="col-5">
+                              <div class="icon-big text-center">
+                                <i class="la la-users"></i>
+                              </div>
+                            </div>
+                            <div class="col-7 d-flex align-items-center">
+                              <div class="numbers">
+                                <p class="card-category">District</p>
+                                <h4 class="card-title">0</h4>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+        
+                    <div class="col-md-3">
+                      <div class="card card-stats card-primary">
+                        <div class="card-body ">
+                          <div class="row">
+                            <div class="col-5">
+                              <div class="icon-big text-center">
+                                <i class="la la-users"></i>
+                              </div>
+                            </div>
+                            <div class="col-7 d-flex align-items-center">
+                              <div class="numbers">
+                                <p class="card-category">All Pastors</p>
+                                <h4 class="card-title">{{totalPastors}}</h4>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    </div>
+                  <div class="card">
+                        <div class="card-header">
+                            <ion-grid>
+                              <ion-row>
+                                <ion-col>
+                                    
+                                    <ion-searchbar (input)="searchuserp($event)" placeholder="Search..."></ion-searchbar>
+
+                                </ion-col>
+                                
+                                <ion-col>
+                                    <ion-buttons end class="card-title">
+                                                              
+                                        <button class="btn btn-success" (click)="create()">Add</button>
+                                        <button class="btn btn-warning" (click)="createDistrict()">New District</button>
+                                        <button class="btn btn-primary" (click)="createPdf()">Print List</button>
+                                       
+                                    </ion-buttons>
+                                </ion-col>
+                              </ion-row>
+                            </ion-grid>
+                               
+                            
+                        </div>
+                        <div class="card-body">
+                  
+                            <table class="table table-bordered">
+                                  <tr>
+                                    <th>#</th>
+                                    
+                                    <th>Full Name</th> 
+                                    <th>Church Post</th>
+                                    <th>Sex</th> 
+                                    <th>District</th>
+                                    <th>Province</th> 
+                                    <th>Country</th> 
+                                  </tr>
+                                  <tr *ngFor="let todo of filteredusers; let i = index">
+                                      <th>{{i+1}}</th>
+                                      <th (click)="choiceAlert(todo)">{{todo.users.name}}</th>
+                                      <th (click)="deploymentList(todo._id)">{{todo.users.rank}}</th> 
+                                      <th>{{todo.users.sex}}</th> 
+                                      <th>{{todo.users.deployment.ndistrict}}</th> 
+                                      <th>{{todo.users.deployment.nprovince}}</th>
+                                      <th>{{todo.users.deployment.ncountry}}</th> 
+                                      <th>
+                                          <button ion-button icon-only color="primary" (click)="update(todo)">
+                                              <ion-icon name="create"></ion-icon>
+                                          </button>
+                                      </th> 
+                                      <th>
+                                          <button ion-button icon-only color="danger" (click)="delete(todo)">
+                                              <ion-icon name="trash"></ion-icon>
+                                          </button>
+                                      </th> 
+                                      
+                                  </tr>
+                                                     
+                                                                           
+                                    
+                                                      
+                                  </table>
+                            
+                        </div>
+                  </div>
+                 
+            </div>
+
+
+            <!-- Elders Form-->
+            <div class="col-md-12" *ngIf="Elders">
+              <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Elders Form</div>
+                    </div>
+                    <div class="card-body">
+              
+                                        
+             
+              
+                        <div class="card-action">
+                            <button class="btn btn-success">Add</button>
+                            <button class="btn btn-danger">Cancel</button>
+                        </div>
+                    </div>
+              </div>
+            </div>
+            
+            <!-- Elders Form-->
+            <div class="col-md-12" *ngIf="Deacons">
+              <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Deacons Form</div>
+                    </div>
+                    <div class="card-body">
+              
+                                        
+             
+              
+                        <div class="card-action">
+                            <button class="btn btn-success">Add</button>
+                            <button class="btn btn-danger">Cancel</button>
+                        </div>
+                    </div>
+              </div>
+            </div>
+            
+
+            <!-- Elders Form-->
+            <div class="col-md-12" *ngIf="Members">
+              <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Members Form</div>
+                    </div>
+                    <div class="card-body">
+              
+                                        
+             
+              
+                        <div class="card-action">
+                            <button class="btn btn-success">Add</button>
+                            <button class="btn btn-danger">Cancel</button>
+                        </div>
+                    </div>
+              </div>
+            </div>
+            
+
+            <!-- Elders Form-->
+            <div class="col-md-12" *ngIf="Finance">
+              <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Finance Form</div>
+                    </div>
+                    <div class="card-body">
+              
+                                        
+             
+              
+                        <div class="card-action">
+                            <button class="btn btn-success">Add</button>
+                            <button class="btn btn-danger">Cancel</button>
+                        </div>
+                    </div>
+              </div>
+            </div>
+            
+
+            <!-- Elders Form-->
+            <div class="col-md-12" *ngIf="Council">
+              <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Council Form</div>
+                    </div>
+                    <div class="card-body">
+              
+                                        
+             
+              
+                        <div class="card-action">
+                            <button class="btn btn-success">Add</button>
+                            <button class="btn btn-danger">Cancel</button>
+                        </div>
+                    </div>
+              </div>
+            </div>
+            
+
+
+
+
+
+          </div>
+        </div>
+       
+      </div>
+    </div>
+  </ion-content>

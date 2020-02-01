@@ -1,0 +1,106 @@
+<!--
+  Generated template for the UpdatePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+
+  
+  <ion-content padding>
+    
+  
+      <!-- code start -->
+    <div class="twPc-div">
+        <div class="twPc-bg twPc-block"></div>
+    
+      <div>
+        
+    
+        <div title="Mert S. Kaplan" class="twPc-avatarLink">
+          <img alt="Mert S. Kaplan" src="{{newuser.image}}" class="twPc-avatarImg">
+        </div>
+    
+        <div class="twPc-divUser">
+          <div class="twPc-divName">
+            <a>Full Name : {{newuser.name}}</a>
+          </div>
+          <span>
+            <a>ID Number : <span>{{newuser.nationalid}}</span></a>
+          </span>
+        </div>
+    
+        
+      </div>
+    </div>
+    <!-- code end -->
+    
+    
+
+    <form #form (ngSubmit)="addUser(form.value)">
+        <ion-list no-line>
+          <ion-item>
+            <ion-input type="text" name="name" placeholder="Full Name :" [(ngModel)]="newuser.name"></ion-input>
+          </ion-item>
+          <ion-item>
+                <ion-input type="text" name="department" placeholder="National ID : " [(ngModel)]="newuser.nationalid"></ion-input>
+          </ion-item>
+          <ion-item>
+                <ion-input type="text" name="extention" placeholder="Drivers Licence : " [(ngModel)]="newuser.driversL"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input type="text" name="extention" placeholder="Passport Number : " [(ngModel)]="newuser.passport"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input type="text" name="cell" placeholder="Cell Phone : " [(ngModel)]="newuser.cell"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input type="text" name="email" placeholder="Email Address : " [(ngModel)]="newuser.email"></ion-input>
+          </ion-item>
+  
+          <ion-item>
+            <ion-label >Sex</ion-label>
+              <ion-select name="sex" [(ngModel)]="newuser.sex">
+               <ion-option value="Male" color="light">Male</ion-option>
+               <ion-option value="Women" color="light">Female</ion-option>
+              </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-label >Marrital Status</ion-label>
+            <ion-select name="married" [(ngModel)]="newuser.married">
+             <ion-option value="Married" color="light">Married</ion-option>
+             <ion-option value="Single" color="light">Single</ion-option>
+            </ion-select>
+        </ion-item>
+       
+  
+         <ion-item>
+            <ion-label >Date of birth</ion-label>
+            <ion-datetime displayFormat="MMM DD YYYY" pickerFormat="MMM DD YYYY" name="dob" [(ngModel)]="newuser.dateofbirth"></ion-datetime>
+         </ion-item>
+         <ion-item>
+            <ion-label >Graduation date</ion-label>
+            <ion-datetime displayFormat="MMM DD YYYY" pickerFormat="MMM DD YYYY" name="gdate" [(ngModel)]="newuser.graduationdate"></ion-datetime>
+         </ion-item>
+         <ion-item>
+            <ion-label >Ordination date</ion-label>
+            <ion-datetime displayFormat="MMM DD YYYY" pickerFormat="MMM DD YYYY" name="odate" [(ngModel)]="newuser.ordinationdate"></ion-datetime>
+         </ion-item>
+         <ion-item>
+          <ion-label >Is Marriage Officer</ion-label>
+            <ion-select name="marriageofficer" [(ngModel)]="newuser.marrageofficer">
+             <ion-option value="Marriage Officer" color="light">Yes</ion-option>
+             <ion-option value="No" color="light">No</ion-option>
+            </ion-select>
+        </ion-item> 
+        <ion-item>
+            <ion-input type="text" name="profile" placeholder="Pastor short profile " [(ngModel)]="newuser.profile"></ion-input>
+         </ion-item>  
+         <ion-item>
+         <input type="file" id="file" name="file" accept="image/*" (change)="changeListener($event)">    
+         </ion-item>         
+      </ion-list>
+      <button ion-button round outline type="submit" block>Update Details</button>
+      </form>
+  </ion-content>
+  

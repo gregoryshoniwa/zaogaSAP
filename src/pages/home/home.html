@@ -1,0 +1,280 @@
+
+<!--
+
+<script src="assets/js/plugin/chartist/plugin/chartist-plugin-tooltip.min.js"></script>
+  <script src="assets/js/core/jquery.3.2.1.min.js"></script>
+  <script src="assets/js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
+  <script src="assets/js/core/popper.min.js"></script>
+  <script src="assets/js/core/bootstrap.min.js"></script>
+  <script src="assets/js/plugin/chartist/chartist.min.js"></script>
+
+  <script src="assets/js/plugin/bootstrap-notify/bootstrap-notify.min.js"></script>
+  <script src="assets/js/plugin/bootstrap-toggle/bootstrap-toggle.min.js"></script>
+  <script src="assets/js/plugin/jquery-mapael/jquery.mapael.min.js"></script>
+  <script src="assets/js/plugin/jquery-mapael/maps/world_countries.min.js"></script>
+  <script src="assets/js/plugin/chart-circle/circles.min.js"></script>
+  <script src="assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
+  <script src="assets/js/ready.min.js"></script>
+  <script src="assets/js/demo.js"></script>
+-->
+
+
+
+<ion-content class={{toggler}}>
+<div class="wrapper">
+  <div class="main-header" style="height: 56px;">
+    <div class="logo-header">
+      <a href="index.html" class="logo">
+        ZAOGA-LINK Dashboard
+      </a>
+      <button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse" data-target="collapse" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon" (click)="changeToggler()"></span>
+      </button>
+      <button class="topbar-toggler more" style="height: 56px;" (click)="changeToggler2()"><i class="la la-ellipsis-v"></i></button>
+    </div>
+    <nav class="navbar navbar-header navbar-expand-lg">
+      <div class="container-fluid">
+
+        <form class="navbar-left navbar-form nav-search mr-md-3" action="">
+          <div class="input-group">
+            <input type="text" placeholder="Search ..." class="form-control">
+            <div class="input-group-append">
+              <span class="input-group-text">
+                <i class="la la-search search-icon"></i>
+              </span>
+            </div>
+          </div>
+        </form>
+        <ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
+          <!-- <li class="nav-item dropdown hidden-caret">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="la la-envelope"></i>
+            </a>
+
+
+          </li> -->
+          <!-- <li *ngIf="isApprover" class="nav-item dropdown hidden-caret" (click)="viewInoives()">
+            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="la la-bell"></i>
+              <span class="notification" >{{massages}}</span>
+            </a>
+
+          </li> -->
+
+          <li class="nav-item dropdown">
+            <a class="dropdown-toggle profile-pic" data-toggle="dropdown" aria-expanded="false"> <img src="assets/imgs/icon.png" alt="user-img" width="36" class="img-circle" (click)="presentPopover($event)"><span (click)="presentPopover($event)">{{username}}</span></a>
+            <ul class="dropdown-menu dropdown-user">
+              <li>
+
+                </li>
+
+              </ul>
+              <!-- /.dropdown-user -->
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div class="sidebar">
+      <div class="scrollbar-inner sidebar-wrapper">
+
+        <ul class="nav">
+          <li class="nav-item active" (click)="navigator('Remittance')">
+            <a>
+              <i class="la la-home"></i>
+              <p>Remittance Form</p>
+
+            </a>
+          </li>
+
+          <li class="nav-item" (click)="navigator('Reports')">
+            <a >
+              <i class="la la-leanpub"></i>
+              <p>Reports</p>
+
+            </a>
+          </li>
+
+
+
+        </ul>
+      </div>
+    </div>
+
+    <div class="main-panel">
+      <div class="content">
+        <div class="container-fluid">
+
+          <!-- Remittance Form HTML -->
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-header">
+                  <div class="card-title">Remittance Payments Form</div>
+                </div>
+                <div class="card-body">
+                    <ion-grid padding>
+                        <ion-row>
+                          <ion-col class="form-group col-md-12 push-3">
+
+
+                                  <label for="email">Posting Date</label>
+                                  <ion-item>
+
+                                    <ion-input type="date" [(ngModel)]="date" class="form-control" id="postingdate" required></ion-input>
+                                  </ion-item>
+                                  <br>
+
+                                  <label for="email">Due Date</label><br>
+                                  <ion-item>
+
+                                    <ion-input type="date" [(ngModel)]="duedate" class="form-control" id="duedate" required></ion-input>
+                                  </ion-item>
+                                  <br>
+                                  <ion-item>
+                                      <ion-label>Payment Type</ion-label>
+                                      <ion-select [(ngModel)]="paymentType" (ionChange)="changeisTransfer()">
+                                      <ion-option value="Cash">Cash</ion-option>
+                                      <ion-option value="Transfer">Transfer</ion-option>
+                                      <!-- <ion-option value="Part">Part Pay</ion-option> -->
+                                      <ion-option value="Unknown">Unpresented</ion-option>
+
+                                      <ion-option value="Late">Pending Incoming Payment</ion-option>
+                                    </ion-select>
+                                  </ion-item>
+                                  <ion-item *ngIf="isKnown">
+                                    <ion-label floating>
+
+                                    </ion-label>
+                                    <ion-icon name="play" item-start (click)="unkownList()"></ion-icon>
+
+                                    <ion-input type="text" [(ngModel)]="UnknownAccount" class="form-control" id="customer" placeholder="Unknown Payment"></ion-input>
+
+                                 </ion-item>
+                                 <ion-item *ngIf="isLate">
+                                  <button class="btn btn-success" (click)="payRemittance()">Pay Remittance</button>
+                                 </ion-item>
+                                 <!-- <ion-item *ngIf="isCash">
+                                  <button class="btn btn-success" (click)="cashbreakdown()">Cash Break Down | {{cashTotal}}</button>
+                                 </ion-item> -->
+
+                          </ion-col>
+                          <ion-col class="form-group col-md-6">
+
+                          </ion-col>
+                          <ion-col class="form-group col-md-12">
+                              <label for="email">Name</label>
+                              <ion-item>
+                                  <ion-label floating>
+
+                                  </ion-label>
+                                  <ion-icon name="play" item-start (click)="customerList(BusinessParnter)"></ion-icon>
+
+                                  <ion-input type="text" [(ngModel)]="BusinessParnter" class="form-control" id="customer" placeholder="Enter Business Partner"></ion-input>
+
+                              </ion-item>
+                              <br>
+                              <label for="email">Description</label>
+                              <ion-item>
+                                    <ion-input type="text" [(ngModel)]="description" class="form-control" id="customer" placeholder="Description for document "></ion-input>
+                              </ion-item>
+                               <ion-item *ngIf="istranfer">
+                                  
+                                  <ion-label color="dark">Transfer Ref#</ion-label>
+                                  <ion-input type="text" [(ngModel)]="reference" class="form-control" id="customer"></ion-input>
+
+                               </ion-item>
+                               <ion-item>
+                                  <ion-input *ngIf="istranfer" type="date" [(ngModel)]="transferdate" class="form-control" id="duedate" required></ion-input>
+
+                               </ion-item>
+
+                          </ion-col>
+                        </ion-row>
+                      </ion-grid>
+                 <!--- Table -->
+                 <div class="card-action">
+                    <button class="btn btn-success" (click)="itemList()">Add Item</button>
+                    <button class="btn btn-danger" (click)="clearList()">Clear All Items</button>
+                    <br>
+                    <br>
+                    
+                 <table class="table table-bordered">
+                    <tr>
+                      <th >#</th>
+                      <th >Item Description</th>
+                      <th>ZWD</th>
+                      <th>USD</th>
+                      <th>ZAR</th>
+                      <th>BWP</th>
+                      <th>GBP</th>
+                      <th>EUR</th>
+                      <th>Action</th>
+                       </tr>
+                    <tr *ngFor="let data of itemsList; let i = index">
+                        <th>{{i+1}}</th>
+                        <th>{{data.item}}</th>
+                        <th>{{data.amountZWD}}</th>
+                        <th>{{data.amountUSD}}</th>
+                        <th>{{data.amountZAR}}</th>
+                        <th>{{data.amountBWP}}</th>
+                        <th>{{data.amountGBP}}</th>
+                        <th>{{data.amountEUR}}</th>
+                        <th>
+                          <ion-icon (click)="EditLine(i,data)" name="create" color="primary"></ion-icon>&nbsp;&nbsp;
+                          <ion-icon (click)="RemoveLine(i)" name="trash" color="secondary"></ion-icon>
+
+                        </th>
+
+                    </tr>
+
+                        <tr>
+                          <th>#</th>
+                          <th>Total</th>
+                          <th>{{TotalZWD.toFixed(2)}}</th>
+                          <th>{{TotalUSD.toFixed(2)}}</th>
+                          <th>{{TotalZAR.toFixed(2)}}</th>
+                          <th>{{TotalBWP.toFixed(2)}}</th>
+                          <th>{{TotalGBP.toFixed(2)}}</th>
+                          <th>{{TotalEUR.toFixed(2)}}</th>
+                          
+
+                        </tr>
+                        
+                        <tr *ngIf="isCash">
+                          <th></th>
+                          <th>Cash Break-Down</th>
+                          <th><button class="btn btn-success" (click)="cashbreakdown('ZWD')">{{cashTotalZWD}}</button></th>
+                          <th><button class="btn btn-success" (click)="cashbreakdown('USD')">{{cashTotalUSD}}</button></th>
+                          <th><button class="btn btn-success" (click)="cashbreakdown('ZAR')">{{cashTotalZAR}}</button></th>
+                          <th><button class="btn btn-success" (click)="cashbreakdown('BWP')">{{cashTotalBWP}}</button></th>
+                          <th><button class="btn btn-success" (click)="cashbreakdown('GBP')">{{cashTotalGBP}}</button></th>
+                          <th><button class="btn btn-success" (click)="cashbreakdown('EUR')">{{cashTotalEUR}}</button></th>                        
+
+                        </tr>
+
+
+
+
+                    </table>
+                  </div>
+
+
+
+                  <div class="card-action">
+                    <button class="btn btn-success" (click)="addRemittance()">Add Remittance</button>
+                    <!-- <button class="btn btn-danger">Cancel</button> -->
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+
+        </div>
+      </div>
+     </div>
+    </div>
+  </div>
+
+</ion-content>

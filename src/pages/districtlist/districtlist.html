@@ -1,0 +1,31 @@
+<ion-header>
+  
+    <ion-navbar color="primary">
+      <ion-title>District List</ion-title>
+      <ion-buttons end>
+          <button ion-button icon-only (click)="closeModel()"><ion-icon name="close"></ion-icon></button>
+          <button ion-button icon-only (click)="adddistrict()"><ion-icon name="add"></ion-icon></button>
+          
+        </ion-buttons>
+    </ion-navbar>
+  
+  </ion-header> 
+ 
+ <ion-content padding>  
+      <ion-searchbar (input)="searchuserp($event)" placeholder="Search..."></ion-searchbar>
+        
+        <ion-list>
+          <ion-list>
+            <ion-item-sliding *ngFor="let key of filteredusers">
+              <ion-item (click)="selectedDistrict(key)">
+                <h2>District : {{key.districts.district}}</h2>
+                <p><b>Province : {{key.districts.province}}</b> Country : <b>{{key.districts.country}}   </b></p>
+              </ion-item>
+
+              
+                  
+            </ion-item-sliding>
+          </ion-list>
+        </ion-list>
+
+      </ion-content>    

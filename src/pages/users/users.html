@@ -1,0 +1,50 @@
+<!--
+  Generated template for the UpdatePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="secondary">
+    <ion-title>User Administration</ion-title>
+    <ion-buttons end>
+        <button ion-button icon-only (click)="closeModel()"><ion-icon name="close"></ion-icon></button>
+        <button ion-button icon-only (click)="addUser()"><ion-icon name="person"></ion-icon></button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+ 
+
+<ion-content padding>
+  <ion-searchbar (input)="searchuserp($event)" placeholder="Search list of all users by any type"></ion-searchbar>
+
+
+  <ion-list text-wrap>
+    <ion-item-sliding *ngFor="let key of filteredusers">
+      <ion-item (click)="profile(key)">
+        
+        <h2><b>UserName : </b> {{key.userName}} | <b>Position : </b> {{key.userPosition}} </h2>
+        <p>Email : <b>{{key.emailAddress}}</b></p>
+
+      </ion-item>
+
+      
+          <ion-item-options side="left">
+            <button ion-button color="danger" (click)="deleteUser(key)">
+                    <ion-icon name="trash"></ion-icon>
+                    Delete
+            </button>
+            <button ion-button (click)="updateUser(key)">
+                    <ion-icon name="alert"></ion-icon>
+                    Update
+            </button>
+          </ion-item-options>
+
+    </ion-item-sliding>
+  </ion-list>
+
+
+
+</ion-content>

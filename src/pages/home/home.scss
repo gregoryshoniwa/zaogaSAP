@@ -1,0 +1,97 @@
+page-home {
+    .topbar_open .navbar-header {
+        transform: translate3d(0, 0px, 0) !important;
+        border-bottom: 1px solid #eee;
+    }
+      
+      ion-item.item-label-floating .text-input {
+        margin-left: 32px;
+        width: calc(100% - 32px);
+      }
+      
+      ion-item.item-input ion-icon {
+        display: flex;
+        align-items: flex-end;
+        position: absolute;
+        bottom: 0;
+        left: 10px;
+        color: #f0db1d;
+        font-size: 24px;
+        min-width: 0 !important;
+        text-align: left !important;
+       // padding-left: 5px;
+      }
+      
+      .item-md {
+        padding-left: 0px;
+        
+    }
+
+    input, .item-md ion-icon[item-start] + .item-inner, .item-md ion-icon[item-start] + .item-input {
+         margin-left: 0px;
+    }
+    .item-md.item-block .item-inner {
+        padding-right: 0px;
+        border-bottom: 1px solid #ffffff;
+    }
+      
+     
+    .card {
+        
+        border-radius: 5px;
+    }
+    .card .card-title {
+        margin: 0;
+        color: #ffffff;
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 1.6;
+    }
+
+    .text-input-md {
+        margin: 7px 8px;
+        padding: 0;
+        width: calc(100% - 8px - 8px);
+    }
+
+    .input[type=text] {
+        padding: 0; 
+        margin: 0; 
+        font-size: 14px;
+        border: 1.5px solid rgb(224, 224, 224);
+       
+    }
+
+    
+    .input[type=date] { 
+        padding: 0; 
+        margin: 0; 
+        border: 1.5px solid rgb(224, 224, 224);
+        font-size: 14px;
+    }
+    
+
+      ion-input:invalid:after {
+    background-image: '✖';
+    //padding-left: 1px;
+    background-image: url('assets/imgs/icon.png');
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    
+}
+
+ion-input:valid:after {
+    background-image: '✓';
+    //padding-left: 1px;
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+}
+
+.card .card-header {
+    /* padding: 15px 15px; */
+    background-color: lightskyblue;
+    border-bottom: 1px solid #ebedf2 !important;
+}
+
+
+}

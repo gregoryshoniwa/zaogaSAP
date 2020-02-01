@@ -1,0 +1,55 @@
+
+
+<style type="text/css">
+  ::-webkit-input-placeholder {
+    color: white !important;
+  }
+  :-moz-placeholder {
+    color: white !important;
+  }
+  :-ms-input-placeholder {
+    /* IE10+ */
+    color: white !important;
+  }
+  </style>
+  
+  
+  <ion-content padding style="background:url(assets/imgs/back1.jpg) no-repeat center;background-size:cover;background-color:#D6D7DF;">
+    <br><br>
+    <div class="animated bounce">
+      <img src="assets/imgs/logo2.png" style="display:block;width:130px;height:130px;margin-left:auto;margin-right:auto;" />
+    </div>
+    
+    <ion-card style="display:block;width:300px;height:auto;margin-left:auto;margin-right:auto;" >
+      <ion-card-header>
+        ZAOGA-Click : Login
+      </ion-card-header>
+      <ion-card-content>
+      <form (ngSubmit)="signin()">
+        <ion-list no-line>
+          <ion-item>
+            <ion-input  type="text" placeholder="UserID" [(ngModel)]="credentials.email" name="userid"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input type="password" placeholder="Password" [(ngModel)]="credentials.password" name="password"></ion-input>
+          </ion-item>
+  
+          <button ion-button block outline color="light">Admin Login</button>
+          <p></p><p></p>
+          
+          
+  
+        </ion-list>
+      </form>
+      <button ion-button block color="secondary">church Login</button>
+  
+      <button ion-button block color="secondaryclick" (click)="signup()">Back to SAP USER</button>
+  
+      </ion-card-content>
+    </ion-card>
+  
+  
+  
+  
+  </ion-content>
+  

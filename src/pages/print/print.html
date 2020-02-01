@@ -1,0 +1,164 @@
+<!--
+  Generated template for the UpdatePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-header>
+
+    <ion-navbar color="primary">
+      <ion-title>Print Successful Remittance Receipt</ion-title>
+      <ion-buttons end>
+          <button ion-button icon-only (click)="closeModel()"><ion-icon name="close"></ion-icon></button>
+          
+      </ion-buttons>
+    </ion-navbar>
+  
+  </ion-header>
+   
+  
+  <ion-content padding>
+    <ion-list >
+      <ion-item>
+
+    
+      <div class="receipt-content" >
+          <div class="container bootstrap snippet">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="invoice-wrapper">
+                <div class="intro">
+                    <img src="assets/imgs/printlogo.png" style="display:block;" />
+                    
+                <br><br><br>
+                  </div>
+      
+                <div class="payment-info">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <span>Payment No : <b>{{docdata.paymentType}}</b></span>
+                      <strong>{{invoiceNumber}}</strong>
+                    </div>
+                    <div class="col-sm-6 text-right">
+                      <span>Payment Date</span>
+                      <strong>{{date}}</strong>
+                    </div>
+                  </div>
+                </div>
+      
+                <div class="payment-details">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <span>District/Province</span>
+                      <p></p>
+                      <strong>
+                        {{docdata.cardname}}
+                      </strong>
+                      <p>Secretary : {{docdata.firstName}} {{docdata.lastName}}</p>
+                      <p>Email : {{docdata.email}}</p>
+                      <p>
+                         <br>
+                         <br>
+                         <br>
+                         <br>
+                        <a href="#">
+                          ---
+                        </a>
+                      </p>
+                    </div>
+                    <div class="col-sm-6 text-right">
+                      <span>Remittance By : {{docdata.ownerFirstName}} {{docdata.ownerLastName}}</span>
+                      <p></p>
+                      <strong>
+                        ZAOGA Forward In Faith : Head Office
+                      </strong>
+                      <p>
+                        13A Powell Road <br>
+                        Parktown, Waterfalls <br>
+                        Harare <br>
+                        Zimbabwe <br>
+                        <a href="#">
+                          nationaloffice@zaogafif.co.zw
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+      
+                <div class="line-items">
+                  
+                    <div class="card-action">
+                        <table class="table table-bordered">
+                           <tr>
+                             <th >#</th>
+                             <th >Item Description</th>
+                             <th>ZWD</th> 
+                             <th>USD</th> 
+                             <th>ZAR</th>
+                             <th>BWP</th> 
+                             <th>GBP</th>
+                             <th>EUR</th> 
+                              </tr>
+                           <tr *ngFor="let data of docdata.items; let i = index">
+                               <th>{{i+1}}</th>
+                               <th>{{data.item}}</th>
+                               <th>{{data.amountZWD}}</th>
+                               <th>{{data.amountUSD}}</th> 
+                               <th>{{data.amountZAR}}</th>
+                               <th>{{data.amountBWP}}</th> 
+                               <th>{{data.amountGBP}}</th>
+                               <th>{{data.amountEUR}}</th> 
+                               
+                           </tr>
+                                              
+                                                              
+                             
+                                               
+                           </table>
+                         </div>
+
+
+
+                  <div class="total text-right">
+                    <p class="extra-notes">
+                      <strong>Extra Notes</strong>
+                      Please note that this is a valid proof of submitting your remittance.
+                    </p>
+                    <div class="field grand-total">
+                      Total ZWD <span>{{TotalZWD.toFixed(2)}}</span>
+                    </div>
+                    <div class="field grand-total">
+                      Total USD <span>{{TotalUSD.toFixed(2)}}</span>
+                    </div>
+                    <div class="field grand-total">
+                      Total ZAR <span>{{TotalZAR.toFixed(2)}}</span>
+                    </div>
+                    <div class="field grand-total">
+                      Total BWP <span>{{TotalBWP.toFixed(2)}}</span>
+                    </div>
+                    <div class="field grand-total">
+                      Total GBP <span>{{TotalGBP.toFixed(2)}}</span>
+                    </div>
+                    <div class="field grand-total">
+                      Total EUR <span>{{TotalEUR.toFixed(2)}}</span>
+                      </div>
+                  </div>
+      
+                  <div class="print">
+                     
+                  </div>
+                </div>
+              </div>
+      
+              <div class="footer">
+                Copyright © 2018. ZAOGA ICT
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>              
+    </ion-item>
+  </ion-list>
+  </ion-content>
+  

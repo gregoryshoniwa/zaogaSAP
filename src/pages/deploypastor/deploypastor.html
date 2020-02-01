@@ -1,0 +1,38 @@
+<!--
+  Generated template for the UpdatePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  
+    <ion-navbar color="primary">
+      <ion-title>Pastor's Deployment</ion-title>
+      <ion-buttons end>
+          <button ion-button icon-only (click)="closeModel()"><ion-icon name="close"></ion-icon></button>
+      </ion-buttons>
+    </ion-navbar>
+  
+  </ion-header>
+   
+  
+  <ion-content padding>
+    <form #form (ngSubmit)="addUser(form.value)">
+        <ion-list no-line>
+          <ion-item>
+            <ion-input type="text" name="name" readonly="true" [(ngModel)]="deploypastor.name"></ion-input>
+          </ion-item>
+          <ion-item>
+            <h2>Current Deployment</h2>
+            <p>District: <b>{{deploypastor.odistrict}}   </b> Province : <b>{{deploypastor.oprovince}}   </b> Country : <b>{{deploypastor.ocountry}} </b></p>
+          </ion-item>
+          <ion-item (click)="newdistrict()">
+            <h2>New Deployment</h2>
+            <p>District: <b>{{deploypastor.ndistrict}}   </b> Province : <b>{{deploypastor.nprovince}}   </b> Country : <b>{{deploypastor.ncountry}} </b></p>
+          </ion-item>        
+                  
+      </ion-list>
+      <button ion-button round outline type="submit" block>Deploy Pastor</button>
+      </form>
+  </ion-content>
+  

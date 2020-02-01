@@ -1,0 +1,72 @@
+<!--
+  Generated template for the ReportmodelPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar color="primary">
+        <ion-title>Report Details Input : {{reportType}}</ion-title>
+        <ion-buttons end>
+            <button ion-button icon-only (click)="closeModel()"><ion-icon name="close"></ion-icon></button>
+        </ion-buttons>
+      </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <label for="email">District/Province</label>
+    <ion-item>
+        <ion-label floating>
+
+        </ion-label>
+        <ion-icon name="play" item-start (click)="customerList()"></ion-icon>
+
+        <ion-input type="text" [(ngModel)]="BusinessParnter" class="form-control" id="customer" placeholder="Enter Business Partner"></ion-input>
+
+    </ion-item>
+    <br>
+    <label for="email">Remittance Items</label>
+    <ion-item>
+        <ion-label floating>
+
+        </ion-label>
+        <ion-icon name="play" item-start (click)="itemList()"></ion-icon>
+
+        <ion-input type="text" [(ngModel)]="ItemData" class="form-control" id="customer" placeholder="Enter Remittance Item"></ion-input>
+
+    </ion-item>
+    <br>
+    <label for="email">Enter the Year</label>
+    <ion-item>
+        <ion-label floating>
+
+        </ion-label>
+        <ion-icon name="play" item-start></ion-icon>
+
+        <ion-input type="number" [(ngModel)]="ReportYear" class="form-control" id="customer" placeholder="Enter Reporting Year Only"></ion-input>
+
+    </ion-item>
+    <br>
+    <ion-item>
+
+        <ion-label>Reporting Currency</ion-label>
+        <ion-select [(ngModel)]="reportData.currency">
+        <ion-option value="ZWD">ZWD</ion-option>
+        <ion-option value="USD">USD</ion-option>
+        <ion-option value="ZAR">ZAR</ion-option>
+        <ion-option value="BWP">BWP</ion-option>
+        <ion-option value="GBP">GBP</ion-option>
+        <ion-option value="EUR">EUR</ion-option>
+
+
+      </ion-select>
+    </ion-item>
+    <br>
+    <br>
+    <button class="btn btn-success" (click)="okEx()">OK</button>
+    <button class="btn btn-danger" (click)="closeModel()">Cancel</button>
+
+</ion-content>
