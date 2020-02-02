@@ -23,12 +23,12 @@ export class AdditemPage {
   sessionID;
   AccountNumber = [];
   selectedData = {
-    amountZWD : null,
-    amountUSD : null,
-    amountZAR : null,
-    amountGBP : null,
-    amountBWP : null,
-    amountEUR : null,
+    // amountZWD : null,
+    // amountUSD : null,
+    // amountZAR : null,
+    // amountGBP : null,
+    // amountBWP : null,
+    // amountEUR : null,
     linkid : "",
     item : "",
     itemcode : "",
@@ -42,7 +42,7 @@ export class AdditemPage {
     this.BusinessParnter = this.navParams.get('BusinessParnterName');
     this.getItemList(this.sessionID);
     this.temparr = this.filteredusers;
-    console.log(this.filteredusers);
+   // console.log(this.filteredusers);
   }
 
   ionViewDidLoad() {
@@ -86,7 +86,7 @@ export class AdditemPage {
  
 
 selected(Itemcode,Itemname,linkid){
- console.log(linkid)
+// console.log(linkid)
   let query = "SELECT T0.[AcctCode], T0.[AcctName], T0.[AccntntCod] FROM OACT T0 WHERE T0.[AccntntCod] = '"+linkid+"'";
   let headers = new Headers();
   
@@ -118,35 +118,35 @@ selected(Itemcode,Itemname,linkid){
      // var results = xmlDoc.getElementsByTagName("AcctCode")[0].childNodes[0].nodeValue
       //this.AccountNumber = results;
       if(Itemcode){
-        if(this.selectedData.amountZWD == null){
-          this.selectedData.amountZWD = "0";
-        }
-        if(this.selectedData.amountUSD == null){
-          this.selectedData.amountUSD = "0";
-        }
-        if(this.selectedData.amountZAR == null){
-          this.selectedData.amountZAR = "0";
-        }
-        if(this.selectedData.amountBWP == null){
-          this.selectedData.amountBWP = "0";
-        }
-        if(this.selectedData.amountGBP == null){
-          this.selectedData.amountGBP = "0";
-        }
-        if(this.selectedData.amountEUR == null){
-          this.selectedData.amountEUR = "0";
-        }
+        // if(this.selectedData.amountZWD == null){
+        //   this.selectedData.amountZWD = "0";
+        // }
+        // if(this.selectedData.amountUSD == null){
+        //   this.selectedData.amountUSD = "0";
+        // }
+        // if(this.selectedData.amountZAR == null){
+        //   this.selectedData.amountZAR = "0";
+        // }
+        // if(this.selectedData.amountBWP == null){
+        //   this.selectedData.amountBWP = "0";
+        // }
+        // if(this.selectedData.amountGBP == null){
+        //   this.selectedData.amountGBP = "0";
+        // }
+        // if(this.selectedData.amountEUR == null){
+        //   this.selectedData.amountEUR = "0";
+        // }
         this.selectedData.item = Itemname;
         this.selectedData.itemcode = Itemcode;
         this.selectedData.linkid = linkid;
         
         this.selectedData.itemaccount = this.AccountNumber;
-        this.selectedData.amountZWD = parseFloat(this.selectedData.amountZWD).toFixed(2);
-        this.selectedData.amountUSD = parseFloat(this.selectedData.amountUSD).toFixed(2);
-        this.selectedData.amountZAR = parseFloat(this.selectedData.amountZAR).toFixed(2);
-        this.selectedData.amountBWP = parseFloat(this.selectedData.amountBWP).toFixed(2);
-        this.selectedData.amountGBP = parseFloat(this.selectedData.amountGBP).toFixed(2);
-        this.selectedData.amountEUR = parseFloat(this.selectedData.amountEUR).toFixed(2);
+        // this.selectedData.amountZWD = parseFloat(this.selectedData.amountZWD).toFixed(2);
+        // this.selectedData.amountUSD = parseFloat(this.selectedData.amountUSD).toFixed(2);
+        // this.selectedData.amountZAR = parseFloat(this.selectedData.amountZAR).toFixed(2);
+        // this.selectedData.amountBWP = parseFloat(this.selectedData.amountBWP).toFixed(2);
+        // this.selectedData.amountGBP = parseFloat(this.selectedData.amountGBP).toFixed(2);
+        // this.selectedData.amountEUR = parseFloat(this.selectedData.amountEUR).toFixed(2);
   
         this.viewCtrl.dismiss(this.selectedData);
       }else{

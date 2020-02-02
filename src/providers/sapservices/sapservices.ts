@@ -397,7 +397,12 @@ if(currency == "EUR" || currency == "eur"){
 
    // console.log(newdate);
     //console.log(newduedate);
-
+    let rowData  = ''
+    docdata.items.forEach(element => {
+      if(element.amountUSD){
+        rowData += '<row><ItemCode>'+element.itemcode+'</ItemCode><Quantity>1</Quantity><dis:LineTotal>'+element.amountUSD+'</dis:LineTotal></row>';
+      }
+    });
     let headers = new Headers();
 
     let body = '<env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/">'+
@@ -423,18 +428,18 @@ if(currency == "EUR" || currency == "eur"){
          '<DocType>dDocument_Items</DocType>'+
         '</row>'+
        '</Documents>'+
-       '<Document_Lines></Document_Lines>'+
+       '<Document_Lines>'+rowData+'</Document_Lines>'+
       '</BO>'+
      '</BOM>'+
      '</dis:AddObject>'+
     '</env:Body>'+
    '</env:Envelope>';
 
-   let mainbody = this.createRows(docdata,body);
-   var sXML = new XMLSerializer().serializeToString(mainbody);
+  //  let mainbody = this.createRows(docdata,body);
+  //  var sXML = new XMLSerializer().serializeToString(mainbody);
   // console.log(sXML);
 
-    this.http.post(this.url,sXML,{headers:headers})
+    this.http.post(this.url,body,{headers:headers})
     .map(res => res.text())
     .subscribe(data => {
       //console.log(data);
@@ -464,6 +469,12 @@ if(currency == "EUR" || currency == "eur"){
 
     //console.log(newdate);
     //console.log(newduedate);
+    let rowData  = ''
+    docdata.items.forEach(element => {
+      if(element.amountBWP){
+        rowData += '<row><ItemCode>'+element.itemcode+'</ItemCode><Quantity>1</Quantity><dis:LineTotal>'+element.amountBWP+'</dis:LineTotal></row>';
+      }
+    });
     let headers = new Headers();
 
     let body = '<env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/">'+
@@ -489,18 +500,18 @@ if(currency == "EUR" || currency == "eur"){
          '<DocType>dDocument_Items</DocType>'+
         '</row>'+
        '</Documents>'+
-       '<Document_Lines></Document_Lines>'+
+       '<Document_Lines>'+rowData+'</Document_Lines>'+
       '</BO>'+
      '</BOM>'+
      '</dis:AddObject>'+
     '</env:Body>'+
    '</env:Envelope>';
 
-   let mainbody = this.createRowsINBWP(docdata,body);
-   var sXML = new XMLSerializer().serializeToString(mainbody);
+  //  let mainbody = this.createRowsINBWP(docdata,body);
+  //  var sXML = new XMLSerializer().serializeToString(mainbody);
    //console.log(sXML);
 
-    this.http.post(this.url,sXML,{headers:headers})
+    this.http.post(this.url,body,{headers:headers})
     .map(res => res.text())
     .subscribe(data => {
       //console.log(data);
@@ -513,7 +524,7 @@ if(currency == "EUR" || currency == "eur"){
         this.payInvoiceBWP(sessionid,results,docdata,newdate,newduedate,accountCode,accountCode2);
      }catch{
       var error = xmlDoc.getElementsByTagName("env:Text")[0].childNodes[0].nodeValue
-     console.log(results);
+     //console.log(results);
        this.errorAlert(error);
       }
 
@@ -528,7 +539,13 @@ if(currency == "EUR" || currency == "eur"){
       let newduedate = this.formateDate(docdata.duedate);
 
       //console.log(newdate);
-      console.log(docdata);
+      //console.log(docdata);
+      let rowData  = ''
+    docdata.items.forEach(element => {
+      if(element.amountZAR){
+        rowData += '<row><ItemCode>'+element.itemcode+'</ItemCode><Quantity>1</Quantity><dis:LineTotal>'+element.amountZAR+'</dis:LineTotal></row>';
+      }
+    });
       let headers = new Headers();
 
       let body = '<env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/">'+
@@ -554,18 +571,18 @@ if(currency == "EUR" || currency == "eur"){
            '<DocType>dDocument_Items</DocType>'+
           '</row>'+
          '</Documents>'+
-         '<Document_Lines></Document_Lines>'+
+         '<Document_Lines>'+rowData+'</Document_Lines>'+
         '</BO>'+
        '</BOM>'+
        '</dis:AddObject>'+
       '</env:Body>'+
      '</env:Envelope>';
 
-     let mainbody = this.createRowsINZAR(docdata,body);
-     var sXML = new XMLSerializer().serializeToString(mainbody);
+    //  let mainbody = this.createRowsINZAR(docdata,body);
+    //  var sXML = new XMLSerializer().serializeToString(mainbody);
      //console.log(sXML);
 
-      this.http.post(this.url,sXML,{headers:headers})
+      this.http.post(this.url,body,{headers:headers})
       .map(res => res.text())
       .subscribe(data => {
         //console.log(data);
@@ -594,6 +611,13 @@ if(currency == "EUR" || currency == "eur"){
 
   //console.log(newdate);
   //console.log(docdata);
+  let rowData  = ''
+  docdata.items.forEach(element => {
+    if(element.amountZWD){
+      rowData += '<row><ItemCode>'+element.itemcode+'</ItemCode><Quantity>1</Quantity><dis:LineTotal>'+element.amountZWD+'</dis:LineTotal></row>';
+    }
+  });
+  
   let headers = new Headers();
 
   let body = '<env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/">'+
@@ -619,18 +643,18 @@ if(currency == "EUR" || currency == "eur"){
        '<DocType>dDocument_Items</DocType>'+
       '</row>'+
      '</Documents>'+
-     '<Document_Lines></Document_Lines>'+
+     '<Document_Lines>'+rowData+'</Document_Lines>'+
     '</BO>'+
    '</BOM>'+
    '</dis:AddObject>'+
   '</env:Body>'+
  '</env:Envelope>';
 
- let mainbody = this.createRowsINZWD(docdata,body);
- var sXML = new XMLSerializer().serializeToString(mainbody);
+ //let mainbody = this.createRowsINZWD(docdata,body);
+ //var sXML = new XMLSerializer().serializeToString(body);
  //console.log(sXML);
 
-  this.http.post(this.url,sXML,{headers:headers})
+  this.http.post(this.url,body,{headers:headers})
   .map(res => res.text())
   .subscribe(data => {
    // console.log(data);
@@ -660,6 +684,12 @@ if(currency == "EUR" || currency == "eur"){
 
     //console.log(newdate);
     //console.log(newduedate);
+    let rowData  = ''
+    docdata.items.forEach(element => {
+      if(element.amountGBP){
+        rowData += '<row><ItemCode>'+element.itemcode+'</ItemCode><Quantity>1</Quantity><dis:LineTotal>'+element.amountGBP+'</dis:LineTotal></row>';
+      }
+    });
     let headers = new Headers();
 
     let body = '<env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/">'+
@@ -685,18 +715,18 @@ if(currency == "EUR" || currency == "eur"){
          '<DocType>dDocument_Items</DocType>'+
         '</row>'+
        '</Documents>'+
-       '<Document_Lines></Document_Lines>'+
+       '<Document_Lines>'+rowData+'</Document_Lines>'+
       '</BO>'+
      '</BOM>'+
      '</dis:AddObject>'+
     '</env:Body>'+
    '</env:Envelope>';
 
-   let mainbody = this.createRowsINGBP(docdata,body);
-   var sXML = new XMLSerializer().serializeToString(mainbody);
+  //  let mainbody = this.createRowsINGBP(docdata,body);
+  //  var sXML = new XMLSerializer().serializeToString(mainbody);
    //console.log(sXML);
 
-    this.http.post(this.url,sXML,{headers:headers})
+    this.http.post(this.url,body,{headers:headers})
     .map(res => res.text())
     .subscribe(data => {
      // console.log(data);
@@ -725,6 +755,12 @@ if(currency == "EUR" || currency == "eur"){
 
       //console.log(newdate);
       //console.log(newduedate);
+      let rowData  = ''
+    docdata.items.forEach(element => {
+      if(element.amountEUR){
+        rowData += '<row><ItemCode>'+element.itemcode+'</ItemCode><Quantity>1</Quantity><dis:LineTotal>'+element.amountEUR+'</dis:LineTotal></row>';
+      }
+    });
       let headers = new Headers();
 
       let body = '<env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/">'+
@@ -750,18 +786,18 @@ if(currency == "EUR" || currency == "eur"){
            '<DocType>dDocument_Items</DocType>'+
           '</row>'+
          '</Documents>'+
-         '<Document_Lines></Document_Lines>'+
+         '<Document_Lines>'+rowData+'</Document_Lines>'+
         '</BO>'+
        '</BOM>'+
        '</dis:AddObject>'+
       '</env:Body>'+
      '</env:Envelope>';
 
-     let mainbody = this.createRowsINEUR(docdata,body);
-     var sXML = new XMLSerializer().serializeToString(mainbody);
+    //  let mainbody = this.createRowsINEUR(docdata,body);
+    //  var sXML = new XMLSerializer().serializeToString(mainbody);
      //console.log(sXML);
 
-      this.http.post(this.url,sXML,{headers:headers})
+      this.http.post(this.url,body,{headers:headers})
       .map(res => res.text())
       .subscribe(data => {
        // console.log(data);
@@ -789,11 +825,11 @@ if(currency == "EUR" || currency == "eur"){
     var xmlDoc = parser.parseFromString(body,"text/xml");
 
     for (var index = 1; index <= data.items.length; ++index) {
-
+      if(data.items[index-1].amountUSD){
       var row = xmlDoc.createElement("row");
       xmlDoc.getElementsByTagName("Document_Lines")[0].appendChild(row);
 
-      if(data.items[index-1].amountUSD != "0"){
+     
       var item = xmlDoc.createElement("ItemCode");
       var itemText = xmlDoc.createTextNode(data.items[index-1].itemcode);
       xmlDoc.getElementsByTagName("row")[index].appendChild(item);
@@ -819,13 +855,15 @@ createRowsINZWD(data,body){
 
   var parser = new DOMParser();
   var xmlDoc = parser.parseFromString(body,"text/xml");
-
+  console.log(data)
+  console.log(xmlDoc)
   for (var index = 1; index <= data.items.length; ++index) {
-
+    if(data.items[index-1].amountZWD){
+     
     var row = xmlDoc.createElement("row");
     xmlDoc.getElementsByTagName("Document_Lines")[0].appendChild(row);
 
-    if(data.items[index-1].amountUSD != "0"){
+   
     var item = xmlDoc.createElement("ItemCode");
     var itemText = xmlDoc.createTextNode(data.items[index-1].linkid+"_01");
     xmlDoc.getElementsByTagName("row")[index].appendChild(item);
@@ -842,7 +880,7 @@ createRowsINZWD(data,body){
     total.appendChild(totalText);
     }
   }
-
+  console.log(xmlDoc)
   return xmlDoc.documentElement;
 }
 //ZAR Invoice row creator
@@ -852,11 +890,11 @@ createRowsINZAR(data,body){
   var xmlDoc = parser.parseFromString(body,"text/xml");
 
   for (var index = 1; index <= data.items.length; ++index) {
-
+    if(data.items[index-1].amountZAR){
     var row = xmlDoc.createElement("row");
     xmlDoc.getElementsByTagName("Document_Lines")[0].appendChild(row);
 
-    if(data.items[index-1].amountUSD != "0"){
+   
     var item = xmlDoc.createElement("ItemCode");
     var itemText = xmlDoc.createTextNode(data.items[index-1].linkid+"_03");
     xmlDoc.getElementsByTagName("row")[index].appendChild(item);
@@ -884,11 +922,11 @@ createRowsINBWP(data,body){
   var xmlDoc = parser.parseFromString(body,"text/xml");
 
   for (var index = 1; index <= data.items.length; ++index) {
-
+    if(data.items[index-1].amountBWP){
     var row = xmlDoc.createElement("row");
     xmlDoc.getElementsByTagName("Document_Lines")[0].appendChild(row);
 
-    if(data.items[index-1].amountUSD != "0"){
+   
     var item = xmlDoc.createElement("ItemCode");
     var itemText = xmlDoc.createTextNode(data.items[index-1].linkid+"_02");
     xmlDoc.getElementsByTagName("row")[index].appendChild(item);
@@ -916,11 +954,11 @@ createRowsINGBP(data,body){
   var xmlDoc = parser.parseFromString(body,"text/xml");
 
   for (var index = 1; index <= data.items.length; ++index) {
-
+    if(data.items[index-1].amountGBP){
     var row = xmlDoc.createElement("row");
     xmlDoc.getElementsByTagName("Document_Lines")[0].appendChild(row);
 
-    if(data.items[index-1].amountGBP != "0"){
+   
     var item = xmlDoc.createElement("ItemCode");
     var itemText = xmlDoc.createTextNode(data.items[index-1].linkid+"_04");
     xmlDoc.getElementsByTagName("row")[index].appendChild(item);
@@ -948,11 +986,11 @@ createRowsINEUR(data,body){
   var xmlDoc = parser.parseFromString(body,"text/xml");
 
   for (var index = 1; index <= data.items.length; ++index) {
-
+    if(data.items[index-1].amountEUR){
     var row = xmlDoc.createElement("row");
     xmlDoc.getElementsByTagName("Document_Lines")[0].appendChild(row);
 
-    if(data.items[index-1].amountEUR != "0"){
+   
     var item = xmlDoc.createElement("ItemCode");
     var itemText = xmlDoc.createTextNode(data.items[index-1].linkid+"_05");
     xmlDoc.getElementsByTagName("row")[index].appendChild(item);
@@ -1681,7 +1719,7 @@ this.http.post(this.url,body,{headers:headers})
 //pay USD Invoice
 payInvoice(sessionid,invoiceNumber,docdata,newdate,newduedate,accountCode,accountCode2){
   //this.receiptCounter -= 1
-  console.log(this.receiptCounter)
+  //console.log(this.receiptCounter)
   if(docdata.paymentType == "Transfer"){
   let tranDate = this.formateDate(docdata.transferDate);
   let headers = new Headers();
@@ -1757,44 +1795,48 @@ payInvoice(sessionid,invoiceNumber,docdata,newdate,newduedate,accountCode,accoun
 
   if(docdata.paymentType == "Cash"){
 
-
+    let Partpayments = ''
+    for (var index = 1; index <= docdata.items.length; ++index) {     
+      if(docdata.items[index-1].amountUSD){     
+      Partpayments += '<dis:AddObject xmlns:dis="http://www.sap.com/SBO/DIS" CommandID="Add Incoming Payment">'+
+              '<BOM>'+
+              '<BO>'+
+              '<AdmInfo>'+
+              '<Object>oIncomingPayments</Object>'+
+              '</AdmInfo>'+
+              '<Payments>'+
+              '<row>'+
+                '<CardCode>'+docdata.addid+'_001</CardCode>'+
+                '<DocTypte>rCustomer</DocTypte>'+
+                '<dis:CashAccount>'+docdata.items[index-1].itemaccount[0]+'</dis:CashAccount>'+
+                '<dis:DocCurrency>USD</dis:DocCurrency>'+
+                '<dis:CashSum>'+docdata.items[index-1].amountUSD+'</dis:CashSum>'+
+                '<dis:Remarks>'+docdata.description+'</dis:Remarks>'+
+                '<dis:JournalRemarks>'+docdata.description+'</dis:JournalRemarks>'+
+              '</row>'+  
+            '</Payments>'+
+              '<Payments_Invoices>'+
+              '<row>'+
+              '<DocEntry>'+invoiceNumber+'</DocEntry>'+
+              '<InvoiceType>it_Invoice</InvoiceType>'+
+              '<AppliedFC>'+docdata.items[index-1].amountUSD+'</AppliedFC>'+   
+              '</row>'+
+            '</Payments_Invoices>'+
+            '</BO>'+
+            '</BOM>'+
+            '</dis:AddObject>';      
+      }
+    }
+    //console.log(Partpayments)
   let headers = new Headers();
 
   let body = '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope">'+
   '<env:Header>'+
   '<SessionID>'+sessionid+'</SessionID>'+
   '</env:Header>'+
-  '<env:Body>'+
-  '<dis:AddObject xmlns:dis="http://www.sap.com/SBO/DIS" CommandID="Add Incoming Payment">'+
-  '<BOM>'+
-  '<BO>'+
-  '<AdmInfo>'+
-  '<Object>oIncomingPayments</Object>'+
-  '</AdmInfo>'+
-  '<Payments>'+
-  '<row>'+
-    '<CardCode>'+docdata.addid+'_001</CardCode>'+
-    '<DocTypte>rCustomer</DocTypte>'+
-    '<dis:CashAccount>'+accountCode+'</dis:CashAccount>'+
-    '<dis:DocCurrency>USD</dis:DocCurrency>'+
-    '<dis:CashSum>'+docdata.totalUSD+'</dis:CashSum>'+
-    '<dis:Remarks>'+docdata.description+'</dis:Remarks>'+
-    '<dis:JournalRemarks>'+docdata.description+'</dis:JournalRemarks>'+
-  '</row>'+
- '</Payments>'+
- '<Payments_Invoices>'+
-  '<row>'+
-  '<DocEntry>'+invoiceNumber+'</DocEntry>'+
-   '<InvoiceType>it_Invoice</InvoiceType>'+
-   '<SumApplied>'+docdata.totalUSD+'</SumApplied>'+
-  '</row>'+
- '</Payments_Invoices>'+
-'</BO>'+
-'</BOM>'+
-'</dis:AddObject>'+
-'</env:Body>'+
-'</env:Envelope>';
-
+  '<env:Body>'+ Partpayments+
+  '</env:Body>'+
+  '</env:Envelope>';
 
   this.http.post('http://10.0.0.36/B1WS/Service.asmx',body,{headers:headers})
   .map(res => res.text())
@@ -1831,7 +1873,7 @@ payInvoice(sessionid,invoiceNumber,docdata,newdate,newduedate,accountCode,accoun
 //pay ZAR Invoice
  payInvoiceZAR(sessionid,invoiceNumber,docdata,newdate,newduedate,accountCode,accountCode2){
   
-  console.log(this.receiptCounter)
+  //console.log(this.receiptCounter)
   if(docdata.paymentType == "Transfer"){
   let tranDate = this.formateDate(docdata.transferDate);
   let headers = new Headers();
@@ -1907,43 +1949,48 @@ payInvoice(sessionid,invoiceNumber,docdata,newdate,newduedate,accountCode,accoun
 
   if(docdata.paymentType == "Cash"){
 
-
+    let Partpayments = ''
+    for (var index = 1; index <= docdata.items.length; ++index) {     
+      if(docdata.items[index-1].amountZAR){     
+      Partpayments += '<dis:AddObject xmlns:dis="http://www.sap.com/SBO/DIS" CommandID="Add Incoming Payment">'+
+              '<BOM>'+
+              '<BO>'+
+              '<AdmInfo>'+
+              '<Object>oIncomingPayments</Object>'+
+              '</AdmInfo>'+
+              '<Payments>'+
+              '<row>'+
+                '<CardCode>'+docdata.addid+'_001</CardCode>'+
+                '<DocTypte>rCustomer</DocTypte>'+
+                '<dis:CashAccount>'+docdata.items[index-1].itemaccount[0]+'</dis:CashAccount>'+
+                '<dis:DocCurrency>ZAR</dis:DocCurrency>'+
+                '<dis:CashSum>'+docdata.items[index-1].amountZAR+'</dis:CashSum>'+
+                '<dis:Remarks>'+docdata.description+'</dis:Remarks>'+
+                '<dis:JournalRemarks>'+docdata.description+'</dis:JournalRemarks>'+
+              '</row>'+  
+            '</Payments>'+
+              '<Payments_Invoices>'+
+              '<row>'+
+              '<DocEntry>'+invoiceNumber+'</DocEntry>'+
+              '<InvoiceType>it_Invoice</InvoiceType>'+
+              '<AppliedFC>'+docdata.items[index-1].amountZAR+'</AppliedFC>'+   
+              '</row>'+
+            '</Payments_Invoices>'+
+            '</BO>'+
+            '</BOM>'+
+            '</dis:AddObject>';      
+      }
+    }
+   // console.log(Partpayments)
   let headers = new Headers();
 
   let body = '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope">'+
   '<env:Header>'+
   '<SessionID>'+sessionid+'</SessionID>'+
   '</env:Header>'+
-  '<env:Body>'+
-  '<dis:AddObject xmlns:dis="http://www.sap.com/SBO/DIS" CommandID="Add Incoming Payment">'+
-  '<BOM>'+
-  '<BO>'+
-  '<AdmInfo>'+
-  '<Object>oIncomingPayments</Object>'+
-  '</AdmInfo>'+
-  '<Payments>'+
-  '<row>'+
-    '<CardCode>'+docdata.addid+'_001</CardCode>'+
-    '<DocTypte>rCustomer</DocTypte>'+
-    '<dis:DocCurrency>ZAR</dis:DocCurrency>'+
-    '<dis:CashAccount>'+accountCode+'</dis:CashAccount>'+
-    '<dis:CashSum>'+docdata.totalZAR+'</dis:CashSum>'+
-    '<dis:Remarks>'+docdata.description+'</dis:Remarks>'+
-    '<dis:JournalRemarks>'+docdata.description+'</dis:JournalRemarks>'+
-  '</row>'+
- '</Payments>'+
- '<Payments_Invoices>'+
-  '<row>'+
-  '<DocEntry>'+invoiceNumber+'</DocEntry>'+
-   '<InvoiceType>it_Invoice</InvoiceType>'+
-   '<SumApplied>'+docdata.totalZAR+'</SumApplied>'+
-  '</row>'+
- '</Payments_Invoices>'+
-'</BO>'+
-'</BOM>'+
-'</dis:AddObject>'+
-'</env:Body>'+
-'</env:Envelope>';
+  '<env:Body>'+ Partpayments+
+  '</env:Body>'+
+  '</env:Envelope>';
 
 
   this.http.post('http://10.0.0.36/B1WS/Service.asmx',body,{headers:headers})
@@ -2055,44 +2102,48 @@ payInvoiceZWD(sessionid,invoiceNumber,docdata,newdate,newduedate,accountCode,acc
   }
 
   if(docdata.paymentType == "Cash"){
-
-
+    let Partpayments = ''
+    for (var index = 1; index <= docdata.items.length; ++index) {     
+      if(docdata.items[index-1].amountZWD){     
+      Partpayments += '<dis:AddObject xmlns:dis="http://www.sap.com/SBO/DIS" CommandID="Add Incoming Payment">'+
+              '<BOM>'+
+              '<BO>'+
+              '<AdmInfo>'+
+              '<Object>oIncomingPayments</Object>'+
+              '</AdmInfo>'+
+              '<Payments>'+
+              '<row>'+
+                '<CardCode>'+docdata.addid+'_001</CardCode>'+
+                '<DocTypte>rCustomer</DocTypte>'+
+                '<dis:CashAccount>'+docdata.items[index-1].itemaccount[0]+'</dis:CashAccount>'+
+                '<dis:DocCurrency>ZWD</dis:DocCurrency>'+
+                '<dis:CashSum>'+docdata.items[index-1].amountZWD+'</dis:CashSum>'+
+                '<dis:Remarks>'+docdata.description+'</dis:Remarks>'+
+                '<dis:JournalRemarks>'+docdata.description+'</dis:JournalRemarks>'+
+              '</row>'+  
+            '</Payments>'+
+              '<Payments_Invoices>'+
+              '<row>'+
+              '<DocEntry>'+invoiceNumber+'</DocEntry>'+
+              '<InvoiceType>it_Invoice</InvoiceType>'+
+              '<SumApplied>'+docdata.items[index-1].amountZWD+'</SumApplied>'+   
+              '</row>'+
+            '</Payments_Invoices>'+
+            '</BO>'+
+            '</BOM>'+
+            '</dis:AddObject>';      
+      }
+    }
+   // console.log(Partpayments)
   let headers = new Headers();
 
   let body = '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope">'+
   '<env:Header>'+
   '<SessionID>'+sessionid+'</SessionID>'+
   '</env:Header>'+
-  '<env:Body>'+
-  '<dis:AddObject xmlns:dis="http://www.sap.com/SBO/DIS" CommandID="Add Incoming Payment">'+
-  '<BOM>'+
-  '<BO>'+
-  '<AdmInfo>'+
-  '<Object>oIncomingPayments</Object>'+
-  '</AdmInfo>'+
-  '<Payments>'+
-  '<row>'+
-    '<CardCode>'+docdata.addid+'_001</CardCode>'+
-    '<DocTypte>rCustomer</DocTypte>'+
-    '<dis:CashAccount>'+accountCode+'</dis:CashAccount>'+
-    '<dis:DocCurrency>ZWD</dis:DocCurrency>'+
-    '<dis:CashSum>'+docdata.totalZWD+'</dis:CashSum>'+
-    '<dis:Remarks>'+docdata.description+'</dis:Remarks>'+
-    '<dis:JournalRemarks>'+docdata.description+'</dis:JournalRemarks>'+
-  '</row>'+
- '</Payments>'+
- '<Payments_Invoices>'+
-  '<row>'+
-  '<DocEntry>'+invoiceNumber+'</DocEntry>'+
-   '<InvoiceType>it_Invoice</InvoiceType>'+
-   '<SumApplied>'+docdata.totalZWD+'</SumApplied>'+
-  '</row>'+
- '</Payments_Invoices>'+
-'</BO>'+
-'</BOM>'+
-'</dis:AddObject>'+
-'</env:Body>'+
-'</env:Envelope>';
+  '<env:Body>'+ Partpayments+
+  '</env:Body>'+
+  '</env:Envelope>';
 
 
   this.http.post('http://10.0.0.36/B1WS/Service.asmx',body,{headers:headers})
@@ -2124,7 +2175,7 @@ payInvoiceZWD(sessionid,invoiceNumber,docdata,newdate,newduedate,accountCode,acc
     //this.filteredusers = results;
     //this.temparr = results;
   });
-  }
+   }
 }
 
 
@@ -2204,44 +2255,48 @@ payInvoiceBWP(sessionid,invoiceNumber,docdata,newdate,newduedate,accountCode,acc
   }
 
   if(docdata.paymentType == "Cash"){
-
-
+    let Partpayments = ''
+    for (var index = 1; index <= docdata.items.length; ++index) {     
+      if(docdata.items[index-1].amountBWP){     
+      Partpayments += '<dis:AddObject xmlns:dis="http://www.sap.com/SBO/DIS" CommandID="Add Incoming Payment">'+
+              '<BOM>'+
+              '<BO>'+
+              '<AdmInfo>'+
+              '<Object>oIncomingPayments</Object>'+
+              '</AdmInfo>'+
+              '<Payments>'+
+              '<row>'+
+                '<CardCode>'+docdata.addid+'_001</CardCode>'+
+                '<DocTypte>rCustomer</DocTypte>'+
+                '<dis:CashAccount>'+docdata.items[index-1].itemaccount[0]+'</dis:CashAccount>'+
+                '<dis:DocCurrency>BWP</dis:DocCurrency>'+
+                '<dis:CashSum>'+docdata.items[index-1].amountBWP+'</dis:CashSum>'+
+                '<dis:Remarks>'+docdata.description+'</dis:Remarks>'+
+                '<dis:JournalRemarks>'+docdata.description+'</dis:JournalRemarks>'+
+              '</row>'+  
+            '</Payments>'+
+              '<Payments_Invoices>'+
+              '<row>'+
+              '<DocEntry>'+invoiceNumber+'</DocEntry>'+
+              '<InvoiceType>it_Invoice</InvoiceType>'+
+              '<AppliedFC>'+docdata.items[index-1].amountBWP+'</AppliedFC>'+   
+              '</row>'+
+            '</Payments_Invoices>'+
+            '</BO>'+
+            '</BOM>'+
+            '</dis:AddObject>';      
+      }
+    }
+   // console.log(Partpayments)
   let headers = new Headers();
 
   let body = '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope">'+
   '<env:Header>'+
   '<SessionID>'+sessionid+'</SessionID>'+
   '</env:Header>'+
-  '<env:Body>'+
-  '<dis:AddObject xmlns:dis="http://www.sap.com/SBO/DIS" CommandID="Add Incoming Payment">'+
-  '<BOM>'+
-  '<BO>'+
-  '<AdmInfo>'+
-  '<Object>oIncomingPayments</Object>'+
-  '</AdmInfo>'+
-  '<Payments>'+
-  '<row>'+
-    '<CardCode>'+docdata.addid+'_001</CardCode>'+
-    '<dis:DocCurrency>BWP</dis:DocCurrency>'+
-    '<DocTypte>rCustomer</DocTypte>'+
-    '<dis:CashAccount>'+accountCode+'</dis:CashAccount>'+
-    '<dis:CashSum>'+docdata.totalBWP+'</dis:CashSum>'+
-    '<dis:Remarks>'+docdata.description+'</dis:Remarks>'+
-    '<dis:JournalRemarks>'+docdata.description+'</dis:JournalRemarks>'+
-  '</row>'+
- '</Payments>'+
- '<Payments_Invoices>'+
-  '<row>'+
-  '<DocEntry>'+invoiceNumber+'</DocEntry>'+
-   '<InvoiceType>it_Invoice</InvoiceType>'+
-   '<SumApplied>'+docdata.totalBWP+'</SumApplied>'+
-  '</row>'+
- '</Payments_Invoices>'+
-'</BO>'+
-'</BOM>'+
-'</dis:AddObject>'+
-'</env:Body>'+
-'</env:Envelope>';
+  '<env:Body>'+ Partpayments+
+  '</env:Body>'+
+  '</env:Envelope>';
 
 
   this.http.post('http://10.0.0.36/B1WS/Service.asmx',body,{headers:headers})
@@ -2353,44 +2408,49 @@ payInvoiceGBP(sessionid,invoiceNumber,docdata,newdate,newduedate,accountCode,acc
   }
 
   if(docdata.paymentType == "Cash"){
-
-
+    let Partpayments = ''
+    for (var index = 1; index <= docdata.items.length; ++index) {     
+      if(docdata.items[index-1].amountGBP){     
+      Partpayments += '<dis:AddObject xmlns:dis="http://www.sap.com/SBO/DIS" CommandID="Add Incoming Payment">'+
+              '<BOM>'+
+              '<BO>'+
+              '<AdmInfo>'+
+              '<Object>oIncomingPayments</Object>'+
+              '</AdmInfo>'+
+              '<Payments>'+
+              '<row>'+
+                '<CardCode>'+docdata.addid+'_001</CardCode>'+
+                '<DocTypte>rCustomer</DocTypte>'+
+                '<dis:CashAccount>'+docdata.items[index-1].itemaccount[0]+'</dis:CashAccount>'+
+                '<dis:DocCurrency>GBP</dis:DocCurrency>'+
+                '<dis:CashSum>'+docdata.items[index-1].amountGBP+'</dis:CashSum>'+
+                '<dis:Remarks>'+docdata.description+'</dis:Remarks>'+
+                '<dis:JournalRemarks>'+docdata.description+'</dis:JournalRemarks>'+
+              '</row>'+  
+            '</Payments>'+
+              '<Payments_Invoices>'+
+              '<row>'+
+              '<DocEntry>'+invoiceNumber+'</DocEntry>'+
+              '<InvoiceType>it_Invoice</InvoiceType>'+
+              '<AppliedFC>'+docdata.items[index-1].amountGBP+'</AppliedFC>'+   
+              '</row>'+
+            '</Payments_Invoices>'+
+            '</BO>'+
+            '</BOM>'+
+            '</dis:AddObject>';      
+      }
+    }
+   // console.log(Partpayments)
   let headers = new Headers();
 
   let body = '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope">'+
   '<env:Header>'+
   '<SessionID>'+sessionid+'</SessionID>'+
   '</env:Header>'+
-  '<env:Body>'+
-  '<dis:AddObject xmlns:dis="http://www.sap.com/SBO/DIS" CommandID="Add Incoming Payment">'+
-  '<BOM>'+
-  '<BO>'+
-  '<AdmInfo>'+
-  '<Object>oIncomingPayments</Object>'+
-  '</AdmInfo>'+
-  '<Payments>'+
-  '<row>'+
-    '<CardCode>'+docdata.addid+'_001</CardCode>'+
-    '<dis:DocCurrency>GBP</dis:DocCurrency>'+
-    '<DocTypte>rCustomer</DocTypte>'+
-    '<dis:CashAccount>'+accountCode+'</dis:CashAccount>'+
-    '<dis:CashSum>'+docdata.totalGBP+'</dis:CashSum>'+
-    '<dis:Remarks>'+docdata.description+'</dis:Remarks>'+
-    '<dis:JournalRemarks>'+docdata.description+'</dis:JournalRemarks>'+
-  '</row>'+
- '</Payments>'+
- '<Payments_Invoices>'+
-  '<row>'+
-  '<DocEntry>'+invoiceNumber+'</DocEntry>'+
-   '<InvoiceType>it_Invoice</InvoiceType>'+
-   '<SumApplied>'+docdata.totalGBP+'</SumApplied>'+
-  '</row>'+
- '</Payments_Invoices>'+
-'</BO>'+
-'</BOM>'+
-'</dis:AddObject>'+
-'</env:Body>'+
-'</env:Envelope>';
+  '<env:Body>'+ Partpayments+
+  '</env:Body>'+
+  '</env:Envelope>';
+
 
 
   this.http.post('http://10.0.0.36/B1WS/Service.asmx',body,{headers:headers})
@@ -2503,43 +2563,48 @@ payInvoiceEUR(sessionid,invoiceNumber,docdata,newdate,newduedate,accountCode,acc
 
   if(docdata.paymentType == "Cash"){
 
-
+    let Partpayments = ''
+    for (var index = 1; index <= docdata.items.length; ++index) {     
+      if(docdata.items[index-1].amountEUR){     
+      Partpayments += '<dis:AddObject xmlns:dis="http://www.sap.com/SBO/DIS" CommandID="Add Incoming Payment">'+
+              '<BOM>'+
+              '<BO>'+
+              '<AdmInfo>'+
+              '<Object>oIncomingPayments</Object>'+
+              '</AdmInfo>'+
+              '<Payments>'+
+              '<row>'+
+                '<CardCode>'+docdata.addid+'_001</CardCode>'+
+                '<DocTypte>rCustomer</DocTypte>'+
+                '<dis:CashAccount>'+docdata.items[index-1].itemaccount[0]+'</dis:CashAccount>'+
+                '<dis:DocCurrency>EUR</dis:DocCurrency>'+
+                '<dis:CashSum>'+docdata.items[index-1].amountEUR+'</dis:CashSum>'+
+                '<dis:Remarks>'+docdata.description+'</dis:Remarks>'+
+                '<dis:JournalRemarks>'+docdata.description+'</dis:JournalRemarks>'+
+              '</row>'+  
+            '</Payments>'+
+              '<Payments_Invoices>'+
+              '<row>'+
+              '<DocEntry>'+invoiceNumber+'</DocEntry>'+
+              '<InvoiceType>it_Invoice</InvoiceType>'+
+              '<AppliedFC>'+docdata.items[index-1].amountEUR+'</AppliedFC>'+   
+              '</row>'+
+            '</Payments_Invoices>'+
+            '</BO>'+
+            '</BOM>'+
+            '</dis:AddObject>';      
+      }
+    }
+   // console.log(Partpayments)
   let headers = new Headers();
 
   let body = '<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope">'+
   '<env:Header>'+
   '<SessionID>'+sessionid+'</SessionID>'+
   '</env:Header>'+
-  '<env:Body>'+
-  '<dis:AddObject xmlns:dis="http://www.sap.com/SBO/DIS" CommandID="Add Incoming Payment">'+
-  '<BOM>'+
-  '<BO>'+
-  '<AdmInfo>'+
-  '<Object>oIncomingPayments</Object>'+
-  '</AdmInfo>'+
-  '<Payments>'+
-  '<row>'+
-    '<CardCode>'+docdata.addid+'_001</CardCode>'+
-    '<DocTypte>rCustomer</DocTypte>'+
-    '<dis:DocCurrency>EUR</dis:DocCurrency>'+
-    '<dis:CashAccount>'+accountCode+'</dis:CashAccount>'+
-    '<dis:CashSum>'+docdata.totalEUR+'</dis:CashSum>'+
-    '<dis:Remarks>'+docdata.description+'</dis:Remarks>'+
-    '<dis:JournalRemarks>'+docdata.description+'</dis:JournalRemarks>'+
-  '</row>'+
- '</Payments>'+
- '<Payments_Invoices>'+
-  '<row>'+
-  '<DocEntry>'+invoiceNumber+'</DocEntry>'+
-   '<InvoiceType>it_Invoice</InvoiceType>'+
-   '<SumApplied>'+docdata.totalEUR+'</SumApplied>'+
-  '</row>'+
- '</Payments_Invoices>'+
-'</BO>'+
-'</BOM>'+
-'</dis:AddObject>'+
-'</env:Body>'+
-'</env:Envelope>';
+  '<env:Body>'+ Partpayments+
+  '</env:Body>'+
+  '</env:Envelope>';
 
 
   this.http.post('http://10.0.0.36/B1WS/Service.asmx',body,{headers:headers})
@@ -2786,7 +2851,7 @@ addJournalUnknown(sessionid,docdata,payment,invoice,accountCode,amount,currency,
 
 //USD Journal Function
 partPayInvoiceUSD(sessionid,docdata,invoice,payment,accountCode){
-  console.log(docdata);
+  //console.log(docdata);
   let headers = new Headers();
 
   let body =

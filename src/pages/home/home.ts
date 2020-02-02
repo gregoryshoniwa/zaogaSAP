@@ -490,22 +490,58 @@ formatDate(date) {
 
 
     for (var i = 0; i < this.itemsList.length; i++) {
-        var elementZWD = this.itemsList[i];
-        var elementUSD = this.itemsList[i];
-        var elementZAR = this.itemsList[i];
-        var elementBWP = this.itemsList[i];
-        var elementGBP = this.itemsList[i];
-        var elementEUR = this.itemsList[i];
+        var element = this.itemsList[i];
+        if(element.amountZWD){
+          this.TotalZWD += parseFloat(element.amountZWD);
+        }
+        if(element.amountBWP){
+          this.TotalBWP += parseFloat(element.amountBWP);
+        }
+        if(element.amountGBP){
+          this.TotalGBP += parseFloat(element.amountGBP);
+        }
+        if(element.amountZAR){
+          this.TotalZAR += parseFloat(element.amountZAR);
+        }
+        if(element.amountUSD){
+          this.TotalUSD += parseFloat(element.amountUSD);
+        }
+        if(element.amountEUR){
+          this.TotalEUR += parseFloat(element.amountEUR);
+        }
+
+        if(!element.amountZWD){
+          this.TotalZWD += 0;
+        }
+        if(!element.amountBWP){
+          this.TotalBWP += 0;
+        }
+        if(!element.amountGBP){
+          this.TotalGBP += 0;
+        }
+        if(!element.amountZAR){
+          this.TotalZAR += 0;
+        }
+        if(!element.amountUSD){
+          this.TotalUSD += 0;
+        }
+        if(!element.amountEUR){
+          this.TotalEUR += 0;
+        }
+        // var elementUSD = this.itemsList[i];
+        // var elementZAR = this.itemsList[i];
+        // var elementBWP = this.itemsList[i];
+        // var elementGBP = this.itemsList[i];
+        // var elementEUR = this.itemsList[i];
 
         //console.log(elementUSD.amountUSD);
         // how to add each price and get a total
-        this.TotalZWD += parseFloat(elementZWD.amountZWD);
-        this.TotalUSD += parseFloat(elementUSD.amountUSD);
-        this.TotalZAR += parseFloat(elementZAR.amountZAR);
-        this.TotalBWP += parseFloat(elementBWP.amountBWP);
-        this.TotalGBP += parseFloat(elementGBP.amountGBP);
-        this.TotalEUR += parseFloat(elementEUR.amountEUR);
-
+        // this.TotalZWD += parseFloat(element.amountZWD);
+        
+        
+        
+       
+        
 
     }
 
@@ -1355,7 +1391,7 @@ cashbreakdown(currencyType){
       console.log(results);
       try{
         if(results != "Unable to connect with the specified username and or password"){
-          this.complited = this.sapservice.addInvoiceZWD(results,this.remittanceData,this.accountCodeZWD,this.accountCodeZWD2,this.receiptCount);
+         this.complited = this.sapservice.addInvoiceZWD(results,this.remittanceData,this.accountCodeZWD,this.accountCodeZWD2,this.receiptCount);
 
         }else{
           this.presentAlert();
@@ -1382,8 +1418,8 @@ cashbreakdown(currencyType){
         this.accountCode2 = res[0].accountCode;
 
        if(this.accountCode && this.accountCode2){
-        console.log(this.accountCode);
-        console.log(this.accountCode2);
+       // console.log(this.accountCode);
+      //  console.log(this.accountCode2);
 
 
     let headers = new Headers();
@@ -1423,7 +1459,7 @@ cashbreakdown(currencyType){
       var xmlDoc = parser.parseFromString(data,"text/xml");
       var results = xmlDoc.getElementsByTagName("SessionID")[0].childNodes[0].nodeValue;
 
-      console.log(results);
+      //console.log(results);
       try{
         if(results != "Unable to connect with the specified username and or password"){
           this.complited = this.sapservice.addInvoice(results,this.remittanceData,this.accountCode,this.accountCode2,this.receiptCount);
