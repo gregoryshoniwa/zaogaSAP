@@ -384,7 +384,7 @@ export class RestapiserviceProvider {
 
 
   addUnknownPayment(userObject,docentry){
-    console.log(userObject);
+   // console.log(userObject);
     let opt: RequestOptions;
     let myHeaders: Headers = new Headers;
     let body = {
@@ -414,6 +414,29 @@ export class RestapiserviceProvider {
 
   }
 
+  addCashRemittance(data){
+    // console.log(userObject);
+     let opt: RequestOptions;
+     let myHeaders: Headers = new Headers;
+     let body = {
+       RemittanceData:JSON.stringify(data)
+     };
+ 
+     myHeaders.append('Content-type','application/json');
+     opt = new RequestOptions({
+       headers: myHeaders
+     })
+ 
+     this.http.post('http://10.0.0.36:1337/linkcashbreakdown',JSON.stringify(body),opt)
+     .map(res => res.json())
+     .subscribe(data =>{
+       this.adduserToast();
+       //console.log(data);
+     });
+ 
+ 
+ 
+   }
 
   sendReceipt(docdata){
     //console.log(userObject);

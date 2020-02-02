@@ -1771,9 +1771,9 @@ payInvoice(sessionid,invoiceNumber,docdata,newdate,newduedate,accountCode,accoun
     var xmlDoc = parser.parseFromString(data,"text/xml");
     try{
       var results = xmlDoc.getElementsByTagName("RetKey")[0].childNodes[0].nodeValue
-      console.log(results);
+     // console.log(results);
       //this.addJournal(sessionid,docdata,invoiceNumber,results,accountCode2);
-      console.log(this.receiptCounter)
+      //console.log(this.receiptCounter)
       if(this.receiptCounter == 1){
         let nav = this.app.getActiveNav();
         this.loader.dismiss();
@@ -1852,6 +1852,7 @@ payInvoice(sessionid,invoiceNumber,docdata,newdate,newduedate,accountCode,accoun
       if(this.receiptCounter == 1){
         let nav = this.app.getActiveNav();
         this.loader.dismiss();
+        this.restservice.addCashRemittance(docdata);
         nav.push("PrintPage",{invoice: invoiceNumber,payment:results,journal:results,docdata:docdata,sessionID:sessionid});
         
       }else{
@@ -2007,6 +2008,7 @@ payInvoice(sessionid,invoiceNumber,docdata,newdate,newduedate,accountCode,accoun
       if(this.receiptCounter == 1){
         let nav = this.app.getActiveNav();
         this.loader.dismiss();
+        this.restservice.addCashRemittance(docdata);
         nav.push("PrintPage",{invoice: invoiceNumber,payment:results,journal:results,docdata:docdata,sessionID:sessionid});
         
       }else{
@@ -2080,7 +2082,7 @@ payInvoiceZWD(sessionid,invoiceNumber,docdata,newdate,newduedate,accountCode,acc
     var xmlDoc = parser.parseFromString(data,"text/xml");
     try{
       var results = xmlDoc.getElementsByTagName("RetKey")[0].childNodes[0].nodeValue
-      console.log(results);
+     // console.log(results);
       //this.addJournalZWD(sessionid,docdata,invoiceNumber,results,accountCode2);
       if(this.receiptCounter == 1){
         let nav = this.app.getActiveNav();
@@ -2160,6 +2162,7 @@ payInvoiceZWD(sessionid,invoiceNumber,docdata,newdate,newduedate,accountCode,acc
      if(this.receiptCounter == 1){
       let nav = this.app.getActiveNav();
       this.loader.dismiss();
+      this.restservice.addCashRemittance(docdata);
       nav.push("PrintPage",{invoice: invoiceNumber,payment:results,journal:results,docdata:docdata,sessionID:sessionid});
       
     }else{
@@ -2256,6 +2259,7 @@ payInvoiceBWP(sessionid,invoiceNumber,docdata,newdate,newduedate,accountCode,acc
 
   if(docdata.paymentType == "Cash"){
     let Partpayments = ''
+    //console.log(docdata)
     for (var index = 1; index <= docdata.items.length; ++index) {     
       if(docdata.items[index-1].amountBWP){     
       Partpayments += '<dis:AddObject xmlns:dis="http://www.sap.com/SBO/DIS" CommandID="Add Incoming Payment">'+
@@ -2313,6 +2317,7 @@ payInvoiceBWP(sessionid,invoiceNumber,docdata,newdate,newduedate,accountCode,acc
       if(this.receiptCounter == 1){
         let nav = this.app.getActiveNav();
         this.loader.dismiss();
+        this.restservice.addCashRemittance(docdata);
         nav.push("PrintPage",{invoice: invoiceNumber,payment:results,journal:results,docdata:docdata,sessionID:sessionid});
         
       }else{
@@ -2467,6 +2472,7 @@ payInvoiceGBP(sessionid,invoiceNumber,docdata,newdate,newduedate,accountCode,acc
       if(this.receiptCounter == 1){
         let nav = this.app.getActiveNav();
         this.loader.dismiss();
+        this.restservice.addCashRemittance(docdata);
         nav.push("PrintPage",{invoice: invoiceNumber,payment:results,journal:results,docdata:docdata,sessionID:sessionid});
         
       }else{
@@ -2621,6 +2627,7 @@ payInvoiceEUR(sessionid,invoiceNumber,docdata,newdate,newduedate,accountCode,acc
       if(this.receiptCounter == 1){
         let nav = this.app.getActiveNav();
         this.loader.dismiss();
+        this.restservice.addCashRemittance(docdata);
         nav.push("PrintPage",{invoice: invoiceNumber,payment:results,journal:results,docdata:docdata,sessionID:sessionid});
         
       }else{
@@ -2975,6 +2982,7 @@ partPayInvoiceUSD(sessionid,docdata,invoice,payment,accountCode){
         //console.log(results);
         let nav = this.app.getActiveNav();
         this.loader.dismiss();
+        
         nav.push("PrintPage",{invoice: invoice,payment:payment,journal:results,docdata:docdata,sessionID:sessionid});
 
 

@@ -103,12 +103,24 @@
                            <tr *ngFor="let data of docdata.items; let i = index">
                                <th>{{i+1}}</th>
                                <th>{{data.item}}</th>
-                               <th>{{data.amountZWD}}</th>
+                               <th *ngIf='data.amountZWD'>{{data.amountZWD}}</th>
+                                <th *ngIf='!data.amountZWD'>0.00</th>
+                                <th *ngIf='data.amountUSD'>{{data.amountUSD}}</th>
+                                <th *ngIf='!data.amountUSD'>0.00</th>
+                                <th *ngIf='data.amountZAR'>{{data.amountZAR}}</th>
+                                <th *ngIf='!data.amountZAR'>0.00</th>
+                                <th *ngIf='data.amountBWP'>{{data.amountBWP}}</th>
+                                <th *ngIf='!data.amountBWP'>0.00</th>
+                                <th *ngIf='data.amountGBP'>{{data.amountGBP}}</th>
+                                <th *ngIf='!data.amountGBP'>0.00</th>
+                                <th *ngIf='data.amountEUR'>{{data.amountEUR}}</th>
+                                <th *ngIf='!data.amountEUR'>0.00</th>
+                               <!-- <th>{{data.amountZWD}}</th>
                                <th>{{data.amountUSD}}</th> 
                                <th>{{data.amountZAR}}</th>
                                <th>{{data.amountBWP}}</th> 
                                <th>{{data.amountGBP}}</th>
-                               <th>{{data.amountEUR}}</th> 
+                               <th>{{data.amountEUR}}</th>  -->
                                
                            </tr>
                                               

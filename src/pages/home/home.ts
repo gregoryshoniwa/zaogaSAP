@@ -650,7 +650,7 @@ cashbreakdown(currencyType){
 
      // console.log(data.itemaccount);
       this.itemsList.push(data);
-      console.log(this.itemsList);
+      //console.log(this.itemsList);
       this.calculator();
 
     }
