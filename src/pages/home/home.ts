@@ -57,6 +57,7 @@ export class HomePage {
     addid : "",
     docentry: "",
     owner: "",
+    userID:"",
     ownerFirstName: "",
     ownerLastName : ""
 
@@ -234,6 +235,7 @@ export class HomePage {
     //this.presentLoading();
     this.sessionID = this.navParams.get('sessionID');
     this.username = this.navParams.get('userID');
+    this.remittanceData.userID = this.navParams.get('userID');
     this.global.setUserID(this.username);
     this.cred.username = this.username;
     this.cred.password = this.navParams.get('userPass');

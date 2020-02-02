@@ -419,7 +419,8 @@ export class RestapiserviceProvider {
      let opt: RequestOptions;
      let myHeaders: Headers = new Headers;
      let body = {
-       RemittanceData:JSON.stringify(data)
+       RemittanceData:JSON.stringify(data),
+       UserID:data.userID
      };
  
      myHeaders.append('Content-type','application/json');
