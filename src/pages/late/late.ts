@@ -503,8 +503,8 @@ createBreakDown(data){
   if(newData.cashbreakdownZWD.twodollarcoin){
    this.CashBreakDownZWD[0].twodollarcoin += Number(newData.cashbreakdownZWD.twodollarcoin)
  }
- if(newData.cashbreakdownZWD.onecoin){
-   this.CashBreakDownZWD[0].onecoin += Number(newData.cashbreakdownZWD.onecoin)
+ if(newData.cashbreakdownZWD.dollarcoin){
+   this.CashBreakDownZWD[0].dollarcoin += Number(newData.cashbreakdownZWD.dollarcoin)
  }
  if(newData.cashbreakdownZWD.fiftycoin){
    this.CashBreakDownZWD[0].fiftycoin += Number(newData.cashbreakdownZWD.fiftycoin)
@@ -563,8 +563,8 @@ if(newData.cashbreakdownZAR.fivedollarcoin){
 if(newData.cashbreakdownZAR.twodollarcoin){
 this.CashBreakDownZAR[0].twodollarcoin += Number(newData.cashbreakdownZAR.twodollarcoin)
 }
-if(newData.cashbreakdownZAR.onecoin){
-this.CashBreakDownZAR[0].onecoin += Number(newData.cashbreakdownZAR.onecoin)
+if(newData.cashbreakdownZAR.dollarcoin){
+this.CashBreakDownZAR[0].dollarcoin += Number(newData.cashbreakdownZAR.dollarcoin)
 }
 if(newData.cashbreakdownZAR.fiftycoin){
 this.CashBreakDownZAR[0].fiftycoin += Number(newData.cashbreakdownZAR.fiftycoin)
@@ -623,8 +623,8 @@ if(newData.cashbreakdownUSD.fivedollarcoin){
 if(newData.cashbreakdownUSD.twodollarcoin){
 this.CashBreakDownUSD[0].twodollarcoin += Number(newData.cashbreakdownUSD.twodollarcoin)
 }
-if(newData.cashbreakdownUSD.onecoin){
-this.CashBreakDownUSD[0].onecoin += Number(newData.cashbreakdownUSD.onecoin)
+if(newData.cashbreakdownUSD.dollarcoin){
+this.CashBreakDownUSD[0].dollarcoin += Number(newData.cashbreakdownUSD.dollarcoin)
 }
 if(newData.cashbreakdownUSD.fiftycoin){
 this.CashBreakDownUSD[0].fiftycoin += Number(newData.cashbreakdownUSD.fiftycoin)
@@ -682,8 +682,8 @@ if(newData.cashbreakdownBWP.fivedollarcoin){
 if(newData.cashbreakdownBWP.twodollarcoin){
 this.CashBreakDownBWP[0].twodollarcoin += Number(newData.cashbreakdownBWP.twodollarcoin)
 }
-if(newData.cashbreakdownBWP.onecoin){
-this.CashBreakDownBWP[0].onecoin += Number(newData.cashbreakdownBWP.onecoin)
+if(newData.cashbreakdownBWP.dollarcoin){
+this.CashBreakDownBWP[0].dollarcoin += Number(newData.cashbreakdownBWP.dollarcoin)
 }
 if(newData.cashbreakdownBWP.fiftycoin){
 this.CashBreakDownBWP[0].fiftycoin += Number(newData.cashbreakdownBWP.fiftycoin)
@@ -741,8 +741,8 @@ if(newData.cashbreakdownGBP.fivedollarcoin){
 if(newData.cashbreakdownGBP.twodollarcoin){
 this.CashBreakDownGBP[0].twodollarcoin += Number(newData.cashbreakdownGBP.twodollarcoin)
 }
-if(newData.cashbreakdownGBP.onecoin){
-this.CashBreakDownGBP[0].onecoin += Number(newData.cashbreakdownGBP.onecoin)
+if(newData.cashbreakdownGBP.dollarcoin){
+this.CashBreakDownGBP[0].dollarcoin += Number(newData.cashbreakdownGBP.dollarcoin)
 }
 if(newData.cashbreakdownGBP.fiftycoin){
 this.CashBreakDownGBP[0].fiftycoin += Number(newData.cashbreakdownGBP.fiftycoin)
@@ -800,8 +800,8 @@ if(newData.cashbreakdownEUR.fivedollarcoin){
 if(newData.cashbreakdownEUR.twodollarcoin){
 this.CashBreakDownEUR[0].twodollarcoin += Number(newData.cashbreakdownEUR.twodollarcoin)
 }
-if(newData.cashbreakdownEUR.onecoin){
-this.CashBreakDownEUR[0].onecoin += Number(newData.cashbreakdownEUR.onecoin)
+if(newData.cashbreakdownEUR.dollarcoin){
+this.CashBreakDownEUR[0].dollarcoin += Number(newData.cashbreakdownEUR.dollarcoin)
 }
 if(newData.cashbreakdownEUR.fiftycoin){
 this.CashBreakDownEUR[0].fiftycoin += Number(newData.cashbreakdownEUR.fiftycoin)
