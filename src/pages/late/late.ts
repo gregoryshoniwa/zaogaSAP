@@ -182,152 +182,152 @@ export class LatePage {
   CashBreakDown2 = [];
   CashBreakDownZWD2 = [
     {
-      fivehundred : 0,
-      twohundred : 0,
-      hundred : 0,
-      fifty : 0,
-      twenty : 0,
-      ten : 0,
-      five : 0,
-      two : 0,
-      one : 0,
-      fivedollarcoin : 0,
-      twodollarcoin : 0,
-      dollarcoin : 0,
-      fiftycoin : 0,
-      twentyfivecoin: 0,
-      twentycoin: 0,
-      tencoin : 0,
-      fivecoin : 0,
-      twocoin : 0,
-      onecoin : 0,
-      currency: 0,
-      total: null  
+      fivehundred : null,
+    twohundred : null,
+    hundred : null,
+    fifty : null,
+    twenty : null,
+    ten : null,
+    five : null,
+    two : null,
+    one : null,
+    fivedollarcoin : null,
+    twodollarcoin : null,
+    dollarcoin : null,
+    fiftycoin : null,
+    twentyfivecoin: null,
+    twentycoin: null,
+    tencoin : null,
+    fivecoin : null,
+    twocoin : null,
+    onecoin : null,
+    currency: null,
+    total: null  
     }
   ];
   CashBreakDownUSD2 = [
     {
-      fivehundred : 0,
-      twohundred : 0,
-      hundred : 0,
-      fifty : 0,
-      twenty : 0,
-      ten : 0,
-      five : 0,
-      two : 0,
-      one : 0,
-      fivedollarcoin : 0,
-      twodollarcoin : 0,
-      dollarcoin : 0,
-      fiftycoin : 0,
-      twentyfivecoin: 0,
-      twentycoin: 0,
-      tencoin : 0,
-      fivecoin : 0,
-      twocoin : 0,
-      onecoin : 0,
-      currency: 0,
+      fivehundred : null,
+      twohundred : null,
+      hundred : null,
+      fifty : null,
+      twenty : null,
+      ten : null,
+      five : null,
+      two : null,
+      one : null,
+      fivedollarcoin : null,
+      twodollarcoin : null,
+      dollarcoin : null,
+      fiftycoin : null,
+      twentyfivecoin: null,
+      twentycoin: null,
+      tencoin : null,
+      fivecoin : null,
+      twocoin : null,
+      onecoin : null,
+      currency: null,
       total: null  
     }
   ];
   CashBreakDownZAR2 = [
     {
-      fivehundred : 0,
-      twohundred : 0,
-      hundred : 0,
-      fifty : 0,
-      twenty : 0,
-      ten : 0,
-      five : 0,
-      two : 0,
-      one : 0,
-      fivedollarcoin : 0,
-      twodollarcoin : 0,
-      dollarcoin : 0,
-      fiftycoin : 0,
-      twentyfivecoin: 0,
-      twentycoin: 0,
-      tencoin : 0,
-      fivecoin : 0,
-      twocoin : 0,
-      onecoin : 0,
-      currency: 0,
-      total: null  
+      fivehundred : null,
+    twohundred : null,
+    hundred : null,
+    fifty : null,
+    twenty : null,
+    ten : null,
+    five : null,
+    two : null,
+    one : null,
+    fivedollarcoin : null,
+    twodollarcoin : null,
+    dollarcoin : null,
+    fiftycoin : null,
+    twentyfivecoin: null,
+    twentycoin: null,
+    tencoin : null,
+    fivecoin : null,
+    twocoin : null,
+    onecoin : null,
+    currency: null,
+    total: null  
     }
   ];
   CashBreakDownBWP2 = [
     {
-      fivehundred : 0,
-      twohundred : 0,
-      hundred : 0,
-      fifty : 0,
-      twenty : 0,
-      ten : 0,
-      five : 0,
-      two : 0,
-      one : 0,
-      fivedollarcoin : 0,
-      twodollarcoin : 0,
-      dollarcoin : 0,
-      fiftycoin : 0,
-      twentyfivecoin: 0,
-      twentycoin: 0,
-      tencoin : 0,
-      fivecoin : 0,
-      twocoin : 0,
-      onecoin : 0,
-      currency: 0,
-      total: null  
+      fivehundred : null,
+    twohundred : null,
+    hundred : null,
+    fifty : null,
+    twenty : null,
+    ten : null,
+    five : null,
+    two : null,
+    one : null,
+    fivedollarcoin : null,
+    twodollarcoin : null,
+    dollarcoin : null,
+    fiftycoin : null,
+    twentyfivecoin: null,
+    twentycoin: null,
+    tencoin : null,
+    fivecoin : null,
+    twocoin : null,
+    onecoin : null,
+    currency: null,
+    total: null  
     }
   ];
   CashBreakDownGBP2 = [
     {
-      fivehundred : 0,
-      twohundred : 0,
-      hundred : 0,
-      fifty : 0,
-      twenty : 0,
-      ten : 0,
-      five : 0,
-      two : 0,
-      one : 0,
-      fivedollarcoin : 0,
-      twodollarcoin : 0,
-      dollarcoin : 0,
-      fiftycoin : 0,
-      twentyfivecoin: 0,
-      twentycoin: 0,
-      tencoin : 0,
-      fivecoin : 0,
-      twocoin : 0,
-      onecoin : 0,
-      currency: 0,
-      total: null  
+      fivehundred : null,
+    twohundred : null,
+    hundred : null,
+    fifty : null,
+    twenty : null,
+    ten : null,
+    five : null,
+    two : null,
+    one : null,
+    fivedollarcoin : null,
+    twodollarcoin : null,
+    dollarcoin : null,
+    fiftycoin : null,
+    twentyfivecoin: null,
+    twentycoin: null,
+    tencoin : null,
+    fivecoin : null,
+    twocoin : null,
+    onecoin : null,
+    currency: null,
+    total: null  
     }
   ];
   CashBreakDownEUR2 = [
     {
-      fivehundred : 0,
-      twohundred : 0,
-      hundred : 0,
-      fifty : 0,
-      twenty : 0,
-      ten : 0,
-      five : 0,
-      two : 0,
-      one : 0,
-      fivedollarcoin : 0,
-      twodollarcoin : 0,
-      dollarcoin : 0,
-      fiftycoin : 0,
-      twentyfivecoin: 0,
-      twentycoin: 0,
-      tencoin : 0,
-      fivecoin : 0,
-      twocoin : 0,
-      onecoin : 0,
-      currency: 0,
-      total: null  
+      fivehundred : null,
+    twohundred : null,
+    hundred : null,
+    fifty : null,
+    twenty : null,
+    ten : null,
+    five : null,
+    two : null,
+    one : null,
+    fivedollarcoin : null,
+    twodollarcoin : null,
+    dollarcoin : null,
+    fiftycoin : null,
+    twentyfivecoin: null,
+    twentycoin: null,
+    tencoin : null,
+    fivecoin : null,
+    twocoin : null,
+    onecoin : null,
+    currency: null,
+    total: null  
     }
   ];
   cashTotal;
@@ -378,30 +378,30 @@ cashbreakdown(currencyType){
   let currency = currencyType
   
   if(currency == 'ZWD'){
-    this.CashBreakDown = []
-    this.CashBreakDown.push(this.CashBreakDownZWD[0])
+    this.CashBreakDown2 = []
+    this.CashBreakDown2.push(this.CashBreakDownZWD2[0])
   }
   if(currency == 'ZAR'){
-    this.CashBreakDown = []
-    this.CashBreakDown.push(this.CashBreakDownZAR[0])
+    this.CashBreakDown2 = []
+    this.CashBreakDown2.push(this.CashBreakDownZAR2[0])
   }
   if(currency == 'USD'){
-    this.CashBreakDown = []
-    this.CashBreakDown.push(this.CashBreakDownUSD[0])
+    this.CashBreakDown2 = []
+    this.CashBreakDown2.push(this.CashBreakDownUSD2[0])
   }
   if(currency == 'BWP'){
-    this.CashBreakDown = []
-    this.CashBreakDown.push(this.CashBreakDownBWP[0])
+    this.CashBreakDown2 = []
+    this.CashBreakDown2.push(this.CashBreakDownBWP2[0])
   }
   if(currency == 'GBP'){
-    this.CashBreakDown = []
-    this.CashBreakDown.push(this.CashBreakDownGBP[0])
+    this.CashBreakDown2 = []
+    this.CashBreakDown2.push(this.CashBreakDownGBP2[0])
   }
   if(currency == 'EUR'){
-    this.CashBreakDown = []
-    this.CashBreakDown.push(this.CashBreakDownEUR[0])
+    this.CashBreakDown2 = []
+    this.CashBreakDown2.push(this.CashBreakDownEUR2[0])
   }
-  let modal = this.modelCtrl.create('HandoverbdPage',{breakdown:this.CashBreakDown[0],currency:currency});
+  let modal = this.modelCtrl.create('HandoverbdPage',{breakdown:this.CashBreakDown2[0],currency:currency});
   modal.onDidDismiss(data => {
 
   if(data){

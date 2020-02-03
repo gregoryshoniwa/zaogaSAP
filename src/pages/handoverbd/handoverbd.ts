@@ -199,7 +199,7 @@ export class HandoverbdPage {
 Link(){
   // if(this.CashNotes.currency != null){
   if(this.currency == 'ZWD'){
-    let notes = (this.CashNotesUSD.five*5) + (this.CashNotesZWD.two*2);
+    let notes = (this.CashNotesZWD.five*5) + (this.CashNotesZWD.two*2);
     let coins = (this.CashNotesZWD.dollarcoin*1) + (this.CashNotesZWD.fiftycoin*0.50) + (this.CashNotesZWD.twentyfivecoin*0.25) + (this.CashNotesZWD.tencoin*0.1) + (this.CashNotesZWD.fivecoin*0.05);
     this.CashNotesZWD.total = notes + coins;  
     //console.log(this.CashNotesZWD)  
