@@ -250,12 +250,12 @@
                         <tr *ngIf="isCash">
                           <th></th>
                           <th>Cash Break-Down</th>
-                          <th><button class="btn btn-success" (click)="cashbreakdown('ZWD')">{{cashTotalZWD}}</button></th>
-                          <th><button class="btn btn-success" (click)="cashbreakdown('USD')">{{cashTotalUSD}}</button></th>
-                          <th><button class="btn btn-success" (click)="cashbreakdown('ZAR')">{{cashTotalZAR}}</button></th>
-                          <th><button class="btn btn-success" (click)="cashbreakdown('BWP')">{{cashTotalBWP}}</button></th>
-                          <th><button class="btn btn-success" (click)="cashbreakdown('GBP')">{{cashTotalGBP}}</button></th>
-                          <th><button class="btn btn-success" (click)="cashbreakdown('EUR')">{{cashTotalEUR}}</button></th>                        
+                          <th (click)="cashbreakdown('ZWD')"><button class="btn btn-success" >{{cashTotalZWD}}</button></th>
+                          <th (click)="cashbreakdown('USD')"><button class="btn btn-success" >{{cashTotalUSD}}</button></th>
+                          <th (click)="cashbreakdown('ZAR')"><button class="btn btn-success" >{{cashTotalZAR}}</button></th>
+                          <th (click)="cashbreakdown('BWP')"><button class="btn btn-success" >{{cashTotalBWP}}</button></th>
+                          <th (click)="cashbreakdown('GBP')"><button class="btn btn-success" >{{cashTotalGBP}}</button></th>
+                          <th (click)="cashbreakdown('EUR')"><button class="btn btn-success" >{{cashTotalEUR}}</button></th>                        
 
                         </tr>
 
