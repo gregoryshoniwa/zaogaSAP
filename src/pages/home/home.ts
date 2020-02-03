@@ -600,7 +600,7 @@ cashbreakdown(currencyType){
     this.CashBreakDown = []
     this.CashBreakDown.push(this.CashBreakDownEUR[0])
   }
-  let modal = this.modelCtrl.create('CashbdPage',{breakdown:this.CashBreakDown[0]});
+  let modal = this.modelCtrl.create('CashbdPage',{breakdown:this.CashBreakDown[0],currency:currency});
   modal.onDidDismiss(data => {
 
   if(data){

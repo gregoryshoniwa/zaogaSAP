@@ -28,39 +28,122 @@
       </ion-select>
     </ion-item> -->
     <ion-grid padding>
-        <ion-row>
-          <ion-col class="form-group col-md-12 push-3">
-                  
-                  <ion-input type="number" [(ngModel)]="CashNotes.twohundred" class="form-control" placeholder="200s"></ion-input>
-                  <ion-input type="number" [(ngModel)]="CashNotes.hundred" class="form-control" placeholder="100s"></ion-input>
-                  <ion-input type="number" [(ngModel)]="CashNotes.fifty" class="form-control" placeholder="50s"></ion-input>
-                  <ion-input type="number" [(ngModel)]="CashNotes.twenty" class="form-control" placeholder="20s"></ion-input>
-                  <ion-input type="number" [(ngModel)]="CashNotes.ten" class="form-control" placeholder="10s"></ion-input>
-                  <ion-input type="number" [(ngModel)]="CashNotes.five" class="form-control" placeholder="5s"></ion-input>
-                  <ion-input type="number" [(ngModel)]="CashNotes.two" class="form-control" placeholder="2s"></ion-input>
-                  <ion-input type="number" [(ngModel)]="CashNotes.one" class="form-control" placeholder="1s"></ion-input>
-                  
-                
+        <ion-row *ngIf="currency == 'ZWD'">
+          <ion-col class="form-group col-md-12 push-3">                  
+                  <ion-input (keypress)="onKeyPressed($event)" type="number" [(ngModel)]="CashNotes.five" class="form-control" placeholder="$5s"></ion-input>
+                  <ion-input (keypress)="onKeyPressed($event)" type="number" [(ngModel)]="CashNotes.two" class="form-control" placeholder="$2s"></ion-input>
+                  <button style="margin-top: 15px;" class="btn btn-success" (click)="Link()">Add Break-Down</button>
           </ion-col>
           
           <ion-col class="form-group col-md-12">
-              
-            <ion-input type="number" [(ngModel)]="CashNotes.dollarcoin" class="form-control" placeholder="$1 coins"></ion-input>
-            <ion-input type="number" [(ngModel)]="CashNotes.fiftycoin" class="form-control" placeholder="50c coins"></ion-input>
-            <ion-input type="number" [(ngModel)]="CashNotes.twentyfivecoin" class="form-control" placeholder="25c coins"></ion-input>
-            <ion-input type="number" [(ngModel)]="CashNotes.tencoin" class="form-control" placeholder="10c coins"></ion-input>
-            <ion-input type="number" [(ngModel)]="CashNotes.fivecoin" class="form-control" placeholder="5c coins"></ion-input>
-            <ion-input type="number" [(ngModel)]="CashNotes.onecoin" class="form-control" placeholder="1c coins"></ion-input>
-            <button style="margin-top: 15px;" class="btn btn-success" (click)="Link()">Add Break-Down</button>
-                
+                  <ion-input (keypress)="onKeyPressed($event)" type="number" [(ngModel)]="CashNotes.dollarcoin" class="form-control" placeholder="$1 coins"></ion-input>
+                  <ion-input (keypress)="onKeyPressed($event)" type="number" [(ngModel)]="CashNotes.fiftycoin" class="form-control" placeholder="50c coins"></ion-input>
+                  <ion-input (keypress)="onKeyPressed($event)" type="number" [(ngModel)]="CashNotes.twentyfivecoin" class="form-control" placeholder="25c coins"></ion-input>
+                  <ion-input (keypress)="onKeyPressed($event)" type="number" [(ngModel)]="CashNotes.tencoin" class="form-control" placeholder="10c coins"></ion-input>
+                  <ion-input (keypress)="onKeyPressed($event)" type="number" [(ngModel)]="CashNotes.fivecoin" class="form-control" placeholder="5c coins"></ion-input>
+                 
+                                  
           </ion-col>
         </ion-row>
-        <ion-row>
-          <ion-col>
-                     
-          </ion-col>
+        <ion-row *ngIf="currency == 'USD'">
+            <ion-col class="form-group col-md-12 push-3">                  
+                    <ion-input (keypress)="onKeyPressed($event)" type="number" [(ngModel)]="CashNotes.hundred" class="form-control" placeholder="$100s"></ion-input>
+                    <ion-input (keypress)="onKeyPressed($event)" type="number" [(ngModel)]="CashNotes.fifty" class="form-control" placeholder="$50s"></ion-input>
+                    <ion-input (keypress)="onKeyPressed($event)" type="number" [(ngModel)]="CashNotes.twenty" class="form-control" placeholder="$20s"></ion-input>
+                    <ion-input (keypress)="onKeyPressed($event)" type="number" [(ngModel)]="CashNotes.ten" class="form-control" placeholder="$10s"></ion-input>
+                    <ion-input (keypress)="onKeyPressed($event)" type="number" [(ngModel)]="CashNotes.five" class="form-control" placeholder="$5s"></ion-input>
+                    <ion-input (keypress)="onKeyPressed($event)" type="number" [(ngModel)]="CashNotes.two" class="form-control" placeholder="$2s"></ion-input>
+                    <ion-input (keypress)="onKeyPressed($event)" type="number" [(ngModel)]="CashNotes.one" class="form-control" placeholder="$1s"></ion-input>
+            </ion-col>
             
-        </ion-row>
+            <ion-col class="form-group col-md-12">
+                <ion-input (keypress)="onKeyPressed($event)" type="number" [(ngModel)]="CashNotes.five" class="form-control" placeholder="$5s"></ion-input>
+                <ion-input (keypress)="onKeyPressed($event)" type="number" [(ngModel)]="CashNotes.two" class="form-control" placeholder="$2s"></ion-input>
+                <ion-input (keypress)="onKeyPressed($event)" type="number" [(ngModel)]="CashNotes.one" class="form-control" placeholder="$1s"></ion-input>
+                <button style="margin-top: 15px;" class="btn btn-success" (click)="Link()">Add Break-Down</button>                
+            </ion-col>
+          </ion-row>
+          <ion-row *ngIf="currency == 'BWP'">
+              <ion-col class="form-group col-md-12 push-3">                  
+                      <ion-input (keypress)="onKeyPressed($event)" type="number" [(ngModel)]="CashNotes.twohundred" class="form-control" placeholder="P200s"></ion-input>
+                      <ion-input (keypress)="onKeyPressed($event)" type="number" [(ngModel)]="CashNotes.hundred" class="form-control" placeholder="P100s"></ion-input>
+                      <ion-input (keypress)="onKeyPressed($event)" type="number" [(ngModel)]="CashNotes.fifty" class="form-control" placeholder="P50s"></ion-input>
+                      <ion-input (keypress)="onKeyPressed($event)" type="number" [(ngModel)]="CashNotes.twenty" class="form-control" placeholder="P20s"></ion-input>
+                      <ion-input (keypress)="onKeyPressed($event)" type="number" [(ngModel)]="CashNotes.ten" class="form-control" placeholder="P10s"></ion-input>
+              </ion-col>
+              
+              <ion-col class="form-group col-md-12">
+                      <ion-input (keypress)="onKeyPressed($event)" type="number" [(ngModel)]="CashNotes.fivedollarcoin" class="form-control" placeholder="P5 coins"></ion-input>
+                      <ion-input (keypress)="onKeyPressed($event)" type="number" [(ngModel)]="CashNotes.twodollarcoin" class="form-control" placeholder="P2 coins"></ion-input>
+                      <ion-input (keypress)="onKeyPressed($event)" type="number" [(ngModel)]="CashNotes.dollarcoin" class="form-control" placeholder="P1 coins"></ion-input>
+                      <ion-input (keypress)="onKeyPressed($event)" type="number" [(ngModel)]="CashNotes.fiftycoin" class="form-control" placeholder="50t coins"></ion-input>
+                     
+                      <ion-input (keypress)="onKeyPressed($event)" type="number" [(ngModel)]="CashNotes.tencoin" class="form-control" placeholder="10t coins"></ion-input>
+                      <ion-input (keypress)="onKeyPressed($event)" type="number" [(ngModel)]="CashNotes.fivecoin" class="form-control" placeholder="5t coins"></ion-input>
+                      <ion-input (keypress)="onKeyPressed($event)" type="number" [(ngModel)]="CashNotes.onecoin" class="form-control" placeholder="1t coins"></ion-input>
+                      <button style="margin-top: 15px;" class="btn btn-success" (click)="Link()">Add Break-Down</button>                
+              </ion-col>
+            </ion-row>
+            <ion-row *ngIf="currency == 'ZAR'">
+                <ion-col class="form-group col-md-12 push-3">                  
+                        <ion-input (keypress)="onKeyPressed($event)" type="number" [(ngModel)]="CashNotes.twohundred" class="form-control" placeholder="R200s"></ion-input>
+                        <ion-input (keypress)="onKeyPressed($event)" type="number" [(ngModel)]="CashNotes.hundred" class="form-control" placeholder="R100s"></ion-input>
+                        <ion-input (keypress)="onKeyPressed($event)" type="number" [(ngModel)]="CashNotes.fifty" class="form-control" placeholder="R50s"></ion-input>
+                        <ion-input (keypress)="onKeyPressed($event)" type="number" [(ngModel)]="CashNotes.twenty" class="form-control" placeholder="R20s"></ion-input>
+                        <ion-input (keypress)="onKeyPressed($event)" type="number" [(ngModel)]="CashNotes.ten" class="form-control" placeholder="R10s"></ion-input>
+               </ion-col>
+                
+                <ion-col class="form-group col-md-12">
+                    <ion-input (keypress)="onKeyPressed($event)" type="number" [(ngModel)]="CashNotes.fivedollarcoin" class="form-control" placeholder="R5 coins"></ion-input>
+                    <ion-input (keypress)="onKeyPressed($event)" type="number" [(ngModel)]="CashNotes.twodollarcoin" class="form-control" placeholder="R2 coins"></ion-input>
+                    <ion-input (keypress)="onKeyPressed($event)" type="number" [(ngModel)]="CashNotes.dollarcoin" class="form-control" placeholder="R1 coins"></ion-input>
+                    <ion-input (keypress)="onKeyPressed($event)" type="number" [(ngModel)]="CashNotes.fiftycoin" class="form-control" placeholder="50c coins"></ion-input>
+                    <ion-input (keypress)="onKeyPressed($event)" type="number" [(ngModel)]="CashNotes.twentycoin" class="form-control" placeholder="20c coins"></ion-input>
+                    <ion-input (keypress)="onKeyPressed($event)" type="number" [(ngModel)]="CashNotes.tencoin" class="form-control" placeholder="10c coins"></ion-input>
+                    <ion-input (keypress)="onKeyPressed($event)" type="number" [(ngModel)]="CashNotes.fivecoin" class="form-control" placeholder="5c coins"></ion-input>
+                    
+                  <button style="margin-top: 15px;" class="btn btn-success" (click)="Link()">Add Break-Down</button>                
+                </ion-col>
+              </ion-row>
+              <ion-row *ngIf="currency == 'GBP'">
+                  <ion-col class="form-group col-md-12 push-3">                  
+                           <ion-input (keypress)="onKeyPressed($event)" type="number" [(ngModel)]="CashNotes.fifty" class="form-control" placeholder="£50s"></ion-input>
+                          <ion-input (keypress)="onKeyPressed($event)" type="number" [(ngModel)]="CashNotes.twenty" class="form-control" placeholder="£20s"></ion-input>
+                          <ion-input (keypress)="onKeyPressed($event)" type="number" [(ngModel)]="CashNotes.ten" class="form-control" placeholder="£10s"></ion-input>
+                          <ion-input (keypress)="onKeyPressed($event)" type="number" [(ngModel)]="CashNotes.five" class="form-control" placeholder="£5s"></ion-input>
+                   </ion-col>
+                  
+                  <ion-col class="form-group col-md-12">
+                      <ion-input (keypress)="onKeyPressed($event)" type="number" [(ngModel)]="CashNotes.twodollarcoin" class="form-control" placeholder="£2 coins"></ion-input>
+                      <ion-input (keypress)="onKeyPressed($event)" type="number" [(ngModel)]="CashNotes.dollarcoin" class="form-control" placeholder="£1 coins"></ion-input>
+                      <ion-input (keypress)="onKeyPressed($event)" type="number" [(ngModel)]="CashNotes.fiftycoin" class="form-control" placeholder="50p coins"></ion-input>
+                      <ion-input (keypress)="onKeyPressed($event)" type="number" [(ngModel)]="CashNotes.twentycoin" class="form-control" plasceholder="20p coins"></ion-input>
+                      <ion-input (keypress)="onKeyPressed($event)" type="number" [(ngModel)]="CashNotes.tencoin" class="form-control" placeholder="10p coins"></ion-input>
+                      <ion-input (keypress)="onKeyPressed($event)" type="number" [(ngModel)]="CashNotes.fivecoin" class="form-control" placeholder="5p coins"></ion-input>
+                      <ion-input (keypress)="onKeyPressed($event)" type="number" [(ngModel)]="CashNotes.twocoin" class="form-control" placeholder="2p coins"></ion-input>
+                      <ion-input (keypress)="onKeyPressed($event)" type="number" [(ngModel)]="CashNotes.onecoin" class="form-control" placeholder="1p coins"></ion-input>
+                           
+                    <button style="margin-top: 15px;" class="btn btn-success" (click)="Link()">Add Break-Down</button>                
+                  </ion-col>
+                </ion-row>
+                <ion-row *ngIf="currency == 'EUR'">
+                    <ion-col class="form-group col-md-12 push-3">     
+                            <ion-input (keypress)="onKeyPressed($event)" type="number" [(ngModel)]="CashNotes.fivehundred" class="form-control" placeholder="€500s"></ion-input>
+                                       
+                            <ion-input (keypress)="onKeyPressed($event)" type="number" [(ngModel)]="CashNotes.twohundred" class="form-control" placeholder="€200s"></ion-input>
+                            <ion-input (keypress)="onKeyPressed($event)" type="number" [(ngModel)]="CashNotes.hundred" class="form-control" placeholder="€100s"></ion-input>
+                            <ion-input (keypress)="onKeyPressed($event)" type="number" [(ngModel)]="CashNotes.fifty" class="form-control" placeholder="€50s"></ion-input>
+                            
+                    </ion-col>
+                    
+                    <ion-col class="form-group col-md-12">
+                        <ion-input (keypress)="onKeyPressed($event)" type="number" [(ngModel)]="CashNotes.twenty" class="form-control" placeholder="€20s"></ion-input>
+                        <ion-input (keypress)="onKeyPressed($event)" type="number" [(ngModel)]="CashNotes.ten" class="form-control" placeholder="€10s"></ion-input>
+                              
+                        <button style="margin-top: 15px;" class="btn btn-success" (click)="Link()">Add Break-Down</button>                
+                    </ion-col>
+                  </ion-row>
+        
       </ion-grid>
 
      
