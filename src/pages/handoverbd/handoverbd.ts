@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController,AlertController } from 'ionic-angular';
 
 /**
- * Generated class for the CashbdPage page.
+ * Generated class for the HandoverbdPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -10,10 +10,11 @@ import { IonicPage, NavController, NavParams, ViewController,AlertController } f
 
 @IonicPage()
 @Component({
-  selector: 'page-cashbd',
-  templateUrl: 'cashbd.html',
+  selector: 'page-handoverbd',
+  templateUrl: 'handoverbd.html',
 })
-export class CashbdPage {
+export class HandoverbdPage {
+
   CashNotesZWD = {
     fivehundred : null,
     twohundred : null,
@@ -181,7 +182,7 @@ export class CashbdPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad CashbdPage');
+    console.log('ionViewDidLoad HandOverbgPage');
   }
   onKeyPressed(e){
     //console.log(e.keyCode)
@@ -198,9 +199,10 @@ export class CashbdPage {
 Link(){
   // if(this.CashNotes.currency != null){
   if(this.currency == 'ZWD'){
-    let notes = + (this.CashNotesZWD.five*5) + (this.CashNotesZWD.two*2);
+    let notes = (this.CashNotesUSD.five*5) + (this.CashNotesZWD.two*2);
     let coins = (this.CashNotesZWD.dollarcoin*1) + (this.CashNotesZWD.fiftycoin*0.50) + (this.CashNotesZWD.twentyfivecoin*0.25) + (this.CashNotesZWD.tencoin*0.1) + (this.CashNotesZWD.fivecoin*0.05);
-    this.CashNotesZWD.total = notes + coins;    
+    this.CashNotesZWD.total = notes + coins;  
+    //console.log(this.CashNotesZWD)  
     this.viewCtrl.dismiss(this.CashNotesZWD);
   }
   if(this.currency == 'ZAR'){

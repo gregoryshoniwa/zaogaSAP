@@ -79,6 +79,7 @@ import { Login2Page} from './../pages/login2/login2';
 import { Home2Page} from './../pages/home2/home2';
 
 import { CashbdPage} from './../pages/cashbd/cashbd';
+import { HandoverbdPage } from './../pages/handoverbd/handoverbd';
 //import { CouchdbProvider } from '../providers/couchdb/couchdb';
 import { DeploypastorPage} from './../pages/deploypastor/deploypastor';
 import { DeployhistoryPage} from './../pages/deployhistory/deployhistory';
@@ -92,6 +93,7 @@ import { PastorprofilePage} from './../pages/pastorprofile/pastorprofile';
 
 import { EdititemPageModule } from '../pages/edititem/edititem.module';
 import { EdititemPage } from '../pages/edititem/edititem';
+import { HandoverbdPageModule } from '../pages/handoverbd/handoverbd.module';
 
 
 @NgModule({
@@ -104,7 +106,7 @@ import { EdititemPage } from '../pages/edititem/edititem';
     IonicModule.forRoot(MyApp),
     LoginPageModule,SignupPageModule,HttpModule,LatePageModule,UnknownPageModule,ReportsPageModule,CustomersPageModule,ImageviewPageModule,
     AdditemPageModule,HttpClientModule,PrintPageModule,UsersPageModule,AccountdPageModule,AddaccountPageModule,UpdateaccountPageModule,
-    UnknownlistPageModule,AddunknownPageModule,InvoicelistPageModule,ViewinvoicesPageModule,Login2PageModule,Home2PageModule,CashbdPageModule,
+    UnknownlistPageModule,AddunknownPageModule,InvoicelistPageModule,ViewinvoicesPageModule,Login2PageModule,Home2PageModule,CashbdPageModule,HandoverbdPageModule,
     AddpastorPageModule,UpdatepastorPageModule,DeployhistoryPageModule,DeploypastorPageModule,DistrictaddPageModule,DistrictlistPageModule,ProfilePageModule,
     MissionsdeploymentPageModule,AddeducationPageModule,PastorprofilePageModule,ReportmodelPageModule,ItemsPageModule,ChartsModule,EdititemPageModule
   ],
@@ -114,7 +116,7 @@ import { EdititemPage } from '../pages/edititem/edititem';
     HomePage,LoginPage,SignupPage,LatePage,UnknownPage,ReportsPage,CustomersPage,ImageviewPage,AdditemPage,PrintPage,PopmenuComponent,
     UsersPage,AccountdPage,AddaccountPage,UpdateaccountPage,UnknownlistPage,AddunknownPage,InvoicelistPage,ViewinvoicesPage,Login2Page,Home2Page,
     CashbdPage,AddpastorPage,UpdatepastorPage,DeployhistoryPage,DeploypastorPage,DistrictaddPage,DistrictlistPage,ProfilePage,PastorprofilePage,AddeducationPage,
-    MissionsdeploymentPage,ReportmodelPage,ItemsPage,EdititemPage
+    MissionsdeploymentPage,ReportmodelPage,ItemsPage,EdititemPage,HandoverbdPage
 
   ],
   providers: [

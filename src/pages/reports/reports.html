@@ -46,20 +46,7 @@
             </div>
           </form>
           <ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
-            <li class="nav-item dropdown hidden-caret">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="la la-envelope"></i>
-              </a>
-
-
-            </li>
-            <li class="nav-item dropdown hidden-caret" (click)="viewInoives()">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="la la-bell"></i>
-                <span class="notification" >{{massages}}</span>
-              </a>
-
-            </li>
+           
 
             <li class="nav-item dropdown">
               <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false"> <img src="assets/imgs/icon.png" alt="user-img" width="36" class="img-circle" (click)="presentPopover($event)"><span (click)="presentPopover($event)">{{username}}</span></a>
@@ -94,6 +81,13 @@
 
               </a>
             </li>
+            <li class="nav-item" (click)="navigator('CashHandOver')">
+                <a >
+                  <i class="la la-institution"></i>
+                  <p>Cash Hand Over</p>
+    
+                </a>
+            </li>
 
 
 
@@ -113,17 +107,8 @@
                     <div class="card-title">Remittance Reports : {{reportType}} : {{Bpname}} : {{ReportYear}}</div>
                   </div>
                   <div class="card-body">
-
-
-
                               <canvas #barCanvas style="widows: 700px;height:50%">
-
                             </canvas>
-
-
-
-
-
                     <div class="card-action">
                       <ion-grid>
                         <ion-row>

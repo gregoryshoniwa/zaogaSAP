@@ -382,6 +382,31 @@ export class RestapiserviceProvider {
     });
   }
 
+  loadDayRemittance(username,date){
+
+    let opt: RequestOptions;
+    let myHeaders: Headers = new Headers;
+    let body = {
+      username:username,
+      date:date
+    };
+
+    myHeaders.set('Accept','application/json;charset=utf-8');
+    myHeaders.append('Content-type','application/json;charset=utf-8');
+    opt = new RequestOptions({
+      headers: myHeaders
+    })
+
+    return new Promise(resolve => {
+      this.http.post('http://10.0.0.36:8081/getRemittanceByUsers',JSON.stringify(body),opt)
+      .map(res => res.json())
+      .subscribe(data =>{
+        this.ddata = data;
+        resolve(this.ddata)
+      })
+    });
+  }
+
 
   addUnknownPayment(userObject,docentry){
    // console.log(userObject);
@@ -414,9 +439,10 @@ export class RestapiserviceProvider {
 
   }
 
-  addCashRemittance(data){
+ async addCashRemittance(data){
     // console.log(userObject);
      let opt: RequestOptions;
+     let receipt;
      let myHeaders: Headers = new Headers;
      let body = {
        RemittanceData:JSON.stringify(data),
@@ -428,15 +454,16 @@ export class RestapiserviceProvider {
        headers: myHeaders
      })
  
-     this.http.post('http://10.0.0.36:1337/linkcashbreakdown',JSON.stringify(body),opt)
+   await this.http.post('http://10.0.0.36:1337/linkcashbreakdown',JSON.stringify(body),opt)
      .map(res => res.json())
      .subscribe(data =>{
        this.adduserToast();
+       receipt = data
        //console.log(data);
      });
  
  
- 
+     return receipt
    }
 
   sendReceipt(docdata){

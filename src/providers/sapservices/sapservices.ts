@@ -1852,7 +1852,8 @@ payInvoice(sessionid,invoiceNumber,docdata,newdate,newduedate,accountCode,accoun
       if(this.receiptCounter == 1){
         let nav = this.app.getActiveNav();
         this.loader.dismiss();
-        this.restservice.addCashRemittance(docdata);
+        this.restservice.addCashRemittance(docdata)
+       // console.log(receipt)
         nav.push("PrintPage",{invoice: invoiceNumber,payment:results,journal:results,docdata:docdata,sessionID:sessionid});
         
       }else{

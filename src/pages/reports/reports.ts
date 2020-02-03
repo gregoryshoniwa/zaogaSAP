@@ -532,21 +532,18 @@ for(var months = 0;months < this.queryArray.length;months++){
 
   navigator(page){
     if(page == 'Remittance'){
-      this.navCtrl.setRoot(HomePage,{sessionID:this.sessionID,userID:this.username});
+      this.navCtrl.popToRoot();
       page = null;
     }
-    if(page == 'Late'){
-      this.navCtrl.setRoot('LatePage',{sessionID:this.sessionID,userID:this.username});
+    if(page == 'CashHandOver'){
+      this.navCtrl.push('LatePage',{sessionID:this.sessionID,userID:this.username});
       page = null;
     }
-    if(page == 'Unknown'){
-      this.navCtrl.setRoot('UnknownPage',{sessionID:this.sessionID,userID:this.username});
-      page = null;
-    }
-    if(page == 'Reports'){
-     // this.navCtrl.setRoot('ReportsPage',{sessionID:this.sessionID});
-      page = null;
-    }
+    
+    // if(page == 'Reports'){
+    //  // this.navCtrl.setRoot('ReportsPage',{sessionID:this.sessionID});
+    //   page = null;
+    // }
   }
 
 }

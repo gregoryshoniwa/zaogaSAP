@@ -41,12 +41,7 @@
           </div>
         </form>
         <ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
-          <li class="nav-item dropdown hidden-caret">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i class="la la-envelope"></i>
-            </a>
-           
-          </li>
+         
           
           <li class="nav-item dropdown">
             <a class="dropdown-toggle profile-pic"> <img src="assets/imgs/icon.png" alt="user-img" width="36" class="img-circle"><span >{{username}}</span> </a>
@@ -73,26 +68,23 @@
               
             </a>
           </li>
-          <li class="nav-item active" (click)="navigator('Late')">
-            <a >
-              <i class="la la-institution"></i>
-              <p>Late Remittance</p>
-              
-            </a>
-          </li>
-          <li class="nav-item" (click)="navigator('Unknown')">
-            <a >
-              <i class="la la-hospital-o"></i>
-              <p>Un-known Remittance</p>
-              
-            </a>
-          </li>
+          
+          
+         
           <li class="nav-item" (click)="navigator('Reports')">
             <a >
               <i class="la la-leanpub"></i>
               <p>Reports</p>
               
             </a>
+          </li>
+
+          <li class="nav-item active" (click)="navigator('CashHandOver')">
+              <a >
+                <i class="la la-institution"></i>
+                <p>Cash Hand Over</p>
+  
+              </a>
           </li>
           
           
@@ -110,7 +102,7 @@
               <div class="col-md-12">
                 <div class="card">
                   <div class="card-header">
-                    <div class="card-title">Late Remittance Payments Form</div>
+                    <div class="card-title">Day End Cash Hand Over Form</div>
                   </div>
                   <div class="card-body">
                       <ion-grid padding>
@@ -123,46 +115,266 @@
                                         <ion-label floating>
                                         
                                           </ion-label>
-                                      <ion-input type="date" class="form-control" id="postingdate" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}" required></ion-input>
+                                          <ion-input type="date" [(ngModel)]="date" class="form-control" id="postingdate" required></ion-input>
                                     </ion-item>
-                                    <br>
+                                  
                                    
-                                    <label for="email">Due Date</label><br>
-                                    <ion-item>
-                                        <ion-label floating>
-                                        
-                                          </ion-label>
-                                      <ion-input type="date" class="form-control" id="duedate" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}" required></ion-input>
-                                    </ion-item>
+                                    
                                   
                             </ion-col>
                             <ion-col class="form-group col-md-6">
                               
                             </ion-col>
                             <ion-col class="form-group col-md-12">
-                                <label for="email">Name</label>
-                                <ion-item>      
-                                    <ion-label floating>
+                                <label for="email">User Name</label>
+                              <ion-item>
+                                  <ion-label floating>
+
+                                  </ion-label>
+                                  
+                                  <ion-input (keypress)="onKeyPressed($event)" type="text" [(ngModel)]="bankTailer" class="form-control" id="customer" placeholder="User Name"></ion-input>
+
+                              </ion-item>
+                                
+                                    
+                                    
+                            </ion-col>
+
+                          </ion-row>
+                          <ion-row>
+                            <ion-col>
+                                <table class="table table-bordered">
+                                    <tr>
+                                      <th >#</th>
+                                      <th >Item Description</th>
+                                      <th>ZWD</th>
+                                      <th>USD</th>
+                                      <th>ZAR</th>
+                                      <th>BWP</th>
+                                      <th>GBP</th>
+                                      <th>EUR</th>
+                                      
+                                       </tr>
+                                       <tr>
+                                          <th>#</th>
+                                          <th>Notes 500s</th>
+                                          <th>{{CashBreakDownZWD[0].fivehundred}}</th>
+                                          <th>{{CashBreakDownUSD[0].fivehundred}}</th>
+                                          <th>{{CashBreakDownZAR[0].fivehundred}}</th>
+                                          <th>{{CashBreakDownBWP[0].fivehundred}}</th>
+                                          <th>{{CashBreakDownGBP[0].fivehundred}}</th>
+                                          <th>{{CashBreakDownEUR[0].fivehundred}}</th>
+                                       </tr>
+                                       <tr>
+                                          <th>#</th>
+                                          <th>Notes 200s</th>
+                                          <th>{{CashBreakDownZWD[0].twohundred}}</th>
+                                          <th>{{CashBreakDownUSD[0].twohundred}}</th>
+                                          <th>{{CashBreakDownZAR[0].twohundred}}</th>
+                                          <th>{{CashBreakDownBWP[0].twohundred}}</th>
+                                          <th>{{CashBreakDownGBP[0].twohundred}}</th>
+                                          <th>{{CashBreakDownEUR[0].twohundred}}</th>
+                                       </tr>
+                                       <tr>
+                                          <th>#</th>
+                                          <th>Notes 100s</th>
+                                          <th>{{CashBreakDownZWD[0].hundred}}</th>
+                                          <th>{{CashBreakDownUSD[0].hundred}}</th>
+                                          <th>{{CashBreakDownZAR[0].hundred}}</th>
+                                          <th>{{CashBreakDownBWP[0].hundred}}</th>
+                                          <th>{{CashBreakDownGBP[0].hundred}}</th>
+                                          <th>{{CashBreakDownEUR[0].hundred}}</th>
+                                       </tr>
+                                       <tr>
+                                          <th>#</th>
+                                          <th>Notes 50s</th>
+                                          <th>{{CashBreakDownZWD[0].fifty}}</th>
+                                          <th>{{CashBreakDownUSD[0].fifty}}</th>
+                                          <th>{{CashBreakDownZAR[0].fifty}}</th>
+                                          <th>{{CashBreakDownBWP[0].fifty}}</th>
+                                          <th>{{CashBreakDownGBP[0].fifty}}</th>
+                                          <th>{{CashBreakDownEUR[0].fifty}}</th>
+                                       </tr>
+                                       <tr>
+                                          <th>#</th>
+                                          <th>Notes 20</th>
+                                          <th>{{CashBreakDownZWD[0].twenty}}</th>
+                                          <th>{{CashBreakDownUSD[0].twenty}}</th>
+                                          <th>{{CashBreakDownZAR[0].twenty}}</th>
+                                          <th>{{CashBreakDownBWP[0].twenty}}</th>
+                                          <th>{{CashBreakDownGBP[0].twenty}}</th>
+                                          <th>{{CashBreakDownEUR[0].twenty}}</th>
+                                       </tr>
+                                       <tr>
+                                          <th>#</th>
+                                          <th>Notes 10s</th>
+                                          <th>{{CashBreakDownZWD[0].ten}}</th>
+                                          <th>{{CashBreakDownUSD[0].ten}}</th>
+                                          <th>{{CashBreakDownZAR[0].ten}}</th>
+                                          <th>{{CashBreakDownBWP[0].ten}}</th>
+                                          <th>{{CashBreakDownGBP[0].ten}}</th>
+                                          <th>{{CashBreakDownEUR[0].ten}}</th>
+                                       </tr>
+                                       <tr>
+                                          <th>#</th>
+                                          <th>Notes 5s</th>
+                                          <th>{{CashBreakDownZWD[0].five}}</th>
+                                          <th>{{CashBreakDownUSD[0].five}}</th>
+                                          <th>{{CashBreakDownZAR[0].five}}</th>
+                                          <th>{{CashBreakDownBWP[0].five}}</th>
+                                          <th>{{CashBreakDownGBP[0].five}}</th>
+                                          <th>{{CashBreakDownEUR[0].five}}</th>
+                                       </tr>
+                                       <tr>
+                                          <th>#</th>
+                                          <th>Notes 2s</th>
+                                          <th>{{CashBreakDownZWD[0].two}}</th>
+                                          <th>{{CashBreakDownUSD[0].two}}</th>
+                                          <th>{{CashBreakDownZAR[0].two}}</th>
+                                          <th>{{CashBreakDownBWP[0].two}}</th>
+                                          <th>{{CashBreakDownGBP[0].two}}</th>
+                                          <th>{{CashBreakDownEUR[0].two}}</th>
+                                       </tr>
+                                       <tr>
+                                          <th>#</th>
+                                          <th>Notes 1s</th>
+                                          <th>{{CashBreakDownZWD[0].one}}</th>
+                                          <th>{{CashBreakDownUSD[0].one}}</th>
+                                          <th>{{CashBreakDownZAR[0].one}}</th>
+                                          <th>{{CashBreakDownBWP[0].one}}</th>
+                                          <th>{{CashBreakDownGBP[0].one}}</th>
+                                          <th>{{CashBreakDownEUR[0].one}}</th>
+                                       </tr>
+                                       <tr>
+                                          <th>#</th>
+                                          <th>5 coins</th>
+                                          <th>{{CashBreakDownZWD[0].fivedollarcoin}}</th>
+                                          <th>{{CashBreakDownUSD[0].fivedollarcoin}}</th>
+                                          <th>{{CashBreakDownZAR[0].fivedollarcoin}}</th>
+                                          <th>{{CashBreakDownBWP[0].fivedollarcoin}}</th>
+                                          <th>{{CashBreakDownGBP[0].fivedollarcoin}}</th>
+                                          <th>{{CashBreakDownEUR[0].fivedollarcoin}}</th>
+                                       </tr>
+                                       <tr>
+                                          <th>#</th>
+                                          <th>2 coins</th>
+                                          <th>{{CashBreakDownZWD[0].twodollarcoin}}</th>
+                                          <th>{{CashBreakDownUSD[0].twodollarcoin}}</th>
+                                          <th>{{CashBreakDownZAR[0].twodollarcoin}}</th>
+                                          <th>{{CashBreakDownBWP[0].twodollarcoin}}</th>
+                                          <th>{{CashBreakDownGBP[0].twodollarcoin}}</th>
+                                          <th>{{CashBreakDownEUR[0].twodollarcoin}}</th>
+                                       </tr>
+                                       <tr>
+                                          <th>#</th>
+                                          <th>1 coins</th>
+                                          <th>{{CashBreakDownZWD[0].dollarcoin}}</th>
+                                          <th>{{CashBreakDownUSD[0].dollarcoin}}</th>
+                                          <th>{{CashBreakDownZAR[0].dollarcoin}}</th>
+                                          <th>{{CashBreakDownBWP[0].dollarcoin}}</th>
+                                          <th>{{CashBreakDownGBP[0].dollarcoin}}</th>
+                                          <th>{{CashBreakDownEUR[0].dollarcoin}}</th>
+                                       </tr>
+                                       <tr>
+                                          <th>#</th>
+                                          <th>0.50 coins</th>
+                                          <th>{{CashBreakDownZWD[0].fiftycoin}}</th>
+                                          <th>{{CashBreakDownUSD[0].fiftycoin}}</th>
+                                          <th>{{CashBreakDownZAR[0].fiftycoin}}</th>
+                                          <th>{{CashBreakDownBWP[0].fiftycoin}}</th>
+                                          <th>{{CashBreakDownGBP[0].fiftycoin}}</th>
+                                          <th>{{CashBreakDownEUR[0].fiftycoin}}</th>
+                                       </tr>
+                                       <tr>
+                                          <th>#</th>
+                                          <th>0.25 coins</th>
+                                          <th>{{CashBreakDownZWD[0].twentyfivecoin}}</th>
+                                          <th>{{CashBreakDownUSD[0].twentyfivecoin}}</th>
+                                          <th>{{CashBreakDownZAR[0].twentyfivecoin}}</th>
+                                          <th>{{CashBreakDownBWP[0].twentyfivecoin}}</th>
+                                          <th>{{CashBreakDownGBP[0].twentyfivecoin}}</th>
+                                          <th>{{CashBreakDownEUR[0].twentyfivecoin}}</th>
+                                       </tr>
+                                       <tr>
+                                          <th>#</th>
+                                          <th>0.20 coins</th>
+                                          <th>{{CashBreakDownZWD[0].twentycoin}}</th>
+                                          <th>{{CashBreakDownUSD[0].twentycoin}}</th>
+                                          <th>{{CashBreakDownZAR[0].twentycoin}}</th>
+                                          <th>{{CashBreakDownBWP[0].twentycoin}}</th>
+                                          <th>{{CashBreakDownGBP[0].twentycoin}}</th>
+                                          <th>{{CashBreakDownEUR[0].twentycoin}}</th>
+                                       </tr>
+                                       <tr>
+                                          <th>#</th>
+                                          <th>0.10 coins</th>
+                                          <th>{{CashBreakDownZWD[0].tencoin}}</th>
+                                          <th>{{CashBreakDownUSD[0].tencoin}}</th>
+                                          <th>{{CashBreakDownZAR[0].tencoin}}</th>
+                                          <th>{{CashBreakDownBWP[0].tencoin}}</th>
+                                          <th>{{CashBreakDownGBP[0].tencoin}}</th>
+                                          <th>{{CashBreakDownEUR[0].tencoin}}</th>
+                                       </tr>
+                                       <tr>
+                                          <th>#</th>
+                                          <th>0.05 coins</th>
+                                          <th>{{CashBreakDownZWD[0].fivecoin}}</th>
+                                          <th>{{CashBreakDownUSD[0].fivecoin}}</th>
+                                          <th>{{CashBreakDownZAR[0].fivecoin}}</th>
+                                          <th>{{CashBreakDownBWP[0].fivecoin}}</th>
+                                          <th>{{CashBreakDownGBP[0].fivecoin}}</th>
+                                          <th>{{CashBreakDownEUR[0].fivecoin}}</th>
+                                       </tr>
+                                       <tr>
+                                          <th>#</th>
+                                          <th>0.02 coins</th>
+                                          <th>{{CashBreakDownZWD[0].twocoin}}</th>
+                                          <th>{{CashBreakDownUSD[0].twocoin}}</th>
+                                          <th>{{CashBreakDownZAR[0].twocoin}}</th>
+                                          <th>{{CashBreakDownBWP[0].twocoin}}</th>
+                                          <th>{{CashBreakDownGBP[0].twocoin}}</th>
+                                          <th>{{CashBreakDownEUR[0].twocoin}}</th>
+                                       </tr>
+                                       <tr>
+                                          <th>#</th>
+                                          <th>0.01 coins</th>
+                                          <th>{{CashBreakDownZWD[0].onecoin}}</th>
+                                          <th>{{CashBreakDownUSD[0].onecoin}}</th>
+                                          <th>{{CashBreakDownZAR[0].onecoin}}</th>
+                                          <th>{{CashBreakDownBWP[0].onecoin}}</th>
+                                          <th>{{CashBreakDownGBP[0].onecoin}}</th>
+                                          <th>{{CashBreakDownEUR[0].onecoin}}</th>
+                                       </tr>
+                                                          
+                                    
+                                        <tr>
+                                          <th>#</th>
+                                          <th>Captured Total</th>
+                                          <th>{{TotalZWD.toFixed(2)}}</th>
+                                          <th>{{TotalUSD.toFixed(2)}}</th>
+                                          <th>{{TotalZAR.toFixed(2)}}</th>
+                                          <th>{{TotalBWP.toFixed(2)}}</th>
+                                          <th>{{TotalGBP.toFixed(2)}}</th>
+                                          <th>{{TotalEUR.toFixed(2)}}</th>
+                                          
+                
+                                        </tr>
                                         
-                                    </ion-label>
-                                    <ion-icon name="play" item-start></ion-icon>
-                                    
-                                    <ion-input type="text" class="form-control" id="customer" placeholder="Enter Business Partner"></ion-input>
-                               
-                                </ion-item>
-                                <br>
-                                <label for="email">Description</label> 
-                                <ion-item>     
-                                    
-                                   
-                                    <ion-label floating>
-                                        
-                                    </ion-label>
-                                    <ion-input type="text" class="form-control" id="customer" placeholder="Description for document "></ion-input>
-                              
-                                </ion-item>
-                                    
-                                    
+                                        <tr>
+                                          <th></th>
+                                          <th>Supervisor Total</th>
+                                          <th (click)="cashbreakdown('ZWD')"><button class="btn btn-success" >{{cashTotalZWD}}</button></th>
+                                          <th (click)="cashbreakdown('USD')"><button class="btn btn-success" >{{cashTotalUSD}}</button></th>
+                                          <th (click)="cashbreakdown('ZAR')"><button class="btn btn-success" >{{cashTotalZAR}}</button></th>
+                                          <th (click)="cashbreakdown('BWP')"><button class="btn btn-success" >{{cashTotalBWP}}</button></th>
+                                          <th (click)="cashbreakdown('GBP')"><button class="btn btn-success" >{{cashTotalGBP}}</button></th>
+                                          <th (click)="cashbreakdown('EUR')"><button class="btn btn-success" >{{cashTotalEUR}}</button></th>                        
+                
+                                        </tr>             
+                
+                
+                
+                                    </table>
                             </ion-col>
                           </ion-row>
                         </ion-grid>
@@ -185,13 +397,6 @@
        </div>
       </div>
 
-    <div class="main-panel">
-      <div class="content">
-        <div class="container-fluid">
-          <h4 class="page-title">Late Remittance Form</h4>
-        </div>
-      </div>
-     
-    </div>
+    
   </div>
 </ion-content>
