@@ -22,6 +22,7 @@ export class AdditemPage {
   BusinessParnter;
   sessionID;
   AccountNumber = [];
+  AccountNumber2 = [];
   selectedData = {
     // amountZWD : null,
     // amountUSD : null,
@@ -32,7 +33,8 @@ export class AdditemPage {
     linkid : "",
     item : "",
     itemcode : "",
-    itemaccount: {}
+    itemaccount: {},
+    itemaccount2: {}
     
   }
   query = "SELECT T0.[ItemCode],T0.[ItemName],T0.[SWW] FROM OITM T0 WHERE T0.[ItemCode] LIKE 'MIN%' AND  T0.[ItemCode] LIKE '%01'";
@@ -86,8 +88,8 @@ export class AdditemPage {
  
 
 selected(Itemcode,Itemname,linkid){
-// console.log(linkid)
-  let query = "SELECT T0.[AcctCode], T0.[AcctName], T0.[AccntntCod] FROM OACT T0 WHERE T0.[AccntntCod] = '"+linkid+"'";
+console.log(linkid)
+  let query = "SELECT T0.[AcctCode], T0.[AcctName], T0.[AccntntCod] FROM OACT T0 WHERE T0.[AccntntCod] LIKE '"+linkid+"%'";
   let headers = new Headers();
   
   let body = '<env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/">'+
@@ -109,12 +111,22 @@ selected(Itemcode,Itemname,linkid){
     var parser = new DOMParser();
     var xmlDoc = parser.parseFromString(data,"text/xml");
     try{
-      // for (var index = 0; index <= 5; index++) {
-        var results = xmlDoc.getElementsByTagName("AcctCode")[0].childNodes[0].nodeValue
-        var element = results;
+      
+        var results = xmlDoc.getElementsByTagName("AcctCode")[0].childNodes[0].nodeValue        
+        var element = results;      
         this.AccountNumber.push(element);
-        //console.log(element);
-      // }
+       // console.log(xmlDoc.getElementsByTagName("AcctCode").length  );
+       
+       for (var index = 0; index < xmlDoc.getElementsByTagName("AcctCode").length; index++) {
+        
+         var results1 = xmlDoc.getElementsByTagName("AcctCode")[index].childNodes[0].nodeValue        
+         var element1 = results1;  
+        var results2 = xmlDoc.getElementsByTagName("AccntntCod")[index].childNodes[0].nodeValue        
+        var element2 = results2;
+        this.AccountNumber2.push({account:element1,currencyAcc:element2});
+       // console.log(element);
+       }
+       console.log(this.AccountNumber2);
      // var results = xmlDoc.getElementsByTagName("AcctCode")[0].childNodes[0].nodeValue
       //this.AccountNumber = results;
       if(Itemcode){
@@ -141,6 +153,7 @@ selected(Itemcode,Itemname,linkid){
         this.selectedData.linkid = linkid;
         
         this.selectedData.itemaccount = this.AccountNumber;
+        this.selectedData.itemaccount2 = this.AccountNumber2;
         // this.selectedData.amountZWD = parseFloat(this.selectedData.amountZWD).toFixed(2);
         // this.selectedData.amountUSD = parseFloat(this.selectedData.amountUSD).toFixed(2);
         // this.selectedData.amountZAR = parseFloat(this.selectedData.amountZAR).toFixed(2);

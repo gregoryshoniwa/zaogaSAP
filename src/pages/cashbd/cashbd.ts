@@ -221,7 +221,7 @@ Link(){
     this.viewCtrl.dismiss(this.CashNotesUSD);
   }
   if(this.currency == 'GBP'){
-    let notes = (this.CashNotesGBP.fifty*50) + (this.CashNotesGBP.ten*10) + (this.CashNotesGBP.five*5);
+    let notes = (this.CashNotesGBP.fifty*50) + (this.CashNotesGBP.twenty*20) + (this.CashNotesGBP.ten*10) + (this.CashNotesGBP.five*5);
     let coins = (this.CashNotesGBP.twodollarcoin*2) + (this.CashNotesGBP.dollarcoin*1) + (this.CashNotesGBP.fiftycoin*0.50) + (this.CashNotesGBP.twentycoin*0.20) + (this.CashNotesGBP.tencoin*0.1) + (this.CashNotesGBP.fivecoin*0.05) + (this.CashNotesGBP.twocoin*0.02) + (this.CashNotesGBP.onecoin*0.01);
     this.CashNotesGBP.total = notes + coins;    
     this.viewCtrl.dismiss(this.CashNotesGBP);

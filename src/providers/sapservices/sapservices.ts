@@ -61,29 +61,61 @@ presentLoading() {
 addInvoiceLate(sessionid,docdata,accountCode2,currency){
   this.presentLoading();
   var bpcode;
+  let rowData  = ''
   if(currency == "ZWD" || currency == "zwd"){
     bpcode = docdata.addid+"_001"
     this.receiptCounterLate += 1
+    
+    docdata.items.forEach(element => {
+      if(element.amountZWD){
+        rowData += '<row><ItemCode>'+element.itemcode+'</ItemCode><Quantity>1</Quantity><dis:LineTotal>'+element.amountZWD+'</dis:LineTotal></row>';
+      }
+    });
   }
   if(currency == "USD" || currency == "usd"){
     bpcode = docdata.addid+"_001"
     this.receiptCounterLate += 1
+    docdata.items.forEach(element => {
+      if(element.amountUSD){
+        rowData += '<row><ItemCode>'+element.itemcode+'</ItemCode><Quantity>1</Quantity><dis:LineTotal>'+element.amountUSD+'</dis:LineTotal></row>';
+      }
+    });
   }
   if(currency == "BWP" || currency == "bwp"){
     bpcode = docdata.addid+"_001"
     this.receiptCounterLate += 1
+    docdata.items.forEach(element => {
+      if(element.amountBWP){
+        rowData += '<row><ItemCode>'+element.itemcode+'</ItemCode><Quantity>1</Quantity><dis:LineTotal>'+element.amountBWP+'</dis:LineTotal></row>';
+      }
+    });
   }
   if(currency == "ZAR" || currency == "zar"){
     bpcode = docdata.addid+"_001"
     this.receiptCounterLate += 1
+    docdata.items.forEach(element => {
+      if(element.amountZAR){
+        rowData += '<row><ItemCode>'+element.itemcode+'</ItemCode><Quantity>1</Quantity><dis:LineTotal>'+element.amountZAR+'</dis:LineTotal></row>';
+      }
+    });
   }
   if(currency == "GBP" || currency == "gbp"){
     bpcode = docdata.addid+"_001"
     this.receiptCounterLate += 1
+    docdata.items.forEach(element => {
+      if(element.amountGBP){
+        rowData += '<row><ItemCode>'+element.itemcode+'</ItemCode><Quantity>1</Quantity><dis:LineTotal>'+element.amountGBP+'</dis:LineTotal></row>';
+      }
+    });
   }
   if(currency == "EUR" || currency == "eur"){
     bpcode = docdata.addid+"_001"
     this.receiptCounterLate += 1
+    docdata.items.forEach(element => {
+      if(element.amountEUR){
+        rowData += '<row><ItemCode>'+element.itemcode+'</ItemCode><Quantity>1</Quantity><dis:LineTotal>'+element.amountEUR+'</dis:LineTotal></row>';
+      }
+    });
   }
   let newdate = this.formateDate(docdata.date);
   let newduedate = this.formateDate(docdata.duedate);
@@ -109,49 +141,51 @@ addInvoiceLate(sessionid,docdata,accountCode2,currency){
        '<dis:DocCurrency>'+currency+'</dis:DocCurrency>'+
        '<DocDueDate>'+newduedate+'</DocDueDate>'+
        '<CardCode>'+bpcode+'</CardCode>'+
+       '<NumAtCard>'+docdata.receiptID+'</NumAtCard>'+
        '<dis:JournalMemo>'+docdata.description+'</dis:JournalMemo>'+
+       '<dis:DocCurrency>'+currency+'</dis:DocCurrency>'+
        '<Comments>'+docdata.description+'</Comments>'+
        '<dis:DocumentsOwner>'+docdata.owner+'</dis:DocumentsOwner>'+
        '<DocType>dDocument_Items</DocType>'+
       '</row>'+
      '</Documents>'+
-     '<Document_Lines></Document_Lines>'+
+     '<Document_Lines>'+rowData+'</Document_Lines>'+
     '</BO>'+
    '</BOM>'+
    '</dis:AddObject>'+
   '</env:Body>'+
  '</env:Envelope>';
 
- if(currency == "USD" || currency == "usb"){
-  let mainbody = this.createRows(docdata,body);
-  sXML = new XMLSerializer().serializeToString(mainbody);
-}
-if(currency == "ZWD" || currency == "zwd"){
-  let mainbody = this.createRowsINZWD(docdata,body);
-  sXML = new XMLSerializer().serializeToString(mainbody);
-}
-if(currency == "BWP" || currency == "bwp"){
-  let mainbody = this.createRowsINBWP(docdata,body);
-  sXML = new XMLSerializer().serializeToString(mainbody);
-}
-if(currency == "ZAR" || currency == "zar"){
-  let mainbody = this.createRowsINZAR(docdata,body);
-  sXML = new XMLSerializer().serializeToString(mainbody);
-}
-if(currency == "GBP" || currency == "gbp"){
-  let mainbody = this.createRowsINGBP(docdata,body);
-  sXML = new XMLSerializer().serializeToString(mainbody);
-}
-if(currency == "EUR" || currency == "eur"){
-  let mainbody = this.createRowsINEUR(docdata,body);
-  sXML = new XMLSerializer().serializeToString(mainbody);
-}
+//  if(currency == "USD" || currency == "usb"){
+//   let mainbody = this.createRows(docdata,body);
+//   sXML = new XMLSerializer().serializeToString(mainbody);
+// }
+// if(currency == "ZWD" || currency == "zwd"){
+//   let mainbody = this.createRowsINZWD(docdata,body);
+//   sXML = new XMLSerializer().serializeToString(mainbody);
+// }
+// if(currency == "BWP" || currency == "bwp"){
+//   let mainbody = this.createRowsINBWP(docdata,body);
+//   sXML = new XMLSerializer().serializeToString(mainbody);
+// }
+// if(currency == "ZAR" || currency == "zar"){
+//   let mainbody = this.createRowsINZAR(docdata,body);
+//   sXML = new XMLSerializer().serializeToString(mainbody);
+// }
+// if(currency == "GBP" || currency == "gbp"){
+//   let mainbody = this.createRowsINGBP(docdata,body);
+//   sXML = new XMLSerializer().serializeToString(mainbody);
+// }
+// if(currency == "EUR" || currency == "eur"){
+//   let mainbody = this.createRowsINEUR(docdata,body);
+//   sXML = new XMLSerializer().serializeToString(mainbody);
+// }
 
  //let mainbody = this.createRows(docdata,body);
 // var sXML = new XMLSerializer().serializeToString(mainbody);
  //console.log(sXML);
 
-  this.http.post(this.url,sXML,{headers:headers})
+  this.http.post(this.url,body,{headers:headers})
   .map(res => res.text())
   .subscribe(data => {
     //console.log(data);
@@ -278,7 +312,8 @@ if(currency == "EUR" || currency == "eur"){
          '<DocDate>'+newdate+'</DocDate>'+
          '<DocDueDate>'+newduedate+'</DocDueDate>'+
          '<dis:DocCurrency>'+currency+'</dis:DocCurrency>'+
-         '<CardCode>'+bpcode+'</CardCode>'+         
+         '<CardCode>'+bpcode+'</CardCode>'+     
+         '<NumAtCard>'+docdata.receiptID+'</NumAtCard>'+    
          '<dis:JournalMemo>'+docdata.description+'</dis:JournalMemo>'+
          '<Comments>'+docdata.description+'</Comments>'+
          '<dis:DocumentsOwner>'+docdata.owner+'</dis:DocumentsOwner>'+
@@ -421,6 +456,7 @@ if(currency == "EUR" || currency == "eur"){
          '<DocDate>'+newdate+'</DocDate>'+
          '<DocDueDate>'+newduedate+'</DocDueDate>'+
          '<CardCode>'+docdata.cardcode+'</CardCode>'+
+         '<NumAtCard>'+docdata.receiptID+'</NumAtCard>'+
          '<dis:JournalMemo>'+docdata.description+'</dis:JournalMemo>'+
          '<dis:DocCurrency>USD</dis:DocCurrency>'+
          '<Comments>'+docdata.description+'</Comments>'+
@@ -494,6 +530,7 @@ if(currency == "EUR" || currency == "eur"){
          '<DocDueDate>'+newduedate+'</DocDueDate>'+
          '<dis:DocCurrency>BWP</dis:DocCurrency>'+
          '<CardCode>'+docdata.addid+'_001</CardCode>'+
+         '<NumAtCard>'+docdata.receiptID+'</NumAtCard>'+
          '<dis:JournalMemo>'+docdata.description+'</dis:JournalMemo>'+
          '<Comments>'+docdata.description+'</Comments>'+
          '<dis:DocumentsOwner>'+docdata.owner+'</dis:DocumentsOwner>'+
@@ -565,6 +602,7 @@ if(currency == "EUR" || currency == "eur"){
            '<DocDueDate>'+newduedate+'</DocDueDate>'+
            '<dis:DocCurrency>ZAR</dis:DocCurrency>'+
            '<CardCode>'+docdata.addid+'_001</CardCode>'+
+           '<NumAtCard>'+docdata.receiptID+'</NumAtCard>'+
            '<dis:JournalMemo>'+docdata.description+'</dis:JournalMemo>'+
            '<Comments>'+docdata.description+'</Comments>'+
            '<dis:DocumentsOwner>'+docdata.owner+'</dis:DocumentsOwner>'+
@@ -636,6 +674,7 @@ if(currency == "EUR" || currency == "eur"){
        '<DocDate>'+newdate+'</DocDate>'+
        '<DocDueDate>'+newduedate+'</DocDueDate>'+
        '<CardCode>'+docdata.addid+'_001</CardCode>'+
+       '<NumAtCard>'+docdata.receiptID+'</NumAtCard>'+
        '<dis:DocCurrency>ZWD</dis:DocCurrency>'+
        '<dis:JournalMemo>'+docdata.description+'</dis:JournalMemo>'+
        '<Comments>'+docdata.description+'</Comments>'+
@@ -708,6 +747,7 @@ if(currency == "EUR" || currency == "eur"){
          '<DocDate>'+newdate+'</DocDate>'+
          '<DocDueDate>'+newduedate+'</DocDueDate>'+
          '<dis:DocCurrency>GBP</dis:DocCurrency>'+
+         '<NumAtCard>'+docdata.receiptID+'</NumAtCard>'+
          '<CardCode>'+docdata.addid+'_001</CardCode>'+
          '<dis:JournalMemo>'+docdata.description+'</dis:JournalMemo>'+
          '<Comments>'+docdata.description+'</Comments>'+
@@ -780,6 +820,7 @@ if(currency == "EUR" || currency == "eur"){
            '<DocDueDate>'+newduedate+'</DocDueDate>'+
            '<dis:DocCurrency>EUR</dis:DocCurrency>'+
            '<CardCode>'+docdata.addid+'_001</CardCode>'+
+           '<NumAtCard>'+docdata.receiptID+'</NumAtCard>'+
            '<dis:JournalMemo>'+docdata.description+'</dis:JournalMemo>'+
            '<Comments>'+docdata.description+'</Comments>'+
            '<dis:DocumentsOwner>'+docdata.owner+'</dis:DocumentsOwner>'+
@@ -1797,7 +1838,8 @@ payInvoice(sessionid,invoiceNumber,docdata,newdate,newduedate,accountCode,accoun
 
     let Partpayments = ''
     for (var index = 1; index <= docdata.items.length; ++index) {     
-      if(docdata.items[index-1].amountUSD){     
+      if(docdata.items[index-1].amountUSD){  
+      var currencyAcc = docdata.items[index-1].itemaccount2.find( ({ currencyAcc }) => currencyAcc === docdata.items[index-1].linkid+'_USD' );   
       Partpayments += '<dis:AddObject xmlns:dis="http://www.sap.com/SBO/DIS" CommandID="Add Incoming Payment">'+
               '<BOM>'+
               '<BO>'+
@@ -1808,7 +1850,7 @@ payInvoice(sessionid,invoiceNumber,docdata,newdate,newduedate,accountCode,accoun
               '<row>'+
                 '<CardCode>'+docdata.addid+'_001</CardCode>'+
                 '<DocTypte>rCustomer</DocTypte>'+
-                '<dis:CashAccount>'+docdata.items[index-1].itemaccount[0]+'</dis:CashAccount>'+
+                '<dis:CashAccount>'+currencyAcc.account+'</dis:CashAccount>'+
                 '<dis:DocCurrency>USD</dis:DocCurrency>'+
                 '<dis:CashSum>'+docdata.items[index-1].amountUSD+'</dis:CashSum>'+
                 '<dis:Remarks>'+docdata.description+'</dis:Remarks>'+
@@ -1953,7 +1995,8 @@ payInvoice(sessionid,invoiceNumber,docdata,newdate,newduedate,accountCode,accoun
 
     let Partpayments = ''
     for (var index = 1; index <= docdata.items.length; ++index) {     
-      if(docdata.items[index-1].amountZAR){     
+      if(docdata.items[index-1].amountZAR){  
+        var currencyAcc = docdata.items[index-1].itemaccount2.find( ({ currencyAcc }) => currencyAcc === docdata.items[index-1].linkid+'_ZAR' );   
       Partpayments += '<dis:AddObject xmlns:dis="http://www.sap.com/SBO/DIS" CommandID="Add Incoming Payment">'+
               '<BOM>'+
               '<BO>'+
@@ -1964,7 +2007,7 @@ payInvoice(sessionid,invoiceNumber,docdata,newdate,newduedate,accountCode,accoun
               '<row>'+
                 '<CardCode>'+docdata.addid+'_001</CardCode>'+
                 '<DocTypte>rCustomer</DocTypte>'+
-                '<dis:CashAccount>'+docdata.items[index-1].itemaccount[0]+'</dis:CashAccount>'+
+                '<dis:CashAccount>'+currencyAcc.account+'</dis:CashAccount>'+
                 '<dis:DocCurrency>ZAR</dis:DocCurrency>'+
                 '<dis:CashSum>'+docdata.items[index-1].amountZAR+'</dis:CashSum>'+
                 '<dis:Remarks>'+docdata.description+'</dis:Remarks>'+
@@ -2108,6 +2151,7 @@ payInvoiceZWD(sessionid,invoiceNumber,docdata,newdate,newduedate,accountCode,acc
     let Partpayments = ''
     for (var index = 1; index <= docdata.items.length; ++index) {     
       if(docdata.items[index-1].amountZWD){     
+        var currencyAcc = docdata.items[index-1].itemaccount2.find( ({ currencyAcc }) => currencyAcc === docdata.items[index-1].linkid+'_ZWD' );
       Partpayments += '<dis:AddObject xmlns:dis="http://www.sap.com/SBO/DIS" CommandID="Add Incoming Payment">'+
               '<BOM>'+
               '<BO>'+
@@ -2118,7 +2162,7 @@ payInvoiceZWD(sessionid,invoiceNumber,docdata,newdate,newduedate,accountCode,acc
               '<row>'+
                 '<CardCode>'+docdata.addid+'_001</CardCode>'+
                 '<DocTypte>rCustomer</DocTypte>'+
-                '<dis:CashAccount>'+docdata.items[index-1].itemaccount[0]+'</dis:CashAccount>'+
+                '<dis:CashAccount>'+currencyAcc.account+'</dis:CashAccount>'+
                 '<dis:DocCurrency>ZWD</dis:DocCurrency>'+
                 '<dis:CashSum>'+docdata.items[index-1].amountZWD+'</dis:CashSum>'+
                 '<dis:Remarks>'+docdata.description+'</dis:Remarks>'+
@@ -2262,7 +2306,8 @@ payInvoiceBWP(sessionid,invoiceNumber,docdata,newdate,newduedate,accountCode,acc
     let Partpayments = ''
     //console.log(docdata)
     for (var index = 1; index <= docdata.items.length; ++index) {     
-      if(docdata.items[index-1].amountBWP){     
+      if(docdata.items[index-1].amountBWP){    
+        var currencyAcc = docdata.items[index-1].itemaccount2.find( ({ currencyAcc }) => currencyAcc === docdata.items[index-1].linkid+'_BWP' ); 
       Partpayments += '<dis:AddObject xmlns:dis="http://www.sap.com/SBO/DIS" CommandID="Add Incoming Payment">'+
               '<BOM>'+
               '<BO>'+
@@ -2273,7 +2318,7 @@ payInvoiceBWP(sessionid,invoiceNumber,docdata,newdate,newduedate,accountCode,acc
               '<row>'+
                 '<CardCode>'+docdata.addid+'_001</CardCode>'+
                 '<DocTypte>rCustomer</DocTypte>'+
-                '<dis:CashAccount>'+docdata.items[index-1].itemaccount[0]+'</dis:CashAccount>'+
+                '<dis:CashAccount>'+currencyAcc.account+'</dis:CashAccount>'+
                 '<dis:DocCurrency>BWP</dis:DocCurrency>'+
                 '<dis:CashSum>'+docdata.items[index-1].amountBWP+'</dis:CashSum>'+
                 '<dis:Remarks>'+docdata.description+'</dis:Remarks>'+
@@ -2416,7 +2461,8 @@ payInvoiceGBP(sessionid,invoiceNumber,docdata,newdate,newduedate,accountCode,acc
   if(docdata.paymentType == "Cash"){
     let Partpayments = ''
     for (var index = 1; index <= docdata.items.length; ++index) {     
-      if(docdata.items[index-1].amountGBP){     
+      if(docdata.items[index-1].amountGBP){    
+        var currencyAcc = docdata.items[index-1].itemaccount2.find( ({ currencyAcc }) => currencyAcc === docdata.items[index-1].linkid+'_GBP' ); 
       Partpayments += '<dis:AddObject xmlns:dis="http://www.sap.com/SBO/DIS" CommandID="Add Incoming Payment">'+
               '<BOM>'+
               '<BO>'+
@@ -2427,7 +2473,7 @@ payInvoiceGBP(sessionid,invoiceNumber,docdata,newdate,newduedate,accountCode,acc
               '<row>'+
                 '<CardCode>'+docdata.addid+'_001</CardCode>'+
                 '<DocTypte>rCustomer</DocTypte>'+
-                '<dis:CashAccount>'+docdata.items[index-1].itemaccount[0]+'</dis:CashAccount>'+
+                '<dis:CashAccount>'+currencyAcc.account+'</dis:CashAccount>'+
                 '<dis:DocCurrency>GBP</dis:DocCurrency>'+
                 '<dis:CashSum>'+docdata.items[index-1].amountGBP+'</dis:CashSum>'+
                 '<dis:Remarks>'+docdata.description+'</dis:Remarks>'+
@@ -2572,7 +2618,8 @@ payInvoiceEUR(sessionid,invoiceNumber,docdata,newdate,newduedate,accountCode,acc
 
     let Partpayments = ''
     for (var index = 1; index <= docdata.items.length; ++index) {     
-      if(docdata.items[index-1].amountEUR){     
+      if(docdata.items[index-1].amountEUR){   
+        var currencyAcc = docdata.items[index-1].itemaccount2.find( ({ currencyAcc }) => currencyAcc === docdata.items[index-1].linkid+'_EUR' );  
       Partpayments += '<dis:AddObject xmlns:dis="http://www.sap.com/SBO/DIS" CommandID="Add Incoming Payment">'+
               '<BOM>'+
               '<BO>'+
@@ -2583,7 +2630,7 @@ payInvoiceEUR(sessionid,invoiceNumber,docdata,newdate,newduedate,accountCode,acc
               '<row>'+
                 '<CardCode>'+docdata.addid+'_001</CardCode>'+
                 '<DocTypte>rCustomer</DocTypte>'+
-                '<dis:CashAccount>'+docdata.items[index-1].itemaccount[0]+'</dis:CashAccount>'+
+                '<dis:CashAccount>'+currencyAcc.account+'</dis:CashAccount>'+
                 '<dis:DocCurrency>EUR</dis:DocCurrency>'+
                 '<dis:CashSum>'+docdata.items[index-1].amountEUR+'</dis:CashSum>'+
                 '<dis:Remarks>'+docdata.description+'</dis:Remarks>'+

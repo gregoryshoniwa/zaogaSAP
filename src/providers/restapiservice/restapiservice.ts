@@ -466,6 +466,28 @@ export class RestapiserviceProvider {
      return receipt
    }
 
+
+   
+  getRemittanceID(){
+  // console.log(userObject);
+   let opt: RequestOptions;
+   let myHeaders: Headers = new Headers;
+   
+
+   myHeaders.append('Content-type','application/json');
+   opt = new RequestOptions({
+     headers: myHeaders
+   })
+
+   return this.http.get('http://10.0.0.36:8081/getRemittanceID',opt)
+   .map(res => {
+    return res.json()
+   });  
+   
+
+   
+ }
+
   sendReceipt(docdata){
     //console.log(userObject);
     let opt: RequestOptions;

@@ -39,6 +39,7 @@ export class HomePage {
     date : DateTime,
     duedate: "",
     items: {},
+    receiptID:"",
     cashbreakdownZWD: {},
     cashbreakdownUSD: {},
     cashbreakdownZAR: {},
@@ -242,6 +243,7 @@ export class HomePage {
   accountCodeEUR2;
   unknownCurrency;
   unknownAmount;
+  remittanceID;
   cred = {
     username: "manager",
     password: "jesus@"
@@ -710,9 +712,9 @@ cashbreakdown(currencyType){
 
     if(data){
 
-     // console.log(data.itemaccount);
+     //console.log(data.itemaccount);
       this.itemsList.push(data);
-      //console.log(this.itemsList);
+      console.log(this.itemsList);
       this.calculator();
 
     }
@@ -794,10 +796,19 @@ cashbreakdown(currencyType){
 
   }
 
-
-  addRemittance(){
+  async getID(){
+    
+    let dataID = await this.restservice.getRemittanceID().toPromise();
+    //console.log(dataID)
+    return dataID.data.one.recordset[0].id+1
+   
+}
+ async addRemittance(){
+  this.remittanceID = await this.getID()
+  
+  // console.log(this.remittanceID)
     this.receiptCount = 0;
-    if(this.date && this.duedate){
+    if(this.date && this.duedate && this.remittanceID){
     if(this.BusinessParnter){
       if(this.description){
 
@@ -822,6 +833,9 @@ cashbreakdown(currencyType){
           this.remittanceData.totalEUR = this.TotalEUR.toString();
           this.remittanceData.transferDate = this.transferdate;
           this.remittanceData.ref = this.reference;
+          
+          this.remittanceData.receiptID = `T-`+Math.floor(new Date().getTime()/1000);
+         
           //console.log(this.remittanceData);
           if(this.remittanceData.totalZWD != "0"){
             this.receiptCount += 1
@@ -885,6 +899,7 @@ cashbreakdown(currencyType){
                   this.remittanceData.totalBWP = this.TotalBWP.toString();
                   this.remittanceData.totalGBP = this.TotalGBP.toString();
                   this.remittanceData.totalEUR = this.TotalEUR.toString();
+                  this.remittanceData.receiptID = `C-`+this.remittanceID;
 
                   if(this.remittanceData.totalZWD != "0"){
                     if(this.CashBreakDownZWD[0].total == null){
@@ -1049,7 +1064,8 @@ cashbreakdown(currencyType){
           this.remittanceData.totalBWP = this.TotalBWP.toString();
           this.remittanceData.totalGBP = this.TotalGBP.toString();
           this.remittanceData.totalEUR = this.TotalEUR.toString();
-
+                  
+          this.remittanceData.receiptID = `U-`+Math.floor(new Date().getTime()/1000);
           
 
           if(this.unknownCurrency == "USD" || this.unknownCurrency == "usd"){
@@ -1201,7 +1217,8 @@ cashbreakdown(currencyType){
           this.remittanceData.totalBWP = this.TotalBWP.toString();
           this.remittanceData.totalGBP = this.TotalGBP.toString();
           this.remittanceData.totalEUR = this.TotalEUR.toString();
-
+          
+          this.remittanceData.receiptID = `P-`+Math.floor(new Date().getTime()/1000);
           //console.log(this.remittanceData);
 
           if(this.remittanceData.totalZWD == "0" && this.remittanceData.totalUSD == "0" && this.remittanceData.totalBWP == "0" && this.remittanceData.totalZAR == "0" && this.remittanceData.totalGBP == "0" && this.remittanceData.totalEUR == "0"){

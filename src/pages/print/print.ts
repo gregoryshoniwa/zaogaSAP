@@ -33,10 +33,11 @@ export class PrintPage {
   sessionID;
   constructor(public events:Events, public restservice:RestapiserviceProvider,public globle: GlobleProvider, public sapservice:SapservicesProvider, public viewCtrl:ViewController, public navCtrl: NavController, public navParams: NavParams) {
     this.sessionID = this.navParams.get("sessionID");
-    this.invoiceNumber = Date.now()//this.navParams.get("invoice");
+   //this.navParams.get("invoice");
     this.paymentNumber = this.navParams.get("payment");
     //this.journalNumber = this.navParams.get("journal");
     this.docdata = this.navParams.get("docdata");
+    this.invoiceNumber = this.docdata.receiptID
     if(this.docdata.paymentType == 'Unknown'){
       this.docdata.paymentType = 'Unpresented'
     }
