@@ -49,7 +49,7 @@ export class LoginPage {
           '<!--Optional:-->'+
           '<log:DatabaseServer>ZAOGA_SAP_TEST</log:DatabaseServer>'+
           '<!--Optional:-->'+
-          '<log:DatabaseName>ZAGOA_TEST</log:DatabaseName>'+
+          '<log:DatabaseName>ZAGOA_LIVE</log:DatabaseName>'+
           '<!--Optional:-->'+
           '<log:DatabaseType>dst_MSSQL2012</log:DatabaseType>'+
           '<!--Optional:-->'+

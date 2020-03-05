@@ -432,7 +432,7 @@ export class RestapiserviceProvider {
     .map(res => res.json())
     .subscribe(data =>{
       this.adduserToast();
-      console.log(data);
+      //console.log(data);
     });
 
 

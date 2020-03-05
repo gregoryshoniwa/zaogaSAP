@@ -250,7 +250,7 @@ export class HomePage {
   };
   LoginService = "LoginServiceTest";
   unknownID;
-  db = "ZAGOA_TEST";
+  db = "ZAGOA_LIVE";
   url = "http://10.0.0.36/B1WS/Service.asmx";
   numberOfOpenInoives = [];
   count = [];

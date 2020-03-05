@@ -102,7 +102,9 @@
               <div class="col-md-12">
                 <div class="card">
                   <div class="card-header">
-                    <div class="card-title">Day End Cash Hand Over Form</div>
+                      <div class="card-title">Day End Cash Hand Over Form
+                      <button (click)="onFindData()" style="margin-left: 60%;" class="btn btn-success">Search</button>  
+                    </div>           
                   </div>
                   <div class="card-body">
                       <ion-grid padding>
@@ -155,7 +157,7 @@
                                       <th>EUR</th>
                                       
                                        </tr>
-                                       <tr>
+                                       <tr *ngIf="tester('fivehundred')">
                                           <th>#</th>
                                           <th>Notes 500s</th>
                                           <th>{{CashBreakDownZWD[0].fivehundred}}</th>
@@ -165,7 +167,7 @@
                                           <th>{{CashBreakDownGBP[0].fivehundred}}</th>
                                           <th>{{CashBreakDownEUR[0].fivehundred}}</th>
                                        </tr>
-                                       <tr>
+                                       <tr *ngIf="tester('twohundred')">
                                           <th>#</th>
                                           <th>Notes 200s</th>
                                           <th>{{CashBreakDownZWD[0].twohundred}}</th>
@@ -175,7 +177,7 @@
                                           <th>{{CashBreakDownGBP[0].twohundred}}</th>
                                           <th>{{CashBreakDownEUR[0].twohundred}}</th>
                                        </tr>
-                                       <tr>
+                                       <tr *ngIf="tester('hundred')">
                                           <th>#</th>
                                           <th>Notes 100s</th>
                                           <th>{{CashBreakDownZWD[0].hundred}}</th>
@@ -185,7 +187,7 @@
                                           <th>{{CashBreakDownGBP[0].hundred}}</th>
                                           <th>{{CashBreakDownEUR[0].hundred}}</th>
                                        </tr>
-                                       <tr>
+                                       <tr *ngIf="tester('fifty')">
                                           <th>#</th>
                                           <th>Notes 50s</th>
                                           <th>{{CashBreakDownZWD[0].fifty}}</th>
@@ -195,7 +197,7 @@
                                           <th>{{CashBreakDownGBP[0].fifty}}</th>
                                           <th>{{CashBreakDownEUR[0].fifty}}</th>
                                        </tr>
-                                       <tr>
+                                       <tr *ngIf="tester('twenty')">
                                           <th>#</th>
                                           <th>Notes 20</th>
                                           <th>{{CashBreakDownZWD[0].twenty}}</th>
@@ -205,7 +207,7 @@
                                           <th>{{CashBreakDownGBP[0].twenty}}</th>
                                           <th>{{CashBreakDownEUR[0].twenty}}</th>
                                        </tr>
-                                       <tr>
+                                       <tr *ngIf="tester('ten')">
                                           <th>#</th>
                                           <th>Notes 10s</th>
                                           <th>{{CashBreakDownZWD[0].ten}}</th>
@@ -215,7 +217,7 @@
                                           <th>{{CashBreakDownGBP[0].ten}}</th>
                                           <th>{{CashBreakDownEUR[0].ten}}</th>
                                        </tr>
-                                       <tr>
+                                       <tr *ngIf="tester('five')">
                                           <th>#</th>
                                           <th>Notes 5s</th>
                                           <th>{{CashBreakDownZWD[0].five}}</th>
@@ -225,7 +227,7 @@
                                           <th>{{CashBreakDownGBP[0].five}}</th>
                                           <th>{{CashBreakDownEUR[0].five}}</th>
                                        </tr>
-                                       <tr>
+                                       <tr *ngIf="tester('two')">
                                           <th>#</th>
                                           <th>Notes 2s</th>
                                           <th>{{CashBreakDownZWD[0].two}}</th>
@@ -235,7 +237,7 @@
                                           <th>{{CashBreakDownGBP[0].two}}</th>
                                           <th>{{CashBreakDownEUR[0].two}}</th>
                                        </tr>
-                                       <tr>
+                                       <tr *ngIf="tester('one')">
                                           <th>#</th>
                                           <th>Notes 1s</th>
                                           <th>{{CashBreakDownZWD[0].one}}</th>
@@ -245,7 +247,7 @@
                                           <th>{{CashBreakDownGBP[0].one}}</th>
                                           <th>{{CashBreakDownEUR[0].one}}</th>
                                        </tr>
-                                       <tr>
+                                       <tr *ngIf="tester('fivedollarcoin')">
                                           <th>#</th>
                                           <th>5 coins</th>
                                           <th>{{CashBreakDownZWD[0].fivedollarcoin}}</th>
@@ -255,7 +257,7 @@
                                           <th>{{CashBreakDownGBP[0].fivedollarcoin}}</th>
                                           <th>{{CashBreakDownEUR[0].fivedollarcoin}}</th>
                                        </tr>
-                                       <tr>
+                                       <tr *ngIf="tester('twodollarcoin')">
                                           <th>#</th>
                                           <th>2 coins</th>
                                           <th>{{CashBreakDownZWD[0].twodollarcoin}}</th>
@@ -265,7 +267,7 @@
                                           <th>{{CashBreakDownGBP[0].twodollarcoin}}</th>
                                           <th>{{CashBreakDownEUR[0].twodollarcoin}}</th>
                                        </tr>
-                                       <tr>
+                                       <tr *ngIf="tester('dollarcoin')">
                                           <th>#</th>
                                           <th>1 coins</th>
                                           <th>{{CashBreakDownZWD[0].dollarcoin}}</th>
@@ -275,7 +277,7 @@
                                           <th>{{CashBreakDownGBP[0].dollarcoin}}</th>
                                           <th>{{CashBreakDownEUR[0].dollarcoin}}</th>
                                        </tr>
-                                       <tr>
+                                       <tr *ngIf="tester('fiftycoin')">
                                           <th>#</th>
                                           <th>0.50 coins</th>
                                           <th>{{CashBreakDownZWD[0].fiftycoin}}</th>
@@ -285,7 +287,7 @@
                                           <th>{{CashBreakDownGBP[0].fiftycoin}}</th>
                                           <th>{{CashBreakDownEUR[0].fiftycoin}}</th>
                                        </tr>
-                                       <tr>
+                                       <tr *ngIf="tester('twentyfivecoin')">
                                           <th>#</th>
                                           <th>0.25 coins</th>
                                           <th>{{CashBreakDownZWD[0].twentyfivecoin}}</th>
@@ -295,7 +297,7 @@
                                           <th>{{CashBreakDownGBP[0].twentyfivecoin}}</th>
                                           <th>{{CashBreakDownEUR[0].twentyfivecoin}}</th>
                                        </tr>
-                                       <tr>
+                                       <tr *ngIf="tester('twentycoin')">
                                           <th>#</th>
                                           <th>0.20 coins</th>
                                           <th>{{CashBreakDownZWD[0].twentycoin}}</th>
@@ -305,7 +307,7 @@
                                           <th>{{CashBreakDownGBP[0].twentycoin}}</th>
                                           <th>{{CashBreakDownEUR[0].twentycoin}}</th>
                                        </tr>
-                                       <tr>
+                                       <tr *ngIf="tester('tencoin')">
                                           <th>#</th>
                                           <th>0.10 coins</th>
                                           <th>{{CashBreakDownZWD[0].tencoin}}</th>
@@ -315,7 +317,7 @@
                                           <th>{{CashBreakDownGBP[0].tencoin}}</th>
                                           <th>{{CashBreakDownEUR[0].tencoin}}</th>
                                        </tr>
-                                       <tr>
+                                       <tr *ngIf="tester('fivecoin')">
                                           <th>#</th>
                                           <th>0.05 coins</th>
                                           <th>{{CashBreakDownZWD[0].fivecoin}}</th>
@@ -325,7 +327,7 @@
                                           <th>{{CashBreakDownGBP[0].fivecoin}}</th>
                                           <th>{{CashBreakDownEUR[0].fivecoin}}</th>
                                        </tr>
-                                       <tr>
+                                       <tr *ngIf="tester('twocoin')">
                                           <th>#</th>
                                           <th>0.02 coins</th>
                                           <th>{{CashBreakDownZWD[0].twocoin}}</th>
@@ -335,7 +337,7 @@
                                           <th>{{CashBreakDownGBP[0].twocoin}}</th>
                                           <th>{{CashBreakDownEUR[0].twocoin}}</th>
                                        </tr>
-                                       <tr>
+                                       <tr *ngIf="tester('onecoin')">
                                           <th>#</th>
                                           <th>0.01 coins</th>
                                           <th>{{CashBreakDownZWD[0].onecoin}}</th>
@@ -382,10 +384,7 @@
                     
                    
                     
-                    <div class="card-action">
-                      <button class="btn btn-success">Submit</button>
-                      <button class="btn btn-danger">Cancel</button>
-                    </div>
+                   
                   </div>
                 </div>
                

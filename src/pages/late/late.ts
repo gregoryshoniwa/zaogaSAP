@@ -339,7 +339,7 @@ export class LatePage {
   cashTotalEUR;
   bankTailer;
   loadedCashBreakDown;
-  constructor(public loadingCtrl: LoadingController,public restservice:RestapiserviceProvider,public navCtrl: NavController, public navParams: NavParams,public modelCtrl:ModalController,) {
+  constructor(public alertCtrl: AlertController,public loadingCtrl: LoadingController,public restservice:RestapiserviceProvider,public navCtrl: NavController, public navParams: NavParams,public modelCtrl:ModalController,) {
     this.sessionID = this.navParams.get('sessionID');
     this.username = this.navParams.get('userID');
     this.date = this.formatDate(Date.now());
@@ -446,28 +446,374 @@ cashbreakdown(currencyType){
   modal.present();
 }
 
+tester(data){
+  if(data == 'fivehundred'){
+    if(this.CashBreakDownZWD[0].fivehundred == 0 && this.CashBreakDownUSD[0].fivehundred == 0 && this.CashBreakDownZAR[0].fivehundred == 0 && this.CashBreakDownGBP[0].fivehundred == 0 && this.CashBreakDownEUR[0].fivehundred == 0 && this.CashBreakDownBWP[0].fivehundred == 0){
+     return false
+   }else{
+     return true
+   }
+ }
+  if(data == 'twohundred'){
+    if(this.CashBreakDownZWD[0].twohundred == 0 && this.CashBreakDownUSD[0].twohundred == 0 && this.CashBreakDownZAR[0].twohundred == 0 && this.CashBreakDownGBP[0].twohundred == 0 && this.CashBreakDownEUR[0].twohundred == 0 && this.CashBreakDownBWP[0].twohundred == 0){
+     return false
+   }else{
+     return true
+   }
+ }
+  if(data == 'hundred'){
+     if(this.CashBreakDownZWD[0].hundred == 0 && this.CashBreakDownUSD[0].hundred == 0 && this.CashBreakDownZAR[0].hundred == 0 && this.CashBreakDownGBP[0].hundred == 0 && this.CashBreakDownEUR[0].hundred == 0 && this.CashBreakDownBWP[0].hundred == 0){
+      return false
+    }else{
+      return true
+    }
+  }
+  if(data == 'fifty'){
+    if(this.CashBreakDownZWD[0].fifty == 0 && this.CashBreakDownUSD[0].fifty == 0 && this.CashBreakDownZAR[0].fifty == 0 && this.CashBreakDownGBP[0].fifty == 0 && this.CashBreakDownEUR[0].fifty == 0 && this.CashBreakDownBWP[0].fifty == 0){
+     return false
+   }else{
+     return true
+   }
+ }
+ if(data == 'twenty'){
+  if(this.CashBreakDownZWD[0].twenty == 0 && this.CashBreakDownUSD[0].twenty == 0 && this.CashBreakDownZAR[0].twenty == 0 && this.CashBreakDownGBP[0].twenty == 0 && this.CashBreakDownEUR[0].twenty == 0 && this.CashBreakDownBWP[0].twenty == 0){
+   return false
+ }else{
+   return true
+ }
+}
+if(data == 'ten'){
+  if(this.CashBreakDownZWD[0].ten == 0 && this.CashBreakDownUSD[0].ten == 0 && this.CashBreakDownZAR[0].ten == 0 && this.CashBreakDownGBP[0].ten == 0 && this.CashBreakDownEUR[0].ten == 0 && this.CashBreakDownBWP[0].ten == 0){
+   return false
+ }else{
+   return true
+ }
+}
+if(data == 'five'){
+  if(this.CashBreakDownZWD[0].five == 0 && this.CashBreakDownUSD[0].five == 0 && this.CashBreakDownZAR[0].five == 0 && this.CashBreakDownGBP[0].five == 0 && this.CashBreakDownEUR[0].five == 0 && this.CashBreakDownBWP[0].five == 0){
+   return false
+ }else{
+   return true
+ }
+}
+if(data == 'two'){
+  if(this.CashBreakDownZWD[0].two == 0 && this.CashBreakDownUSD[0].two == 0 && this.CashBreakDownZAR[0].two == 0 && this.CashBreakDownGBP[0].two == 0 && this.CashBreakDownEUR[0].two == 0 && this.CashBreakDownBWP[0].two == 0){
+   return false
+ }else{
+   return true
+ }
+}
+
+if(data == 'one'){
+  if(this.CashBreakDownZWD[0].one == 0 && this.CashBreakDownUSD[0].one == 0 && this.CashBreakDownZAR[0].one == 0 && this.CashBreakDownGBP[0].one == 0 && this.CashBreakDownEUR[0].one == 0 && this.CashBreakDownBWP[0].one == 0){
+   return false
+ }else{
+   return true
+ }
+}
+
+if(data == 'fivedollarcoin'){
+  if(this.CashBreakDownZWD[0].fivedollarcoin == 0 && this.CashBreakDownUSD[0].fivedollarcoin == 0 && this.CashBreakDownZAR[0].fivedollarcoin == 0 && this.CashBreakDownGBP[0].fivedollarcoin == 0 && this.CashBreakDownEUR[0].fivedollarcoin == 0 && this.CashBreakDownBWP[0].fivedollarcoin == 0){
+   return false
+ }else{
+   return true
+ }
+}
+
+if(data == 'twodollarcoin'){
+  if(this.CashBreakDownZWD[0].twodollarcoin == 0 && this.CashBreakDownUSD[0].twodollarcoin == 0 && this.CashBreakDownZAR[0].twodollarcoin == 0 && this.CashBreakDownGBP[0].twodollarcoin == 0 && this.CashBreakDownEUR[0].twodollarcoin == 0 && this.CashBreakDownBWP[0].twodollarcoin == 0){
+   return false
+ }else{
+   return true
+ }
+}
+
+
+if(data == 'dollarcoin'){
+  if(this.CashBreakDownZWD[0].dollarcoin == 0 && this.CashBreakDownUSD[0].dollarcoin == 0 && this.CashBreakDownZAR[0].dollarcoin == 0 && this.CashBreakDownGBP[0].dollarcoin == 0 && this.CashBreakDownEUR[0].dollarcoin == 0 && this.CashBreakDownBWP[0].dollarcoin == 0){
+   return false
+ }else{
+   return true
+ }
+}
+
+
+if(data == 'fiftycoin'){
+  if(this.CashBreakDownZWD[0].fiftycoin == 0 && this.CashBreakDownUSD[0].fiftycoin == 0 && this.CashBreakDownZAR[0].fiftycoin == 0 && this.CashBreakDownGBP[0].fiftycoin == 0 && this.CashBreakDownEUR[0].fiftycoin == 0 && this.CashBreakDownBWP[0].fiftycoin == 0){
+   return false
+ }else{
+   return true
+ }
+}
+
+
+if(data == 'twentyfivecoin'){
+  if(this.CashBreakDownZWD[0].twentyfivecoin == 0 && this.CashBreakDownUSD[0].twentyfivecoin == 0 && this.CashBreakDownZAR[0].twentyfivecoin == 0 && this.CashBreakDownGBP[0].twentyfivecoin == 0 && this.CashBreakDownEUR[0].twentyfivecoin == 0 && this.CashBreakDownBWP[0].twentyfivecoin == 0){
+   return false
+ }else{
+   return true
+ }
+}
+
+
+if(data == 'twentycoin'){
+  if(this.CashBreakDownZWD[0].twentycoin == 0 && this.CashBreakDownUSD[0].twentycoin == 0 && this.CashBreakDownZAR[0].twentycoin == 0 && this.CashBreakDownGBP[0].twentycoin == 0 && this.CashBreakDownEUR[0].twentycoin == 0 && this.CashBreakDownBWP[0].twentycoin == 0){
+   return false
+ }else{
+   return true
+ }
+}
+
+if(data == 'tencoin'){
+  if(this.CashBreakDownZWD[0].tencoin == 0 && this.CashBreakDownUSD[0].tencoin == 0 && this.CashBreakDownZAR[0].tencoin == 0 && this.CashBreakDownGBP[0].tencoin == 0 && this.CashBreakDownEUR[0].tencoin == 0 && this.CashBreakDownBWP[0].tencoin == 0){
+   return false
+ }else{
+   return true
+ }
+}
+
+if(data == 'fivecoin'){
+  if(this.CashBreakDownZWD[0].fivecoin == 0 && this.CashBreakDownUSD[0].fivecoin == 0 && this.CashBreakDownZAR[0].fivecoin == 0 && this.CashBreakDownGBP[0].fivecoin == 0 && this.CashBreakDownEUR[0].fivecoin == 0 && this.CashBreakDownBWP[0].fivecoin == 0){
+   return false
+ }else{
+   return true
+ }
+}
+
+
+if(data == 'twocoin'){
+  if(this.CashBreakDownZWD[0].twocoin == 0 && this.CashBreakDownUSD[0].twocoin == 0 && this.CashBreakDownZAR[0].twocoin == 0 && this.CashBreakDownGBP[0].twocoin == 0 && this.CashBreakDownEUR[0].twocoin == 0 && this.CashBreakDownBWP[0].twocoin == 0){
+   return false
+ }else{
+   return true
+ }
+}
+
+
+if(data == 'onecoin'){
+  if(this.CashBreakDownZWD[0].onecoin == 0 && this.CashBreakDownUSD[0].onecoin == 0 && this.CashBreakDownZAR[0].onecoin == 0 && this.CashBreakDownGBP[0].onecoin == 0 && this.CashBreakDownEUR[0].onecoin == 0 && this.CashBreakDownBWP[0].onecoin == 0){
+   return false
+ }else{
+   return true
+ }
+}
+
+}
 onKeyPressed(e){
-  //console.log(e.keyCode)
  
+  
   if(e.keyCode == 13){
+    console.log(this.tester('hundred'))
+    if(this.bankTailer){
     this.presentLoading();
     //this.get()
     this.restservice.loadDayRemittance(this.bankTailer,this.date).then(data =>{
       let loadedData;
       loadedData = data
       this.loadedCashBreakDown = loadedData.data.one.recordset
-      this.createBreakDown(this.loadedCashBreakDown)
+      if(this.loadedCashBreakDown.length < 1){
+        this.presentAlert7();
+      }else{
+        this.createBreakDown(this.loadedCashBreakDown)
+      }
+      
      // console.log(this.loadedCashBreakDown)
     }).catch(err =>{
       console.log(err)
     })
+  }else{
+    this.presentAlert8();
+  }
+  }
+
+}
+
+
+onFindData(){
+  if(this.bankTailer){
+    this.presentLoading();
+    //this.get()
+    this.restservice.loadDayRemittance(this.bankTailer,this.date).then(data =>{
+      let loadedData;
+      loadedData = data
+      this.loadedCashBreakDown = loadedData.data.one.recordset
+      if(this.loadedCashBreakDown.length < 1){
+        this.presentAlert7();
+      }else{
+        this.createBreakDown(this.loadedCashBreakDown)
+      }
+      
+     // console.log(this.loadedCashBreakDown)
+    }).catch(err =>{
+      console.log(err)
+    })
+  }else{
+    this.presentAlert8();
   }
 }
 
+
 createBreakDown(data){
+  this.TotalZWD = 0;
+  this.TotalUSD = 0;
+  this.TotalZAR = 0;
+  this.TotalBWP = 0;
+  this.TotalGBP = 0;
+  this.TotalEUR = 0;
+  this.CashBreakDown = [];
+  this.CashBreakDownZWD = [
+    {
+      fivehundred : 0,
+      twohundred : 0,
+      hundred : 0,
+      fifty : 0,
+      twenty : 0,
+      ten : 0,
+      five : 0,
+      two : 0,
+      one : 0,
+      fivedollarcoin : 0,
+      twodollarcoin : 0,
+      dollarcoin : 0,
+      fiftycoin : 0,
+      twentyfivecoin: 0,
+      twentycoin: 0,
+      tencoin : 0,
+      fivecoin : 0,
+      twocoin : 0,
+      onecoin : 0,
+      currency: 0,
+      total: null  
+    }
+  ];
+  this.CashBreakDownUSD = [
+    {
+      fivehundred : 0,
+      twohundred : 0,
+      hundred : 0,
+      fifty : 0,
+      twenty : 0,
+      ten : 0,
+      five : 0,
+      two : 0,
+      one : 0,
+      fivedollarcoin : 0,
+      twodollarcoin : 0,
+      dollarcoin : 0,
+      fiftycoin : 0,
+      twentyfivecoin: 0,
+      twentycoin: 0,
+      tencoin : 0,
+      fivecoin : 0,
+      twocoin : 0,
+      onecoin : 0,
+      currency: 0,
+      total: null  
+    }
+  ];
+  this.CashBreakDownZAR = [
+    {
+      fivehundred : 0,
+      twohundred : 0,
+      hundred : 0,
+      fifty : 0,
+      twenty : 0,
+      ten : 0,
+      five : 0,
+      two : 0,
+      one : 0,
+      fivedollarcoin : 0,
+      twodollarcoin : 0,
+      dollarcoin : 0,
+      fiftycoin : 0,
+      twentyfivecoin: 0,
+      twentycoin: 0,
+      tencoin : 0,
+      fivecoin : 0,
+      twocoin : 0,
+      onecoin : 0,
+      currency: 0,
+      total: null  
+    }
+  ];
+  this.CashBreakDownBWP = [
+    {
+      fivehundred : 0,
+      twohundred : 0,
+      hundred : 0,
+      fifty : 0,
+      twenty : 0,
+      ten : 0,
+      five : 0,
+      two : 0,
+      one : 0,
+      fivedollarcoin : 0,
+      twodollarcoin : 0,
+      dollarcoin : 0,
+      fiftycoin : 0,
+      twentyfivecoin: 0,
+      twentycoin: 0,
+      tencoin : 0,
+      fivecoin : 0,
+      twocoin : 0,
+      onecoin : 0,
+      currency: 0,
+      total: null  
+    }
+  ];
+  this.CashBreakDownGBP = [
+    {
+      fivehundred : 0,
+      twohundred : 0,
+      hundred : 0,
+      fifty : 0,
+      twenty : 0,
+      ten : 0,
+      five : 0,
+      two : 0,
+      one : 0,
+      fivedollarcoin : 0,
+      twodollarcoin : 0,
+      dollarcoin : 0,
+      fiftycoin : 0,
+      twentyfivecoin: 0,
+      twentycoin: 0,
+      tencoin : 0,
+      fivecoin : 0,
+      twocoin : 0,
+      onecoin : 0,
+      currency: 0,
+      total: null  
+    }
+  ];
+  this.CashBreakDownEUR = [
+    {
+      fivehundred : 0,
+      twohundred : 0,
+      hundred : 0,
+      fifty : 0,
+      twenty : 0,
+      ten : 0,
+      five : 0,
+      two : 0,
+      one : 0,
+      fivedollarcoin : 0,
+      twodollarcoin : 0,
+      dollarcoin : 0,
+      fiftycoin : 0,
+      twentyfivecoin: 0,
+      twentycoin: 0,
+      tencoin : 0,
+      fivecoin : 0,
+      twocoin : 0,
+      onecoin : 0,
+      currency: 0,
+      total: null  
+    }
+  ];
  data.forEach(element => {
    let newData = JSON.parse(element.RemittanceData)
-  console.log(newData)
+  //console.log(newData)
 
   //ZWD
    if(newData.cashbreakdownZWD.fivehundred){
@@ -833,6 +1179,7 @@ this.CashBreakDownEUR[0].onecoin += Number(newData.cashbreakdownEUR.onecoin)
    this.TotalEUR += Number(newData.totalEUR)
  });
  this.loader.dismiss();
+
 }
   navigator(page){
     if(page == 'Remittance'){
@@ -845,6 +1192,25 @@ this.CashBreakDownEUR[0].onecoin += Number(newData.cashbreakdownEUR.onecoin)
       this.navCtrl.push('ReportsPage',{sessionID:this.sessionID,userID:this.username});
       page = null;
     }
+  }
+
+  
+  presentAlert7() {
+    let alert = this.alertCtrl.create({
+      title: 'Cash Hand-Over Error',
+      subTitle: 'Sorry but there where no records found for this user on the respective date.',
+      buttons: ['Dismiss']
+    });
+    alert.present();
+  }
+
+  presentAlert8() {
+    let alert = this.alertCtrl.create({
+      title: 'Cash Hand-Over Error',
+      subTitle: 'Please enter a valid User Name.',
+      buttons: ['Dismiss']
+    });
+    alert.present();
   }
 
 }
